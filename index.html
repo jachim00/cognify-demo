@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cognify — inteligentne systemy AI dla wymagających firm</title>
+  <meta name="description" content="Projektujemy, wdrażamy i utrzymujemy środowiska AI, struktury danych, aplikacje i systemy AI-first. Dla firm gotowych na przyszłość.">
+  <meta property="og:title" content="Cognify — inteligentne systemy AI">
+  <meta property="og:description" content="Środowiska AI. Struktury AI. Aplikacje AI-first. Systemy AI pod klucz.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: {
+              950: '#030712',
+              900: '#0b0f1a',
+              800: '#111827',
+            },
+            neon: {
+              cyan: '#22d3ee',
+              violet: '#a78bfa',
+              fuchsia: '#e879f9',
+            }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'shimmer': 'shimmer 3s linear infinite',
+            'glow': 'glow 3s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-12px)' },
+            },
+            shimmer: {
+              '0%':   { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+            glow: {
+              '0%':   { boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(167, 139, 250, 0.2)' },
+              '100%': { boxShadow: '0 0 40px rgba(34, 211, 238, 0.6), 0 0 80px rgba(167, 139, 250, 0.4)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+    /* Grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+
+    /* Glass card */
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass:hover {
+      border-color: rgba(34, 211, 238, 0.3);
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+    }
+
+    /* Neon glow button */
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Blob mesh */
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      opacity: .55;
+      pointer-events: none;
+    }
+    .blob-cyan {
+      background: radial-gradient(circle, #22d3ee, transparent 70%);
+    }
+    .blob-violet {
+      background: radial-gradient(circle, #a78bfa, transparent 70%);
+    }
+    .blob-fuchsia {
+      background: radial-gradient(circle, #e879f9, transparent 70%);
+    }
+
+    /* Noise overlay */
+    .noise::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .025;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Code block */
+    .code-line { counter-increment: line; }
+    .code-line::before {
+      content: counter(line);
+      display: inline-block;
+      width: 2ch;
+      text-align: right;
+      margin-right: 1rem;
+      color: rgba(148, 163, 184, 0.4);
+      user-select: none;
+    }
+
+    /* Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee { animation: marquee 40s linear infinite; }
+
+    /* Ring glow */
+    .ring-glow {
+      box-shadow:
+        inset 0 0 30px rgba(34, 211, 238, 0.1),
+        0 0 60px rgba(167, 139, 250, 0.15);
+    }
+
+    /* Chart-like dots animation */
+    @keyframes dotPulse {
+      0%, 100% { opacity: .2; }
+      50%      { opacity: 1; }
+    }
+    .dot { animation: dotPulse 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased noise overflow-x-hidden">
+
+  <!-- Background mesh gradient blobs -->
+  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="blob blob-cyan w-[800px] h-[800px] -top-60 -left-40 animate-mesh"></div>
+    <div class="blob blob-violet w-[700px] h-[700px] top-1/4 -right-40 animate-mesh" style="animation-delay:-6s"></div>
+    <div class="blob blob-fuchsia w-[600px] h-[600px] bottom-0 left-1/3 animate-mesh" style="animation-delay:-12s"></div>
+  </div>
+
+  <!-- Grid overlay -->
+  <div aria-hidden="true" class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+  <!-- ====== Header ====== -->
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+
+      <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+        <li><a href="#rozwiazania" class="hover:text-white transition">Rozwiązania</a></li>
+        <li><a href="#jak-pracujemy" class="hover:text-white transition">Jak pracujemy</a></li>
+        <li><a href="#stack" class="hover:text-white transition">Stack</a></li>
+        <li><a href="#case" class="hover:text-white transition">Case studies</a></li>
+        <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
+      </ul>
+
+      <a href="#kontakt" class="btn-primary hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg text-ink-950">
+        Porozmawiajmy
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="relative z-10 pt-24 md:pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Status pill -->
+      <div class="flex justify-center mb-10">
+        <div class="glass flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono">
+          <span class="relative flex w-2 h-2">
+            <span class="absolute inline-flex w-full h-full rounded-full bg-neon-cyan opacity-75 animate-ping"></span>
+            <span class="relative inline-flex w-2 h-2 rounded-full bg-neon-cyan"></span>
+          </span>
+          <span class="text-slate-300">System operacyjny · 99.99% uptime</span>
+          <span class="text-slate-500">·</span>
+          <span class="text-neon-cyan">v4.7</span>
+        </div>
+      </div>
+
+      <h1 class="text-center text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
+        Projektujemy<br>
+        <span class="text-gradient">inteligentne systemy</span><br>
+        <span class="text-slate-300 font-light">skrojone pod Twój biznes.</span>
+      </h1>
+
+      <p class="mt-10 text-center text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+        Cognify buduje środowiska AI, struktury danych, aplikacje i systemy AI-first
+        dla firm, które chcą konkurować w erze modeli foundational.
+        Od architektury przez wdrożenie aż po utrzymanie.
+      </p>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#kontakt" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+          Zamów analizę wdrożenia
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#rozwiazania" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Zobacz case studies
+        </a>
+      </div>
+
+      <!-- Trust metrics -->
+      <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">47+</div>
+          <div class="mt-2 text-sm text-slate-400">Wdrożeń produkcyjnych</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">12</div>
+          <div class="mt-2 text-sm text-slate-400">Modeli LLM w orkiestracji</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">3.8M</div>
+          <div class="mt-2 text-sm text-slate-400">Inference/dzień u klientów</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">&lt;120ms</div>
+          <div class="mt-2 text-sm text-slate-400">p95 latency pipeline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Logos marquee ====== -->
+  <section class="relative z-10 py-12 border-y border-white/5 bg-ink-900/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-center text-xs font-mono text-slate-500 uppercase tracking-widest mb-8">
+        Budujemy na fundamentach liderów rynku
+      </p>
+      <div class="overflow-hidden relative">
+        <div class="marquee flex gap-16 whitespace-nowrap items-center text-slate-500 text-xl font-semibold">
+          <span>Anthropic Claude</span><span class="text-slate-700">·</span>
+          <span>OpenAI GPT</span><span class="text-slate-700">·</span>
+          <span>Google Gemini</span><span class="text-slate-700">·</span>
+          <span>Mistral</span><span class="text-slate-700">·</span>
+          <span>Llama</span><span class="text-slate-700">·</span>
+          <span>Qdrant</span><span class="text-slate-700">·</span>
+          <span>Pinecone</span><span class="text-slate-700">·</span>
+          <span>LangChain</span><span class="text-slate-700">·</span>
+          <span>LlamaIndex</span><span class="text-slate-700">·</span>
+          <span>Weaviate</span><span class="text-slate-700">·</span>
+          <span>Hugging Face</span><span class="text-slate-700">·</span>
+          <span>PyTorch</span><span class="text-slate-700">·</span>
+          <span>Ray</span><span class="text-slate-700">·</span>
+          <span>Kubernetes</span><span class="text-slate-700">·</span>
+          <span>Anthropic Claude</span><span class="text-slate-700">·</span>
+          <span>OpenAI GPT</span><span class="text-slate-700">·</span>
+          <span>Google Gemini</span><span class="text-slate-700">·</span>
+          <span>Mistral</span><span class="text-slate-700">·</span>
+          <span>Llama</span><span class="text-slate-700">·</span>
+          <span>Qdrant</span><span class="text-slate-700">·</span>
+          <span>Pinecone</span><span class="text-slate-700">·</span>
+          <span>LangChain</span><span class="text-slate-700">·</span>
+          <span>LlamaIndex</span><span class="text-slate-700">·</span>
+          <span>Weaviate</span><span class="text-slate-700">·</span>
+          <span>Hugging Face</span><span class="text-slate-700">·</span>
+          <span>PyTorch</span><span class="text-slate-700">·</span>
+          <span>Ray</span><span class="text-slate-700">·</span>
+          <span>Kubernetes</span><span class="text-slate-700">·</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Cztery filary ====== -->
+  <section id="rozwiazania" class="relative z-10 py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ rozwiązania</div>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+          Cztery filary <span class="text-gradient">inteligencji operacyjnej</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+          Od infrastruktury po user-facing produkt. Cognify dostarcza pełen stack
+          — nie fragmenty. Każdy filar współgra z pozostałymi, bo projektujemy je razem.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+
+        <!-- Środowiska AI -->
+        <div class="glass rounded-3xl p-8 md:p-10 transition group">
+          <div class="flex items-start gap-5">
+            <div class="relative w-14 h-14 shrink-0">
+              <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan to-blue-500 rounded-2xl opacity-70 blur-md group-hover:opacity-100 transition"></div>
+              <div class="relative w-14 h-14 bg-ink-900 rounded-2xl border border-white/10 flex items-center justify-center">
+                <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / infrastructure</div>
+              <h3 class="mt-2 text-2xl font-bold">Środowiska AI</h3>
+              <p class="mt-4 text-slate-400 leading-relaxed">
+                Prywatne klastry inference, GPU-aware orchestration, vector DB, feature stores,
+                obserwowalność modeli. Budujemy on-prem, cloud, hybrydowo — z jawną kontrolą kosztu i latencji.
+              </p>
+              <ul class="mt-5 space-y-2 text-sm text-slate-300">
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Kubernetes + Ray Serve + vLLM</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Qdrant / Pinecone / pgvector</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Prometheus + Grafana + OpenTelemetry</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Struktury AI -->
+        <div class="glass rounded-3xl p-8 md:p-10 transition group">
+          <div class="flex items-start gap-5">
+            <div class="relative w-14 h-14 shrink-0">
+              <div class="absolute inset-0 bg-gradient-to-br from-neon-violet to-indigo-500 rounded-2xl opacity-70 blur-md group-hover:opacity-100 transition"></div>
+              <div class="relative w-14 h-14 bg-ink-900 rounded-2xl border border-white/10 flex items-center justify-center">
+                <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / data & retrieval</div>
+              <h3 class="mt-2 text-2xl font-bold">Struktury AI</h3>
+              <p class="mt-4 text-slate-400 leading-relaxed">
+                Knowledge graphs, RAG pipelines, hybrid search, embeddings z ewaluacją,
+                tiered memory dla agentów. Strukturyzujemy wiedzę Twojej firmy tak, by modele rozumiały kontekst.
+              </p>
+              <ul class="mt-5 space-y-2 text-sm text-slate-300">
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>RAG z re-rankingiem + eval harness</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Neo4j / Memgraph knowledge graphs</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Embedding drift detection + versioning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aplikacje AI -->
+        <div class="glass rounded-3xl p-8 md:p-10 transition group">
+          <div class="flex items-start gap-5">
+            <div class="relative w-14 h-14 shrink-0">
+              <div class="absolute inset-0 bg-gradient-to-br from-neon-fuchsia to-pink-500 rounded-2xl opacity-70 blur-md group-hover:opacity-100 transition"></div>
+              <div class="relative w-14 h-14 bg-ink-900 rounded-2xl border border-white/10 flex items-center justify-center">
+                <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / products</div>
+              <h3 class="mt-2 text-2xl font-bold">Aplikacje AI-first</h3>
+              <p class="mt-4 text-slate-400 leading-relaxed">
+                Full-stack produkty z AI w jądrze — nie jako bolt-on. Copiloty, asystenci domenowi,
+                automatyzacja workflow, generacja treści, custom UX dla modeli foundational.
+              </p>
+              <ul class="mt-5 space-y-2 text-sm text-slate-300">
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Next.js 15 + FastAPI + streaming</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Tool-use, function calling, MCP</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Human-in-the-loop dla krytycznych decyzji</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Systemy AI -->
+        <div class="glass rounded-3xl p-8 md:p-10 transition group">
+          <div class="flex items-start gap-5">
+            <div class="relative w-14 h-14 shrink-0">
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl opacity-70 blur-md group-hover:opacity-100 transition"></div>
+              <div class="relative w-14 h-14 bg-ink-900 rounded-2xl border border-white/10 flex items-center justify-center">
+                <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / orchestration</div>
+              <h3 class="mt-2 text-2xl font-bold">Systemy AI pod klucz</h3>
+              <p class="mt-4 text-slate-400 leading-relaxed">
+                Multi-agent orchestracja, kolejkowanie zadań, audit trail, governance, cost routing.
+                Systemy, które rozumieją kiedy użyć GPT-4, kiedy Opus, a kiedy lokalny 7B — automatycznie.
+              </p>
+              <ul class="mt-5 space-y-2 text-sm text-slate-300">
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Celery + Redis + Temporal workflows</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Model routing (cost/latency/quality)</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Compliance trails (GDPR, AI Act)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Code showcase ====== -->
+  <section id="stack" class="relative z-10 py-32 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ engineering</div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+            Produkcyjny AI to nie<br>
+            <span class="text-gradient">proof of concept.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            Dostarczamy kod, który ląduje na produkcji — z typami, testami, obserwowalnością
+            i kontrolą kosztu. Nie prototypy w Jupyterze które nigdy nie dotrą do użytkownika.
+          </p>
+
+          <div class="mt-10 space-y-5">
+            <div class="flex gap-4 items-start">
+              <div class="mt-1 w-8 h-8 shrink-0 rounded-lg bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center">
+                <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Type-safe inference pipelines</h4>
+                <p class="text-slate-400 text-sm mt-1">Pydantic v2 + strict mypy + runtime guards. Zero surprises w proda.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="mt-1 w-8 h-8 shrink-0 rounded-lg bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center">
+                <svg class="w-4 h-4 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Continuous evaluation loop</h4>
+                <p class="text-slate-400 text-sm mt-1">Golden datasets, regresja per commit, A/B na promptach z statystyczną istotnością.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="mt-1 w-8 h-8 shrink-0 rounded-lg bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center">
+                <svg class="w-4 h-4 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Cost routing on the edge</h4>
+                <p class="text-slate-400 text-sm mt-1">Haiku dla 80% ruchu, Opus dla trudnych case'ów. Decydujemy przed inferencją, nie post factum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code window -->
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-neon-cyan/20 via-neon-violet/20 to-neon-fuchsia/20 rounded-3xl blur-2xl"></div>
+          <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-ink-900/90 backdrop-blur-xl ring-glow">
+            <!-- Window bar -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-ink-800/50">
+              <div class="flex gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+              </div>
+              <div class="text-xs font-mono text-slate-500">cognify/router.py</div>
+              <div class="text-xs font-mono text-neon-cyan">● production</div>
+            </div>
+            <!-- Code body -->
+            <div class="p-6 font-mono text-[13px] leading-relaxed" style="counter-reset: line">
+              <div class="code-line"><span class="text-purple-400">from</span> cognify.routing <span class="text-purple-400">import</span> ModelRouter, Policy</div>
+              <div class="code-line"><span class="text-purple-400">from</span> cognify.eval <span class="text-purple-400">import</span> GoldenSet, continuous</div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line">router = ModelRouter(</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;primary=<span class="text-emerald-400">"claude-opus-4-7"</span>,</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;fallback=<span class="text-emerald-400">"claude-haiku-4-5"</span>,</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;policy=Policy.COST_AWARE,</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;slo_ms=<span class="text-amber-400">120</span>,</div>
+              <div class="code-line">)</div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="text-sky-400">@continuous</span>(eval_set=GoldenSet.CUSTOMER_SUPPORT)</div>
+              <div class="code-line"><span class="text-purple-400">async def</span> <span class="text-sky-400">answer</span>(query: <span class="text-amber-400">str</span>) -&gt; Response:</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;ctx = <span class="text-purple-400">await</span> retrieve(query, k=<span class="text-amber-400">8</span>)</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">async with</span> router.route(ctx.difficulty) <span class="text-purple-400">as</span> llm:</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return await</span> llm.stream(query, ctx)</div>
+            </div>
+
+            <div class="px-6 py-4 border-t border-white/5 bg-ink-800/30 text-xs font-mono text-slate-400 flex items-center gap-6">
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot"></span>12 tests pass</span>
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-cyan dot" style="animation-delay:.3s"></span>eval 94.2% golden</span>
+              <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-neon-violet dot" style="animation-delay:.6s"></span>p95 87ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Jak pracujemy ====== -->
+  <section id="jak-pracujemy" class="relative z-10 py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ metodologia</div>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+          Od dyskusji do produkcji —<br>
+          <span class="text-gradient">w 90 dni.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">Nie sprzedajemy warsztatów. Dostarczamy działające systemy.</p>
+      </div>
+
+      <div class="mt-20 grid md:grid-cols-4 gap-6 relative">
+        <div class="hidden md:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-neon-cyan/0 via-neon-violet/50 to-neon-fuchsia/0"></div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Discovery</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Audyt danych, procesów, ograniczeń. Definicja mierzalnego celu biznesowego.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 1-2</div>
+        </div>
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Prototyp</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Working prototype z prawdziwymi danymi. Walidacja hipotez zanim wydasz budżet.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 3-6</div>
+        </div>
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Wdrożenie</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Produkcja z observability, testami, eval loop i cost controls. Zero niespodzianek.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 7-11</div>
+        </div>
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Utrzymanie</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">SLA, model updates, continuous eval, roadmapa rozwoju. Twój system nie zamarznie w czasie.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">miesiąc 4+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Case studies ====== -->
+  <section id="case" class="relative z-10 py-32 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ proof</div>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+          Systemy, które <span class="text-gradient">pracują w cieniu</span><br>
+          i oszczędzają godziny dziennie.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <div class="text-5xl font-black text-gradient">-68%</div>
+          <div class="mt-2 text-sm font-mono text-slate-500">czas obsługi ticketu</div>
+          <h3 class="mt-6 text-xl font-bold">SaaS B2B, 50k klientów</h3>
+          <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+            AI copilot w panelu support. Retrieval na bazie wiedzy + draft odpowiedzi
+            z human-in-the-loop. Zdetachowany od modelu, łatwy hot-swap.
+          </p>
+          <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">RAG</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Claude</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">FastAPI</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-5xl font-black text-gradient">3.8M</div>
+          <div class="mt-2 text-sm font-mono text-slate-500">inferencji dziennie</div>
+          <h3 class="mt-6 text-xl font-bold">E-commerce, 1.2M SKU</h3>
+          <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+            Auto-kategoryzacja + enhancement opisów + generowanie atrybutów.
+            Model routing redukuje koszt o 74% vs naive all-to-Opus.
+          </p>
+          <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Routing</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Haiku/Opus</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Ray Serve</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-5xl font-black text-gradient">14×</div>
+          <div class="mt-2 text-sm font-mono text-slate-500">faster research</div>
+          <h3 class="mt-6 text-xl font-bold">Kancelaria prawna, 120 pr.</h3>
+          <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+            Multi-agent research system. Analiza orzecznictwa + draft pism + citation checking.
+            Pełny audit trail dla compliance.
+          </p>
+          <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Agents</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Graphs</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Temporal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section id="kontakt" class="relative z-10 py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="relative rounded-3xl overflow-hidden glass p-12 md:p-16 text-center ring-glow">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ next step</div>
+          <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+            Masz problem, <span class="text-gradient">który AI rozwiąże.</span><br>
+            My to udowodnimy.
+          </h2>
+          <p class="mt-8 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Bezpłatna 45-minutowa sesja strategiczna z naszym lead engineerem.
+            Wyjdziesz z konkretnym roadmapem — nawet jeśli nie zdecydujesz się na współpracę.
+          </p>
+
+          <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hello@cognify.ai" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Umów rozmowę
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#stack" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+              Pobierz whitepaper
+            </a>
+          </div>
+
+          <div class="mt-10 flex items-center justify-center gap-6 text-xs font-mono text-slate-500">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Odpowiedź &lt; 24h
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              NDA na start
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Praca w PL / EN
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="relative z-10 border-t border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="relative w-9 h-9">
+              <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+              <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <defs>
+                    <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#22d3ee"/>
+                      <stop offset="50%" stop-color="#a78bfa"/>
+                      <stop offset="100%" stop-color="#e879f9"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+                </svg>
+              </div>
+            </div>
+            <span class="text-xl font-bold tracking-tight">Cognify</span>
+          </div>
+          <p class="mt-6 text-sm text-slate-400 max-w-md leading-relaxed">
+            Inteligentne systemy AI dla firm, które chcą konkurować w erze modeli foundational.
+            Od architektury po utrzymanie — pełen stack, jeden zespół.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Produkt</h4>
+          <ul class="mt-4 space-y-3 text-sm text-slate-400">
+            <li><a href="#rozwiazania" class="hover:text-white transition">Rozwiązania</a></li>
+            <li><a href="#stack" class="hover:text-white transition">Stack</a></li>
+            <li><a href="#case" class="hover:text-white transition">Case studies</a></li>
+            <li><a href="#jak-pracujemy" class="hover:text-white transition">Metodologia</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Firma</h4>
+          <ul class="mt-4 space-y-3 text-sm text-slate-400">
+            <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
+            <li><a href="mailto:hello@cognify.ai" class="hover:text-white transition">hello@cognify.ai</a></li>
+            <li><a href="#" class="hover:text-white transition">Kariera</a></li>
+            <li><a href="#" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500">
+        <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-slate-300 transition">Polityka prywatności</a>
+          <a href="#" class="hover:text-slate-300 transition">Regulamin</a>
+          <a href="#" class="hover:text-slate-300 transition">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
