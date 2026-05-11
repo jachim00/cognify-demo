@@ -52,6 +52,25 @@
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased">
 
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>PL</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="polityka-prywatnosci.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="en/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="de/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="fr/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="no/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="hu/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+
   <!-- Header -->
   <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
     <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">

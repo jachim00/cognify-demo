@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="pl">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cognify — wdrożenia AI dla firm, które chcą oszczędzić czas</title>
-  <meta name="description" content="Wdrażamy sztuczną inteligencję w polskich firmach. Automatyzujemy powtarzalną pracę, obsługę klienta, analizę dokumentów. Pierwszy efekt w 4 tygodnie.">
-  <meta property="og:title" content="Cognify — wdrożenia AI dla firm">
-  <meta property="og:description" content="Automatyzujemy to, co zajmuje Twoim ludziom najwięcej czasu. Pierwszy efekt w 4 tygodnie.">
+  <title>Cognify — KI-Implementierungen für Unternehmen, die Zeit sparen wollen</title>
+  <meta name="description" content="Wir implementieren KI in europäischen Unternehmen. Wir automatisieren repetitive Arbeit, Kundenservice, Dokumentenanalyse. Erstes Ergebnis in 4 Wochen.">
+  <meta property="og:title" content="Cognify — KI-Implementierungen für Unternehmen">
+  <meta property="og:description" content="Wir automatisieren, was Ihre Mitarbeiter am meisten Zeit kostet. Erstes Ergebnis in 4 Wochen.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://jachim00.github.io/cognify-demo/og-image.webp">
   <meta property="og:image:width" content="1200">
@@ -177,30 +177,23 @@
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased noise overflow-x-hidden">
 
-  <!-- Language switcher (fixed top-right) -->
+  <!-- Language switcher -->
   <div class="fixed top-3 right-3 z-50">
     <details class="relative group">
       <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
         <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span>PL</span>
+        <span>DE</span>
         <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
       <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
-        <li><a href="index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">PL</span><span>Polski</span></a></li>
-        <li><a href="en/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
-        <li><a href="de/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
-        <li><a href="fr/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
-        <li><a href="no/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
-        <li><a href="hu/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+        <li><a href="../index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../en/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../fr/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="../no/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../hu/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
       </ul>
     </details>
-  </div>
-
-  <!-- Background mesh gradient blobs -->
-  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
-    <div class="blob blob-cyan w-[800px] h-[800px] -top-60 -left-40 animate-mesh"></div>
-    <div class="blob blob-violet w-[700px] h-[700px] top-1/4 -right-40 animate-mesh" style="animation-delay:-6s"></div>
-    <div class="blob blob-fuchsia w-[600px] h-[600px] bottom-0 left-1/3 animate-mesh" style="animation-delay:-12s"></div>
   </div>
 
   <!-- Grid overlay -->
@@ -230,15 +223,15 @@
       </a>
 
       <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-        <li><a href="#rozwiazania" class="hover:text-white transition">Co robimy</a></li>
-        <li><a href="#jak-pracujemy" class="hover:text-white transition">Jak pracujemy</a></li>
-        <li><a href="#stack" class="hover:text-white transition">Jakość</a></li>
+        <li><a href="#rozwiazania" class="hover:text-white transition">Was wir tun</a></li>
+        <li><a href="#jak-pracujemy" class="hover:text-white transition">Wie wir arbeiten</a></li>
+        <li><a href="#stack" class="hover:text-white transition">Qualität</a></li>
         <li><a href="#case" class="hover:text-white transition">Portfolio</a></li>
         <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
       </ul>
 
       <a href="#kontakt" class="btn-primary hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg text-ink-950">
-        Porozmawiajmy
+        Sprechen wir
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </nav>
@@ -255,52 +248,52 @@
             <span class="absolute inline-flex w-full h-full rounded-full bg-neon-cyan opacity-75 animate-ping"></span>
             <span class="relative inline-flex w-2 h-2 rounded-full bg-neon-cyan"></span>
           </span>
-          <span class="text-slate-300">Wdrożenia AI dla biznesu</span>
+          <span class="text-slate-300">KI für Unternehmen</span>
           <span class="text-slate-500">·</span>
           <span class="text-neon-cyan">Warszawa</span>
         </div>
       </div>
 
       <h1 class="text-center text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
-        Twoja firma.<br>
-        <span class="text-gradient">Lepsza dzięki AI.</span><br>
-        <span class="text-slate-300 font-light">Bez zwiększania zespołu.</span>
+        Ihr Unternehmen.<br>
+        <span class="text-gradient">Besser mit KI.</span><br>
+        <span class="text-slate-300 font-light">Ohne Team-Erweiterung.</span>
       </h1>
 
       <p class="mt-10 text-center text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-        Wdrażamy sztuczną inteligencję tam, gdzie Twoi ludzie tracą najwięcej czasu —
-        w obsłudze klienta, w analizie dokumentów, w raportach, w powtarzalnej robocie.
-        Konkretne efekty, mierzalne w godzinach i złotówkach.
+        Wir implementieren KI dort, wo Ihre Mitarbeiter die meiste Zeit verlieren —
+        im Kundenservice, bei der Dokumentenanalyse, im Reporting, bei repetitiver Arbeit.
+        Greifbare Ergebnisse, messbar in Stunden und Euro.
       </p>
 
       <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#kontakt" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
-          Umów bezpłatną rozmowę
+          Kostenloses Gespräch buchen
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="#rozwiazania" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Zobacz co robimy
+          Was wir tun
         </a>
       </div>
 
       <!-- Trust metrics -->
       <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="glass rounded-2xl p-6 text-center">
-          <div class="text-3xl md:text-4xl font-black text-gradient">4 tyg.</div>
-          <div class="mt-2 text-sm text-slate-400">Do pierwszej działającej wersji</div>
+          <div class="text-3xl md:text-4xl font-black text-gradient">4 Wo.</div>
+          <div class="mt-2 text-sm text-slate-400">Bis zur ersten funktionierenden Version</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">100%</div>
-          <div class="mt-2 text-sm text-slate-400">Polska spółka, polska faktura</div>
+          <div class="mt-2 text-sm text-slate-400">Polnisches Unternehmen, EU-Rechnung</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">8</div>
-          <div class="mt-2 text-sm text-slate-400">Projektów AI w portfolio</div>
+          <div class="mt-2 text-sm text-slate-400">KI-Projekte im Portfolio</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">0</div>
-          <div class="mt-2 text-sm text-slate-400">Ukrytych kosztów — wycena z góry</div>
+          <div class="mt-2 text-sm text-slate-400">Versteckte Kosten — Festpreis im Voraus</div>
         </div>
       </div>
     </div>
@@ -310,7 +303,7 @@
   <section class="relative z-10 py-12 border-y border-white/5 bg-ink-900/40">
     <div class="max-w-7xl mx-auto px-6">
       <p class="text-center text-xs font-mono text-slate-500 uppercase tracking-widest mb-8">
-        Pracujemy z narzędziami, których używają najlepsi
+        Wir arbeiten mit Werkzeugen, denen die Besten vertrauen
       </p>
       <div class="overflow-hidden relative">
         <div class="marquee flex gap-16 whitespace-nowrap items-center text-slate-500 text-xl font-semibold">
@@ -351,13 +344,13 @@
   <section id="rozwiazania" class="relative z-10 py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl">
-        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ co robimy</div>
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ was wir tun</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Cztery obszary, w których <span class="text-gradient">AI przynosi pieniądze</span>
+          Vier Bereiche, in denen <span class="text-gradient">KI Geld bringt</span>
         </h2>
         <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-          Możesz zacząć od jednego obszaru — albo zbudować wszystko razem.
-          Każdy element łączy się z pozostałymi, bo projektujemy je z myślą o sobie nawzajem.
+          Sie können mit einem Bereich beginnen — oder alles zusammen aufbauen.
+          Jedes Element verbindet sich mit den anderen, weil wir sie aufeinander abgestimmt entwerfen.
         </p>
       </div>
 
@@ -366,7 +359,7 @@
         <!-- Środowiska AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-4.webp" alt="Wizualizacja środowiska AI — serwer infrastruktury" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-4.webp" alt="Visualisierung der KI-Umgebung — Infrastrukturserver" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -381,16 +374,16 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / infrastruktura</div>
-              <h3 class="mt-2 text-2xl font-bold">Twoja własna AI</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / Infrastruktur</div>
+              <h3 class="mt-2 text-2xl font-bold">Ihre eigene KI</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Stawiamy AI w Twojej firmie — na Twoich serwerach, w Twojej chmurze albo hybrydowo.
-                Twoje dane nie wychodzą poza Twoją infrastrukturę. Kontrolujesz koszty od pierwszego dnia.
+                Wir installieren KI in Ihrem Unternehmen — auf Ihren Servern, in Ihrer Cloud oder hybrid.
+                Ihre Daten verlassen niemals Ihre Infrastruktur. Sie kontrollieren die Kosten vom ersten Tag an.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Działa lokalnie, w chmurze albo hybrydowo</li>
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Twoje dane zostają u Ciebie (zgodne z RODO i AI Act)</li>
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Widzisz w czasie rzeczywistym, ile kosztuje każda operacja</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Läuft lokal, in der Cloud oder hybrid</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Ihre Daten bleiben bei Ihnen (DSGVO- und AI-Act-konform)</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Sehen Sie in Echtzeit, was jede Operation kostet</li>
               </ul>
             </div>
           </div>
@@ -399,7 +392,7 @@
         <!-- Struktury AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-5.webp" alt="Wizualizacja struktur AI — knowledge graph" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-5.webp" alt="Visualisierung der KI-Strukturen — Wissensgraph" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -413,17 +406,17 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / wiedza firmowa</div>
-              <h3 class="mt-2 text-2xl font-bold">Wiedza Twojej firmy w głowie AI</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / Unternehmenswissen</div>
+              <h3 class="mt-2 text-2xl font-bold">Das Wissen Ihres Unternehmens im Kopf der KI</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Łączymy AI z Twoimi dokumentami, ofertami, regulaminami, mailami i CRM.
-                Asystent odpowiada konkretnie — o Twojej firmie, Twoich klientach, Twoich procedurach.
-                Nie ogólnikami z internetu.
+                Wir verbinden KI mit Ihren Dokumenten, Angeboten, Richtlinien, E-Mails und CRM.
+                Der Assistent antwortet konkret — über Ihr Unternehmen, Ihre Kunden, Ihre Prozesse.
+                Nicht mit Allgemeinplätzen aus dem Internet.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>AI zna procedury, oferty, instrukcje, regulaminy Twojej firmy</li>
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Każda odpowiedź ze źródłem — wiesz, skąd pochodzi</li>
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Aktualizacja wiedzy = wgrywasz plik, nie przepisujesz promptu</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>KI kennt die Prozesse, Angebote, Anleitungen und Richtlinien Ihres Unternehmens</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Jede Antwort mit Quelle — Sie wissen, woher sie stammt</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Wissen aktualisieren = Datei hochladen, kein Prompt umschreiben</li>
               </ul>
             </div>
           </div>
@@ -432,7 +425,7 @@
         <!-- Aplikacje AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-6.webp" alt="Wizualizacja aplikacji AI-first — warstwy interfejsu" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-6.webp" alt="Visualisierung von KI-Anwendungen — Schnittstellenebenen" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -446,16 +439,16 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / aplikacje</div>
-              <h3 class="mt-2 text-2xl font-bold">Aplikacje, w których AI faktycznie pomaga</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / Anwendungen</div>
+              <h3 class="mt-2 text-2xl font-bold">Anwendungen, in denen KI tatsächlich hilft</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Budujemy panele, asystentów klienta i narzędzia dla zespołu — w których AI jest
-                pomocą, nie ciekawostką. Twoi ludzie używają ich z własnej woli, nie z polecenia szefa.
+                Wir bauen Dashboards, Kundenassistenten und Team-Tools — in denen KI eine
+                Hilfe ist, keine Spielerei. Ihre Leute nutzen sie freiwillig, nicht auf Anweisung.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Działa w przeglądarce, na telefonie i w Twoim systemie</li>
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Integruje się z tym, co już masz (CRM, mail, ERP, kalendarz)</li>
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Człowiek widzi i akceptuje krytyczne decyzje — bez ryzyka</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Funktioniert im Browser, auf dem Handy und in Ihrem System</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Integriert sich mit dem, was Sie bereits haben (CRM, E-Mail, ERP, Kalender)</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Ein Mensch sieht und genehmigt kritische Entscheidungen — ohne Risiko</li>
               </ul>
             </div>
           </div>
@@ -464,7 +457,7 @@
         <!-- Systemy AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-2.webp" alt="Wizualizacja systemów AI — heksagonalna sieć orkiestracji" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-2.webp" alt="Visualisierung von KI-Systemen — hexagonales Orchestrierungsnetzwerk" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -478,17 +471,17 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / automatyzacja</div>
-              <h3 class="mt-2 text-2xl font-bold">Procesy, które działają same</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / Automatisierung</div>
+              <h3 class="mt-2 text-2xl font-bold">Prozesse, die von selbst laufen</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Automatyzujemy długie łańcuchy powtarzalnych zadań — kategoryzację, raportowanie,
-                draft odpowiedzi, analizę. AI bierze na siebie pracę, której nie chcą robić ludzie,
-                a której nie warto powierzać dodatkowemu etatowi.
+                Wir automatisieren lange Ketten repetitiver Aufgaben — Kategorisierung, Reporting,
+                Antwortentwürfe, Analyse. KI übernimmt Arbeit, die niemand machen will
+                und für die sich keine Neueinstellung lohnt.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Działa w nocy, w weekendy i w święta — bez nadgodzin</li>
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Proste zadania do tańszej AI, trudne do mocniejszej — oszczędność do 70%</li>
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Pełen audit log: kto, co, kiedy — zgodność z RODO i AI Act</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Läuft nachts, an Wochenenden und Feiertagen — ohne Überstunden</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Einfache Aufgaben an günstigere KI, schwierige an die stärkere — Ersparnis bis zu 70%</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Vollständiges Audit-Log: wer, was, wann — DSGVO- und AI-Act-konform</li>
               </ul>
             </div>
           </div>
@@ -502,14 +495,14 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ jakość</div>
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ Qualität</div>
           <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-            AI, które działa po wdrożeniu —<br>
-            <span class="text-gradient">nie tylko na pokazie.</span>
+            KI, die nach dem Launch funktioniert —<br>
+            <span class="text-gradient">nicht nur in der Demo.</span>
           </h2>
           <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-            Każdy nasz system trafia do prawdziwych użytkowników. Testujemy, monitorujemy,
-            poprawiamy — żeby Twoi ludzie nie dzwonili w środku nocy z błędami.
+            Jedes unserer Systeme erreicht echte Nutzer. Wir testen, überwachen,
+            verbessern — damit Ihre Leute nicht nachts wegen Fehlern angerufen werden.
           </p>
 
           <div class="mt-10 space-y-5">
@@ -518,8 +511,8 @@
                 <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">Kod, który nie wybucha</h4>
-                <p class="text-slate-400 text-sm mt-1">Testujemy zanim wpuścimy system na produkcję. Twój zespół rano nie zobaczy alarmów ani niespodzianek.</p>
+                <h4 class="font-semibold text-lg">Code, der nicht platzt</h4>
+                <p class="text-slate-400 text-sm mt-1">Wir testen vor dem Produktivgang. Ihr Team sieht morgens keine Alarme oder Überraschungen.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -527,8 +520,8 @@
                 <svg class="w-4 h-4 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">AI pod stałą obserwacją</h4>
-                <p class="text-slate-400 text-sm mt-1">Wiemy, kiedy AI zaczyna gorzej odpowiadać — automatycznie. Nigdy nie dowiesz się o tym od klienta.</p>
+                <h4 class="font-semibold text-lg">KI unter ständiger Beobachtung</h4>
+                <p class="text-slate-400 text-sm mt-1">Wir wissen, wann die KI schlechter antwortet — automatisch. Sie erfahren es nie vom Kunden.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -536,8 +529,8 @@
                 <svg class="w-4 h-4 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">Płacisz tylko za to, co potrzebne</h4>
-                <p class="text-slate-400 text-sm mt-1">Proste pytania trafiają do tańszej AI, trudne do najmocniejszej. Średnio 70% niższy rachunek niż naiwne podejście.</p>
+                <h4 class="font-semibold text-lg">Sie zahlen nur für das, was Sie brauchen</h4>
+                <p class="text-slate-400 text-sm mt-1">Einfache Fragen gehen an günstigere KI, schwere an die stärkste. Im Schnitt 70% niedrigere Rechnung als beim naiven Ansatz.</p>
               </div>
             </div>
           </div>
@@ -587,16 +580,16 @@
     </div>
   </section>
 
-  <!-- ====== Jak pracujemy ====== -->
+  <!-- ====== Wie wir arbeiten ====== -->
   <section id="jak-pracujemy" class="relative z-10 py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ jak pracujemy</div>
+        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ wie wir arbeiten</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Od rozmowy do działającego systemu —<br>
-          <span class="text-gradient">w 90 dni.</span>
+          Vom Gespräch zum funktionierenden System —<br>
+          <span class="text-gradient">in 90 Tagen.</span>
         </h2>
-        <p class="mt-6 text-lg text-slate-400">Bez warsztatów, bez prezentacji. Działający kod od pierwszego miesiąca.</p>
+        <p class="mt-6 text-lg text-slate-400">Keine Workshops, keine Präsentationen. Funktionierender Code vom ersten Monat an.</p>
       </div>
 
       <div class="mt-20 grid md:grid-cols-4 gap-6 relative">
@@ -604,27 +597,27 @@
 
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Rozmowa</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">45-minutowa rozmowa o Twojej firmie i procesach. Wychodzisz z konkretnym pomysłem — nawet jeśli nie pracujemy razem.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 1-2</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Gespräch</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Ein 45-minütiges Gespräch über Ihr Unternehmen und Ihre Prozesse. Sie gehen mit einer konkreten Idee — auch wenn wir nicht zusammenarbeiten.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">Woche 1-2</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
           <h3 class="mt-6 text-lg font-bold text-center">Prototyp</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Budujemy działającą wersję na Twoich danych. Widzisz efekt zanim zatwierdzisz pełny budżet.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 3-6</div>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Wir bauen eine funktionierende Version mit Ihren Daten. Sie sehen das Ergebnis, bevor Sie das Gesamtbudget freigeben.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">Woche 3-6</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Wdrożenie</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">System trafia do Twoich ludzi. Integrujemy z narzędziami, szkolimy zespół, mierzymy efekty.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 7-11</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Implementierung</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Das System erreicht Ihre Leute. Wir integrieren mit Ihren Werkzeugen, schulen das Team, messen die Wirkung.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">Woche 7-11</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Opieka</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Aktualizujemy modele, dodajemy scenariusze, reagujemy na zmiany w Twojej firmie. Zostajemy z Tobą.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">miesiąc 4+</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Betreuung</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Wir aktualisieren Modelle, fügen Szenarien hinzu, reagieren auf Änderungen in Ihrem Unternehmen. Wir bleiben bei Ihnen.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">Monat 4+</div>
         </div>
       </div>
     </div>
@@ -634,62 +627,62 @@
   <section id="case" class="relative z-10 py-32 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl">
-        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ portfolio</div>
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ Portfolio</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Trzy systemy z naszego portfolio,<br>
-          <span class="text-gradient">które dziś działają w produkcji.</span>
+          Drei Systeme aus unserem Portfolio,<br>
+          <span class="text-gradient">die heute produktiv laufen.</span>
         </h2>
         <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-          Każdy zastąpił pracę, która ręcznie zajmowałaby dziesiątki godzin tygodniowo.
+          Jedes ersetzt Arbeit, die manuell Dutzende von Stunden pro Woche kosten würde.
         </p>
       </div>
 
       <div class="mt-16 grid md:grid-cols-3 gap-6">
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">Bolek</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">operacyjny agent firmy</div>
-          <h3 class="mt-6 text-xl font-bold">Setki zadań naraz, zero kolejki</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">Operativer Unternehmensagent</div>
+          <h3 class="mt-6 text-xl font-bold">Hunderte Aufgaben gleichzeitig, keine Warteschlange</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            System, który robi setki zadań naraz — zamiast czekać aż jedno się skończy.
-            AI pracuje równolegle, wyniki widać na żywo, błędy obsługujemy automatycznie.
-            Pod każdy proces, który dziś zajmuje godziny.
+            Ein System, das Hunderte Aufgaben gleichzeitig erledigt — statt auf jede einzelne zu warten.
+            KI arbeitet parallel, Ergebnisse erscheinen in Echtzeit, Fehler werden automatisch behandelt.
+            Für jeden Prozess, der heute Stunden dauert.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Równoległość</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Czas rzeczywisty</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Audit log</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Parallelität</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Echtzeit</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Audit-Log</span>
           </div>
         </div>
 
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">TaskPilot</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">asystent project managera</div>
-          <h3 class="mt-6 text-xl font-bold">AI, który układa plany za Ciebie</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">Projektmanager-Assistent</div>
+          <h3 class="mt-6 text-xl font-bold">KI, die Pläne für Sie erstellt</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            Asystent widzi Twój plan pracy i pomaga go rozłożyć. Rozumie zależności między
-            zadaniami, proponuje kolejność, ostrzega o ryzykach. Robi to, co zwykle robi
-            senior project manager — w sekundzie.
+            Der Assistent sieht Ihren Arbeitsplan und hilft, ihn aufzuteilen. Er versteht Abhängigkeiten,
+            schlägt Reihenfolgen vor, warnt vor Risiken. Tut das, was sonst ein Senior Project Manager
+            tut — in einer Sekunde.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Planowanie AI</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Web UI</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Integracja</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">KI-Planung</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Web-UI</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Integration</span>
           </div>
         </div>
 
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">SocialBoost</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">automatyzacja social media</div>
-          <h3 class="mt-6 text-xl font-bold">Setki publikacji bez moderatora</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">Social-Media-Automatisierung</div>
+          <h3 class="mt-6 text-xl font-bold">Hunderte Beiträge ohne Moderator</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            Wtyczka do przeglądarki, która robi to, co Twój zespół robił ręcznie godzinami:
-            publikuje, monitoruje, zbiera dane z 90+ grup naraz. Bez ryzyka utraty konta —
-            wszystko z poziomu Twojej przeglądarki.
+            Eine Browser-Erweiterung, die das tut, was Ihr Team stundenlang von Hand tat:
+            veröffentlicht, überwacht, sammelt Daten aus 90+ Gruppen gleichzeitig. Ohne Risiko
+            eines Kontoverlusts — alles aus Ihrem Browser.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Wtyczka</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Kolejkowanie</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Social media</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Erweiterung</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Warteschlange</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Social Media</span>
           </div>
         </div>
       </div>
@@ -703,38 +696,38 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
         <div class="relative">
-          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ następny krok</div>
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ nächster Schritt</div>
           <h2 class="text-4xl md:text-5xl font-black tracking-tight">
-            Masz proces, który <span class="text-gradient">AI rozwiąże.</span><br>
-            My to udowodnimy.
+            Sie haben einen Prozess, den <span class="text-gradient">KI lösen kann.</span><br>
+            Wir beweisen es.
           </h2>
           <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Bezpłatna 45-minutowa rozmowa. Słuchamy o Twojej firmie i pokazujemy,
-            gdzie AI ma sens. Wychodzisz z konkretnym pomysłem — nawet jeśli nie pracujemy razem.
+            Kostenloses 45-minütiges Gespräch. Wir hören Ihnen zu und zeigen,
+            wo KI Sinn ergibt. Sie gehen mit einer konkreten Idee — auch ohne Zusammenarbeit.
           </p>
 
           <form action="https://formsubmit.co/kontakt@cognify.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
-            <input type="hidden" name="_subject" value="Nowe zapytanie z cognify-demo">
-            <input type="hidden" name="_next" value="https://jachim00.github.io/cognify-demo/dziekujemy.html">
+            <input type="hidden" name="_subject" value="Neue Anfrage von cognify-demo">
+            <input type="hidden" name="_next" value="https://jachim00.github.io/cognify-demo/de/thanks.html">
             <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Imię i nazwisko *</label>
-                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Jan Kowalski">
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Vor- und Nachname *</label>
+                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Max Mustermann">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
-                <input type="email" name="Email" required class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="jan@firma.pl">
+                <input type="email" name="Email" required class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="max@firma.de">
               </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Firma</label>
-                <input type="text" name="Firma" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Twoja Firma sp. z o.o.">
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Unternehmen</label>
+                <input type="text" name="Unternehmen" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Twoja Unternehmen sp. z o.o.">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Telefon</label>
@@ -743,25 +736,25 @@
             </div>
 
             <div>
-              <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Co chciałbyś zautomatyzować? *</label>
-              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Opisz krótko proces, który zajmuje Twojemu zespołowi najwięcej czasu. Może to być obsługa klienta, raportowanie, analiza dokumentów, sprzedaż — cokolwiek przychodzi Ci na myśl. Konkrety są mile widziane, ale wystarczy kilka zdań."></textarea>
+              <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Was möchten Sie automatisieren? *</label>
+              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Beschreiben Sie kurz den Prozess, der Ihrem Team am meisten Zeit raubt. Es kann Kundenservice, Reporting, Dokumentenanalyse oder Verkauf sein — was Ihnen einfällt. Konkrete Angaben sind willkommen, ein paar Sätze genügen."></textarea>
             </div>
 
             <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
               <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
               <span>
-                Wyrażam zgodę na przetwarzanie moich danych osobowych przez Cognify Sp. z o.o. w celu kontaktu w sprawie zapytania. Szczegóły w
-                <a href="polityka-prywatnosci.html" class="text-neon-cyan hover:underline">polityce prywatności</a>. *
+                Ich willige in die Verarbeitung meiner personenbezogenen Daten durch Cognify Sp. z o.o. zum Zwecke der Kontaktaufnahme ein. Details in der
+                <a href="privacy.html" class="text-neon-cyan hover:underline">Datenschutzerklärung</a>. *
               </span>
             </label>
 
             <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
-              Umów bezpłatną rozmowę
+              Kostenloses Gespräch buchen
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </button>
 
             <p class="text-xs text-slate-500 pt-2">
-              Wolisz email? Napisz bezpośrednio na
+              Sie bevorzugen E-Mail? Schreiben Sie direkt an
               <a href="mailto:kontakt@cognify.pl" class="text-neon-cyan hover:underline">kontakt@cognify.pl</a>.
             </p>
           </form>
@@ -769,15 +762,15 @@
           <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-500">
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Odpowiedź w 24h
+              Antwort in 24 Std.
             </span>
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              NDA na życzenie
+              NDA auf Wunsch
             </span>
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Polski i angielski
+              Polnisch und Englisch
             </span>
           </div>
         </div>
@@ -810,25 +803,25 @@
             <span class="text-xl font-bold tracking-tight">Cognify</span>
           </div>
           <p class="mt-6 text-sm text-slate-400 max-w-md leading-relaxed">
-            Wdrażamy sztuczną inteligencję w polskich firmach. Automatyzujemy powtarzalną
-            pracę, obsługę klienta, analizę dokumentów. Od pomysłu po utrzymanie — jeden zespół.
+            Wir implementieren KI in europäischen Unternehmen. Wir automatisieren repetitive
+            Arbeit, Kundenservice, Dokumentenanalyse. Von der Idee bis zur Wartung — ein Team.
           </p>
         </div>
         <div>
-          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Co robimy</h4>
+          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Was wir tun</h4>
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
-            <li><a href="#rozwiazania" class="hover:text-white transition">Cztery obszary AI</a></li>
-            <li><a href="#stack" class="hover:text-white transition">Jakość</a></li>
+            <li><a href="#rozwiazania" class="hover:text-white transition">Vier KI-Bereiche</a></li>
+            <li><a href="#stack" class="hover:text-white transition">Qualität</a></li>
             <li><a href="#case" class="hover:text-white transition">Portfolio</a></li>
-            <li><a href="#jak-pracujemy" class="hover:text-white transition">Jak pracujemy</a></li>
+            <li><a href="#jak-pracujemy" class="hover:text-white transition">Wie wir arbeiten</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Firma</h4>
+          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Unternehmen</h4>
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
             <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
             <li><a href="mailto:kontakt@cognify.pl" class="hover:text-white transition">kontakt@cognify.pl</a></li>
-            <li><a href="#" class="hover:text-white transition">Kariera</a></li>
+            <li><a href="#" class="hover:text-white transition">Karriere</a></li>
             <li><a href="#" class="hover:text-white transition">Blog</a></li>
           </ul>
         </div>
@@ -841,10 +834,10 @@
           <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
         </div>
         <div class="md:text-right space-y-3">
-          <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
+          <div>© 2026 Cognify · Alle Rechte vorbehalten</div>
           <div class="flex md:justify-end gap-6">
-            <a href="polityka-prywatnosci.html" class="hover:text-slate-300 transition">Polityka prywatności</a>
-            <a href="regulamin.html" class="hover:text-slate-300 transition">Regulamin</a>
+            <a href="privacy.html" class="hover:text-slate-300 transition">Datenschutz</a>
+            <a href="terms.html" class="hover:text-slate-300 transition">AGB</a>
           </div>
         </div>
       </div>

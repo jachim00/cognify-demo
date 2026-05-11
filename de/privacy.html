@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutzerklärung — Cognify</title>
+  <meta name="description" content="Datenschutzerklärung von Cognify — Verarbeitung personenbezogener Daten gemäß DSGVO.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .prose-cognify h2 { color: #fff; font-weight: 700; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+    .prose-cognify h3 { color: #fff; font-weight: 600; font-size: 1.125rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .prose-cognify p { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; }
+    .prose-cognify ul { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; padding-left: 1.5rem; list-style: disc; }
+    .prose-cognify ol { color: #94a3b8; line-height: 1.7; margin-bottom: 1rem; padding-left: 1.5rem; list-style: decimal; }
+    .prose-cognify li { margin-bottom: 0.4rem; }
+    .prose-cognify a { color: #22d3ee; }
+    .prose-cognify a:hover { text-decoration: underline; }
+    .prose-cognify strong { color: #e2e8f0; font-weight: 600; }
+    .disclaimer {
+      background: linear-gradient(145deg, rgba(167, 139, 250, 0.08), rgba(232, 121, 249, 0.04));
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>DE</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="../polityka-prywatnosci.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../en/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../fr/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="../no/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../hu/privacy.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+      <a href="index.html" class="text-sm text-slate-300 hover:text-white transition">← Zur Startseite</a>
+    </nav>
+  </header>
+
+  <main class="relative z-10 py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ Datenschutzerklärung</div>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight">Datenschutz<span class="text-gradient">erklärung</span></h1>
+      <p class="mt-4 text-sm font-mono text-slate-500">Gültig ab: 11. Mai 2026</p>
+
+      <div class="disclaimer">
+        <strong class="text-white">Informationsübersetzung:</strong>
+        Dies ist eine Übersetzung des polnischen Originaldokuments zur Information internationaler Leser. <strong class="text-white">Die polnische Fassung ist rechtsverbindlich.</strong> Cognify Sp. z o.o. ist ein polnisches Unternehmen und unterliegt polnischem Recht und EU-Verordnungen (DSGVO, AI Act).
+      </div>
+
+      <div class="prose-cognify mt-8">
+        <p>Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir über Besucher der Cognify-Website erfassen, zu welchem Zweck wir sie verarbeiten und welche Rechte Sie haben. Das Dokument entspricht der Verordnung (EU) 2016/679 vom 27. April 2016 (<strong>DSGVO</strong>).</p>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlicher für Ihre personenbezogenen Daten ist:</p>
+        <p><strong>COGNIFY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</strong><br>
+        ul. Chłodna 51, 00-867 Warschau, Polen<br>
+        KRS: 0001024267 · NIP: 7123451235 · REGON: 524694592<br>
+        Kontakt: <a href="mailto:kontakt@cognify.pl">kontakt@cognify.pl</a></p>
+
+        <h2>2. Welche Daten wir erfassen</h2>
+        <p>Wenn Sie uns über das Formular oder per E-Mail kontaktieren, können Sie folgende Daten übermitteln:</p>
+        <ul>
+          <li>Vor- und Nachname,</li>
+          <li>E-Mail-Adresse,</li>
+          <li>Firmenname (optional),</li>
+          <li>Telefonnummer (optional),</li>
+          <li>Nachrichteninhalt — einschließlich der Beschreibung eines Prozesses oder Problems, bei dem KI helfen soll.</li>
+        </ul>
+        <p>Automatisch erfassen wir bei Nutzung der Website auch:</p>
+        <ul>
+          <li>IP-Adresse und ungefähren Standort,</li>
+          <li>Gerätetyp, Browser und Betriebssystem,</li>
+          <li>Informationen zur Nutzung der Seite (besuchte Unterseiten, Verweildauer) — nur zu statistischen Zwecken und nur mit Ihrer Einwilligung zu Analyse-Cookies.</li>
+        </ul>
+
+        <h2>3. Zwecke und Rechtsgrundlagen</h2>
+        <ul>
+          <li><strong>Bearbeitung Ihrer Anfrage</strong> — Antwort, Angebotserstellung, laufende Korrespondenz. Rechtsgrundlage: <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (vorvertragliche Maßnahmen) und <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse — geschäftlicher Kontakt).</li>
+          <li><strong>Vertragserfüllung</strong>, falls wir zusammenarbeiten — Dokumentenaustausch, Rechnungsstellung, Nachbetreuung. Grundlage: <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>.</li>
+          <li><strong>Erfüllung steuer- und buchhaltungsrechtlicher Pflichten</strong> — Aufbewahrung von Rechnungen. Grundlage: <strong>Art. 6 Abs. 1 lit. c DSGVO</strong>.</li>
+          <li><strong>Website-Analyse</strong> — ausschließlich mit Ihrer Einwilligung. Grundlage: <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>.</li>
+        </ul>
+
+        <h2>4. Speicherdauer</h2>
+        <ul>
+          <li>Daten aus dem Kontaktformular ohne Vertragsabschluss — <strong>bis zu 12 Monate</strong> ab der letzten Korrespondenz.</li>
+          <li>Vertragsbezogene Daten — für die Dauer des Vertrags und <strong>bis zu 5 Jahre</strong> danach (Verjährung von Ansprüchen).</li>
+          <li>Buchhaltungsunterlagen — <strong>5 Jahre</strong> ab Ende des Steuerjahres.</li>
+          <li>Analytics-Daten — gemäß Anbieterrichtlinien (üblich 14–26 Monate).</li>
+        </ul>
+
+        <h2>5. Empfänger der Daten</h2>
+        <p>Wir geben Ihre Daten an folgende Empfängerkategorien weiter:</p>
+        <ul>
+          <li>IT-Dienstleister, die wir nutzen (Hosting, Formular-Tools, E-Mail);</li>
+          <li>Anbieter des Kontaktformulars — <a href="https://formsubmit.co" target="_blank" rel="noopener">Formsubmit.co</a>;</li>
+          <li>Steuerberater und Rechtsanwälte;</li>
+          <li>gesetzlich befugte Behörden.</li>
+        </ul>
+        <p>Wir verkaufen Ihre Daten nicht und teilen sie nicht zu Marketingzwecken mit Dritten.</p>
+
+        <h2>6. Übermittlung außerhalb des EWR</h2>
+        <p>Einige unserer Werkzeuge (z. B. Analytics, Formsubmit.co) können Daten auf Servern außerhalb des Europäischen Wirtschaftsraums verarbeiten. Solche Übermittlungen erfolgen auf Grundlage von Standardvertragsklauseln der EU-Kommission oder anderer Mechanismen gemäß Art. 46 DSGVO.</p>
+
+        <h2>7. Ihre Rechte</h2>
+        <p>Sie haben das Recht auf:</p>
+        <ul>
+          <li><strong>Auskunft</strong> über Ihre Daten und eine Kopie,</li>
+          <li><strong>Berichtigung</strong> unrichtiger Daten,</li>
+          <li><strong>Löschung</strong> ("Recht auf Vergessenwerden"),</li>
+          <li><strong>Einschränkung</strong> der Verarbeitung,</li>
+          <li><strong>Datenübertragbarkeit</strong>,</li>
+          <li><strong>Widerspruch</strong> gegen Verarbeitung auf Basis berechtigten Interesses,</li>
+          <li><strong>Widerruf der Einwilligung</strong> jederzeit, ohne Auswirkung auf die Rechtmäßigkeit der vorangegangenen Verarbeitung,</li>
+          <li><strong>Beschwerde</strong> bei der polnischen Datenschutzbehörde (UODO, Stawki 2, 00-193 Warschau) oder Ihrer lokalen Aufsichtsbehörde.</li>
+        </ul>
+        <p>Zur Ausübung dieser Rechte schreiben Sie an <a href="mailto:kontakt@cognify.pl">kontakt@cognify.pl</a>. Wir antworten innerhalb von 30 Tagen.</p>
+
+        <h2>8. Cookies</h2>
+        <p>Die Website <strong>cognify-demo</strong> verwendet ausschließlich Cookies, die für die grundlegende Funktion erforderlich sind. Wir verwenden keine Marketing- oder Tracking-Cookies ohne Ihre Einwilligung.</p>
+        <h3>Cookie-Arten:</h3>
+        <ul>
+          <li><strong>Notwendig</strong> — für die Funktion der Seite erforderlich, keine Einwilligung nötig.</li>
+          <li><strong>Analyse</strong> — helfen uns zu verstehen, wie Besucher die Seite nutzen. Nur nach Ihrer Einwilligung.</li>
+        </ul>
+        <p>Sie können Cookies in Ihren Browsereinstellungen verwalten — deaktivieren, löschen oder einschränken.</p>
+
+        <h2>9. Sicherheit</h2>
+        <p>Wir wenden geeignete technische und organisatorische Maßnahmen an:</p>
+        <ul>
+          <li>HTTPS-Verschlüsselung auf der Website,</li>
+          <li>eingeschränkter Datenzugriff — nur befugte Mitarbeiter,</li>
+          <li>regelmäßige Überprüfung von Zugriffsrechten und Sicherheitsrichtlinien,</li>
+          <li>Auftragsverarbeitungsverträge mit jedem Auftragsverarbeiter.</li>
+        </ul>
+
+        <h2>10. Änderungen</h2>
+        <p>Diese Erklärung kann bei Gesetzesänderungen oder Anpassungen unserer Dienste aktualisiert werden. Wesentliche Änderungen kündigen wir rechtzeitig auf der Startseite und ggf. per E-Mail an.</p>
+
+        <h2>11. Kontakt</h2>
+        <p>Fragen zu Ihren Daten oder dieser Erklärung? Schreiben Sie an <a href="mailto:kontakt@cognify.pl">kontakt@cognify.pl</a> oder per Post an die oben angegebene Firmenadresse.</p>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/5 flex justify-between text-sm text-slate-500">
+        <a href="index.html" class="hover:text-white transition">← Startseite</a>
+        <a href="terms.html" class="hover:text-white transition">AGB →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/5 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · Alle Rechte vorbehalten</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="privacy.html" class="hover:text-slate-300 transition">Datenschutz</a>
+            <a href="terms.html" class="hover:text-slate-300 transition">AGB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

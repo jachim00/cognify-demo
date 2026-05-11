@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="pl">
+<html lang="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cognify — wdrożenia AI dla firm, które chcą oszczędzić czas</title>
-  <meta name="description" content="Wdrażamy sztuczną inteligencję w polskich firmach. Automatyzujemy powtarzalną pracę, obsługę klienta, analizę dokumentów. Pierwszy efekt w 4 tygodnie.">
-  <meta property="og:title" content="Cognify — wdrożenia AI dla firm">
-  <meta property="og:description" content="Automatyzujemy to, co zajmuje Twoim ludziom najwięcej czasu. Pierwszy efekt w 4 tygodnie.">
+  <title>Cognify — KI-implementeringer for bedrifter som vil spare tid</title>
+  <meta name="description" content="Vi implementerer kunstig intelligens i europeiske bedrifter. Vi automatiserer repetitivt arbeid, kundeservice og dokumentanalyse. Første resultat på 4 uker.">
+  <meta property="og:title" content="Cognify — KI-implementeringer for bedrifter">
+  <meta property="og:description" content="Vi automatiserer det som tar mest tid for de ansatte. Første resultat på 4 uker.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://jachim00.github.io/cognify-demo/og-image.webp">
   <meta property="og:image:width" content="1200">
@@ -177,30 +177,23 @@
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased noise overflow-x-hidden">
 
-  <!-- Language switcher (fixed top-right) -->
+  <!-- Language switcher -->
   <div class="fixed top-3 right-3 z-50">
     <details class="relative group">
       <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
         <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span>PL</span>
+        <span>NO</span>
         <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
       <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
-        <li><a href="index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">PL</span><span>Polski</span></a></li>
-        <li><a href="en/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
-        <li><a href="de/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
-        <li><a href="fr/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
-        <li><a href="no/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
-        <li><a href="hu/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+        <li><a href="../index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../en/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="../de/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../fr/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../hu/index.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
       </ul>
     </details>
-  </div>
-
-  <!-- Background mesh gradient blobs -->
-  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
-    <div class="blob blob-cyan w-[800px] h-[800px] -top-60 -left-40 animate-mesh"></div>
-    <div class="blob blob-violet w-[700px] h-[700px] top-1/4 -right-40 animate-mesh" style="animation-delay:-6s"></div>
-    <div class="blob blob-fuchsia w-[600px] h-[600px] bottom-0 left-1/3 animate-mesh" style="animation-delay:-12s"></div>
   </div>
 
   <!-- Grid overlay -->
@@ -230,15 +223,15 @@
       </a>
 
       <ul class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-        <li><a href="#rozwiazania" class="hover:text-white transition">Co robimy</a></li>
-        <li><a href="#jak-pracujemy" class="hover:text-white transition">Jak pracujemy</a></li>
-        <li><a href="#stack" class="hover:text-white transition">Jakość</a></li>
-        <li><a href="#case" class="hover:text-white transition">Portfolio</a></li>
+        <li><a href="#rozwiazania" class="hover:text-white transition">Hva vi gjør</a></li>
+        <li><a href="#jak-pracujemy" class="hover:text-white transition">Hvordan vi jobber</a></li>
+        <li><a href="#stack" class="hover:text-white transition">Kvalitet</a></li>
+        <li><a href="#case" class="hover:text-white transition">Portefølje</a></li>
         <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
       </ul>
 
       <a href="#kontakt" class="btn-primary hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg text-ink-950">
-        Porozmawiajmy
+        La oss prate
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </nav>
@@ -255,52 +248,52 @@
             <span class="absolute inline-flex w-full h-full rounded-full bg-neon-cyan opacity-75 animate-ping"></span>
             <span class="relative inline-flex w-2 h-2 rounded-full bg-neon-cyan"></span>
           </span>
-          <span class="text-slate-300">Wdrożenia AI dla biznesu</span>
+          <span class="text-slate-300">KI for bedrifter</span>
           <span class="text-slate-500">·</span>
           <span class="text-neon-cyan">Warszawa</span>
         </div>
       </div>
 
       <h1 class="text-center text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
-        Twoja firma.<br>
-        <span class="text-gradient">Lepsza dzięki AI.</span><br>
-        <span class="text-slate-300 font-light">Bez zwiększania zespołu.</span>
+        Bedriften din.<br>
+        <span class="text-gradient">Bedre med KI.</span><br>
+        <span class="text-slate-300 font-light">Uten å utvide teamet.</span>
       </h1>
 
       <p class="mt-10 text-center text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-        Wdrażamy sztuczną inteligencję tam, gdzie Twoi ludzie tracą najwięcej czasu —
-        w obsłudze klienta, w analizie dokumentów, w raportach, w powtarzalnej robocie.
-        Konkretne efekty, mierzalne w godzinach i złotówkach.
+        Vi implementerer KI der folkene dine bruker mest tid —
+        i kundeservice, dokumentanalyse, rapportering og repeterende arbeid.
+        Konkrete resultater, målt i timer og kroner.
       </p>
 
       <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#kontakt" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
-          Umów bezpłatną rozmowę
+          Bestill en gratis samtale
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="#rozwiazania" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Zobacz co robimy
+          Se hva vi gjør
         </a>
       </div>
 
       <!-- Trust metrics -->
       <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="glass rounded-2xl p-6 text-center">
-          <div class="text-3xl md:text-4xl font-black text-gradient">4 tyg.</div>
-          <div class="mt-2 text-sm text-slate-400">Do pierwszej działającej wersji</div>
+          <div class="text-3xl md:text-4xl font-black text-gradient">4 uker</div>
+          <div class="mt-2 text-sm text-slate-400">Til første fungerende versjon</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">100%</div>
-          <div class="mt-2 text-sm text-slate-400">Polska spółka, polska faktura</div>
+          <div class="mt-2 text-sm text-slate-400">Polsk selskap, EU-faktura</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">8</div>
-          <div class="mt-2 text-sm text-slate-400">Projektów AI w portfolio</div>
+          <div class="mt-2 text-sm text-slate-400">KI-prosjekter i porteføljen</div>
         </div>
         <div class="glass rounded-2xl p-6 text-center">
           <div class="text-3xl md:text-4xl font-black text-gradient">0</div>
-          <div class="mt-2 text-sm text-slate-400">Ukrytych kosztów — wycena z góry</div>
+          <div class="mt-2 text-sm text-slate-400">Skjulte kostnader — fast pris på forhånd</div>
         </div>
       </div>
     </div>
@@ -310,7 +303,7 @@
   <section class="relative z-10 py-12 border-y border-white/5 bg-ink-900/40">
     <div class="max-w-7xl mx-auto px-6">
       <p class="text-center text-xs font-mono text-slate-500 uppercase tracking-widest mb-8">
-        Pracujemy z narzędziami, których używają najlepsi
+        Vi jobber med verktøyene som de beste bruker
       </p>
       <div class="overflow-hidden relative">
         <div class="marquee flex gap-16 whitespace-nowrap items-center text-slate-500 text-xl font-semibold">
@@ -351,13 +344,13 @@
   <section id="rozwiazania" class="relative z-10 py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl">
-        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ co robimy</div>
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ hva vi gjør</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Cztery obszary, w których <span class="text-gradient">AI przynosi pieniądze</span>
+          Fire områder hvor <span class="text-gradient">KI tjener penger</span>
         </h2>
         <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-          Możesz zacząć od jednego obszaru — albo zbudować wszystko razem.
-          Każdy element łączy się z pozostałymi, bo projektujemy je z myślą o sobie nawzajem.
+          Du kan starte med ett område — eller bygge alt sammen.
+          Hver del kobles til de andre, fordi vi designer dem med hverandre i tankene.
         </p>
       </div>
 
@@ -366,7 +359,7 @@
         <!-- Środowiska AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-4.webp" alt="Wizualizacja środowiska AI — serwer infrastruktury" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-4.webp" alt="Visualisering av KI-miljø — infrastrukturserver" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -381,16 +374,16 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / infrastruktura</div>
-              <h3 class="mt-2 text-2xl font-bold">Twoja własna AI</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / infrastruktur</div>
+              <h3 class="mt-2 text-2xl font-bold">Din egen KI</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Stawiamy AI w Twojej firmie — na Twoich serwerach, w Twojej chmurze albo hybrydowo.
-                Twoje dane nie wychodzą poza Twoją infrastrukturę. Kontrolujesz koszty od pierwszego dnia.
+                Vi setter opp KI i bedriften din — på dine servere, i din sky eller hybrid.
+                Dataene dine forlater aldri din infrastruktur. Du kontrollerer kostnadene fra dag én.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Działa lokalnie, w chmurze albo hybrydowo</li>
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Twoje dane zostają u Ciebie (zgodne z RODO i AI Act)</li>
-                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Widzisz w czasie rzeczywistym, ile kosztuje każda operacja</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Kjører lokalt, i skyen eller hybrid</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Dataene dine forblir hos deg (GDPR- og AI-Act-kompatibel)</li>
+                <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Du ser sanntidskostnaden for hver operasjon</li>
               </ul>
             </div>
           </div>
@@ -399,7 +392,7 @@
         <!-- Struktury AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-5.webp" alt="Wizualizacja struktur AI — knowledge graph" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-5.webp" alt="Visualisering av KI-strukturer — kunnskapsgraf" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -413,17 +406,17 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / wiedza firmowa</div>
-              <h3 class="mt-2 text-2xl font-bold">Wiedza Twojej firmy w głowie AI</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / bedriftens kunnskap</div>
+              <h3 class="mt-2 text-2xl font-bold">Bedriftens kunnskap i hodet på KI-en</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Łączymy AI z Twoimi dokumentami, ofertami, regulaminami, mailami i CRM.
-                Asystent odpowiada konkretnie — o Twojej firmie, Twoich klientach, Twoich procedurach.
-                Nie ogólnikami z internetu.
+                Vi kobler KI til dokumentene dine, tilbudene, retningslinjene, e-postene og CRM.
+                Assistenten svarer konkret — om bedriften din, kundene dine, prosedyrene dine.
+                Ikke med generelle utsagn fra internett.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>AI zna procedury, oferty, instrukcje, regulaminy Twojej firmy</li>
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Każda odpowiedź ze źródłem — wiesz, skąd pochodzi</li>
-                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Aktualizacja wiedzy = wgrywasz plik, nie przepisujesz promptu</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>KI kjenner bedriftens prosedyrer, tilbud, instruksjoner og retningslinjer</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Hvert svar med kilde — du vet hvor det kommer fra</li>
+                <li class="flex gap-2"><span class="text-neon-violet">▸</span>Oppdatere kunnskap = laste opp en fil, ikke skrive om prompten</li>
               </ul>
             </div>
           </div>
@@ -432,7 +425,7 @@
         <!-- Aplikacje AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-6.webp" alt="Wizualizacja aplikacji AI-first — warstwy interfejsu" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-6.webp" alt="Visualisering av KI-applikasjoner — grensesnittlag" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -446,16 +439,16 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / aplikacje</div>
-              <h3 class="mt-2 text-2xl font-bold">Aplikacje, w których AI faktycznie pomaga</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / applikasjoner</div>
+              <h3 class="mt-2 text-2xl font-bold">Applikasjoner der KI faktisk hjelper</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Budujemy panele, asystentów klienta i narzędzia dla zespołu — w których AI jest
-                pomocą, nie ciekawostką. Twoi ludzie używają ich z własnej woli, nie z polecenia szefa.
+                Vi bygger dashboards, kundeassistenter og teamverktøy — der KI er en
+                hjelp, ikke en kuriositet. Folkene dine bruker dem frivillig, ikke på ordre.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Działa w przeglądarce, na telefonie i w Twoim systemie</li>
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Integruje się z tym, co już masz (CRM, mail, ERP, kalendarz)</li>
-                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Człowiek widzi i akceptuje krytyczne decyzje — bez ryzyka</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Fungerer i nettleser, på telefon og i systemet ditt</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Integrerer med det du allerede har (CRM, e-post, ERP, kalender)</li>
+                <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Et menneske ser og godkjenner kritiske beslutninger — uten risiko</li>
               </ul>
             </div>
           </div>
@@ -464,7 +457,7 @@
         <!-- Systemy AI -->
         <div class="glass rounded-3xl overflow-hidden transition group">
           <div class="relative aspect-[16/10] overflow-hidden border-b border-white/5">
-            <img src="cognify-2.webp" alt="Wizualizacja systemów AI — heksagonalna sieć orkiestracji" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <img src="../cognify-2.webp" alt="Visualisering av KI-systemer — heksagonalt orkestreringsnettverk" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/60 pointer-events-none"></div>
           </div>
           <div class="p-8 md:p-10 flex items-start gap-5">
@@ -478,17 +471,17 @@
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / automatyzacja</div>
-              <h3 class="mt-2 text-2xl font-bold">Procesy, które działają same</h3>
+              <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / automatisering</div>
+              <h3 class="mt-2 text-2xl font-bold">Prosesser som går av seg selv</h3>
               <p class="mt-4 text-slate-400 leading-relaxed">
-                Automatyzujemy długie łańcuchy powtarzalnych zadań — kategoryzację, raportowanie,
-                draft odpowiedzi, analizę. AI bierze na siebie pracę, której nie chcą robić ludzie,
-                a której nie warto powierzać dodatkowemu etatowi.
+                Vi automatiserer lange kjeder av repeterende oppgaver — kategorisering, rapportering,
+                utkast til svar, analyse. KI tar på seg arbeid folk ikke vil gjøre,
+                og som ikke er verdt en ny ansatt.
               </p>
               <ul class="mt-5 space-y-2 text-sm text-slate-300">
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Działa w nocy, w weekendy i w święta — bez nadgodzin</li>
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Proste zadania do tańszej AI, trudne do mocniejszej — oszczędność do 70%</li>
-                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Pełen audit log: kto, co, kiedy — zgodność z RODO i AI Act</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Kjører om natten, i helger og helligdager — uten overtid</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Enkle oppgaver til billigere KI, vanskelige til den sterkere — opptil 70% besparelse</li>
+                <li class="flex gap-2"><span class="text-emerald-400">▸</span>Full revisjonslogg: hvem, hva, når — GDPR- og AI-Act-kompatibel</li>
               </ul>
             </div>
           </div>
@@ -502,14 +495,14 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ jakość</div>
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ kvalitet</div>
           <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-            AI, które działa po wdrożeniu —<br>
-            <span class="text-gradient">nie tylko na pokazie.</span>
+            KI som fungerer etter lansering —<br>
+            <span class="text-gradient">ikke bare i en demo.</span>
           </h2>
           <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-            Każdy nasz system trafia do prawdziwych użytkowników. Testujemy, monitorujemy,
-            poprawiamy — żeby Twoi ludzie nie dzwonili w środku nocy z błędami.
+            Hvert system vi bygger når ekte brukere. Vi tester, overvåker,
+            forbedrer — slik at folkene dine ikke vekkes om natten av feil.
           </p>
 
           <div class="mt-10 space-y-5">
@@ -518,8 +511,8 @@
                 <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">Kod, który nie wybucha</h4>
-                <p class="text-slate-400 text-sm mt-1">Testujemy zanim wpuścimy system na produkcję. Twój zespół rano nie zobaczy alarmów ani niespodzianek.</p>
+                <h4 class="font-semibold text-lg">Kode som ikke kollapser</h4>
+                <p class="text-slate-400 text-sm mt-1">Vi tester før produksjon. Teamet ditt ser ingen alarmer eller overraskelser om morgenen.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -527,8 +520,8 @@
                 <svg class="w-4 h-4 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">AI pod stałą obserwacją</h4>
-                <p class="text-slate-400 text-sm mt-1">Wiemy, kiedy AI zaczyna gorzej odpowiadać — automatycznie. Nigdy nie dowiesz się o tym od klienta.</p>
+                <h4 class="font-semibold text-lg">KI under konstant overvåking</h4>
+                <p class="text-slate-400 text-sm mt-1">Vi vet når KI begynner å svare dårligere — automatisk. Du hører det aldri fra en kunde.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -536,8 +529,8 @@
                 <svg class="w-4 h-4 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <h4 class="font-semibold text-lg">Płacisz tylko za to, co potrzebne</h4>
-                <p class="text-slate-400 text-sm mt-1">Proste pytania trafiają do tańszej AI, trudne do najmocniejszej. Średnio 70% niższy rachunek niż naiwne podejście.</p>
+                <h4 class="font-semibold text-lg">Du betaler kun for det du trenger</h4>
+                <p class="text-slate-400 text-sm mt-1">Enkle spørsmål går til billigere KI, vanskelige til den sterkeste. I gjennomsnitt 70% lavere regning enn den naive tilnærmingen.</p>
               </div>
             </div>
           </div>
@@ -587,16 +580,16 @@
     </div>
   </section>
 
-  <!-- ====== Jak pracujemy ====== -->
+  <!-- ====== Hvordan vi jobber ====== -->
   <section id="jak-pracujemy" class="relative z-10 py-32">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ jak pracujemy</div>
+        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ hvordan vi jobber</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Od rozmowy do działającego systemu —<br>
-          <span class="text-gradient">w 90 dni.</span>
+          Fra samtale til fungerende system —<br>
+          <span class="text-gradient">på 90 dager.</span>
         </h2>
-        <p class="mt-6 text-lg text-slate-400">Bez warsztatów, bez prezentacji. Działający kod od pierwszego miesiąca.</p>
+        <p class="mt-6 text-lg text-slate-400">Ingen workshops, ingen presentasjoner. Fungerende kode fra første måned.</p>
       </div>
 
       <div class="mt-20 grid md:grid-cols-4 gap-6 relative">
@@ -604,27 +597,27 @@
 
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Rozmowa</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">45-minutowa rozmowa o Twojej firmie i procesach. Wychodzisz z konkretnym pomysłem — nawet jeśli nie pracujemy razem.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 1-2</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Samtale</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">En 45-minutters samtale om bedriften din og prosessene. Du går med en konkret idé — selv om vi ikke jobber sammen.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">uke 1-2</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Prototyp</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Budujemy działającą wersję na Twoich danych. Widzisz efekt zanim zatwierdzisz pełny budżet.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 3-6</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Prototype</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Vi bygger en fungerende versjon på dataene dine. Du ser resultatet før du godkjenner hele budsjettet.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">uke 3-6</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Wdrożenie</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">System trafia do Twoich ludzi. Integrujemy z narzędziami, szkolimy zespół, mierzymy efekty.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">tydzień 7-11</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Implementering</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Systemet når folkene dine. Vi integrerer med verktøy, lærer opp teamet, måler resultatene.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">uke 7-11</div>
         </div>
         <div class="relative">
           <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
-          <h3 class="mt-6 text-lg font-bold text-center">Opieka</h3>
-          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Aktualizujemy modele, dodajemy scenariusze, reagujemy na zmiany w Twojej firmie. Zostajemy z Tobą.</p>
-          <div class="mt-3 text-center text-xs font-mono text-slate-500">miesiąc 4+</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Oppfølging</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Vi oppdaterer modeller, legger til scenarier, reagerer på endringer i bedriften din. Vi blir hos deg.</p>
+          <div class="mt-3 text-center text-xs font-mono text-slate-500">måned 4+</div>
         </div>
       </div>
     </div>
@@ -634,62 +627,62 @@
   <section id="case" class="relative z-10 py-32 border-y border-white/5">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl">
-        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ portfolio</div>
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ portefølje</div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tight">
-          Trzy systemy z naszego portfolio,<br>
-          <span class="text-gradient">które dziś działają w produkcji.</span>
+          Tre systemer fra porteføljen vår,<br>
+          <span class="text-gradient">som i dag kjører i produksjon.</span>
         </h2>
         <p class="mt-6 text-lg text-slate-400 leading-relaxed">
-          Każdy zastąpił pracę, która ręcznie zajmowałaby dziesiątki godzin tygodniowo.
+          Hvert av dem erstatter arbeid som manuelt ville tatt titalls timer per uke.
         </p>
       </div>
 
       <div class="mt-16 grid md:grid-cols-3 gap-6">
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">Bolek</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">operacyjny agent firmy</div>
-          <h3 class="mt-6 text-xl font-bold">Setki zadań naraz, zero kolejki</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">operasjonell bedriftsagent</div>
+          <h3 class="mt-6 text-xl font-bold">Hundrevis av oppgaver samtidig, null kø</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            System, który robi setki zadań naraz — zamiast czekać aż jedno się skończy.
-            AI pracuje równolegle, wyniki widać na żywo, błędy obsługujemy automatycznie.
-            Pod każdy proces, który dziś zajmuje godziny.
+            Et system som gjør hundrevis av oppgaver samtidig — i stedet for å vente på at hver enkelt blir ferdig.
+            KI jobber parallelt, resultater vises live, feil håndteres automatisk.
+            For enhver prosess som i dag tar timer.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Równoległość</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Czas rzeczywisty</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Audit log</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Parallellitet</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Sanntid</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Revisjonslogg</span>
           </div>
         </div>
 
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">TaskPilot</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">asystent project managera</div>
-          <h3 class="mt-6 text-xl font-bold">AI, który układa plany za Ciebie</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">prosjektlederassistent</div>
+          <h3 class="mt-6 text-xl font-bold">KI som lager planer for deg</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            Asystent widzi Twój plan pracy i pomaga go rozłożyć. Rozumie zależności między
-            zadaniami, proponuje kolejność, ostrzega o ryzykach. Robi to, co zwykle robi
-            senior project manager — w sekundzie.
+            En assistent ser arbeidsplanen din og hjelper å fordele den. Den forstår avhengigheter
+            mellom oppgaver, foreslår rekkefølge, varsler om risiko. Gjør det en senior prosjektleder
+            normalt gjør — på et sekund.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Planowanie AI</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Web UI</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Integracja</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">KI-planlegging</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Web-UI</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Integrasjon</span>
           </div>
         </div>
 
         <div class="glass rounded-3xl p-8">
           <div class="text-5xl font-black text-gradient">SocialBoost</div>
-          <div class="mt-2 text-sm font-mono text-slate-500">automatyzacja social media</div>
-          <h3 class="mt-6 text-xl font-bold">Setki publikacji bez moderatora</h3>
+          <div class="mt-2 text-sm font-mono text-slate-500">sosiale medier-automatisering</div>
+          <h3 class="mt-6 text-xl font-bold">Hundrevis av publiseringer uten moderator</h3>
           <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-            Wtyczka do przeglądarki, która robi to, co Twój zespół robił ręcznie godzinami:
-            publikuje, monitoruje, zbiera dane z 90+ grup naraz. Bez ryzyka utraty konta —
-            wszystko z poziomu Twojej przeglądarki.
+            En nettleserutvidelse som gjør det teamet ditt brukte timer på manuelt:
+            publiserer, overvåker, samler data fra 90+ grupper samtidig. Uten risiko for
+            kontotap — alt fra nettleseren din.
           </p>
           <div class="mt-5 flex gap-2 flex-wrap text-xs font-mono">
-            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Wtyczka</span>
-            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Kolejkowanie</span>
-            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Social media</span>
+            <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">Utvidelse</span>
+            <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">Kø-håndtering</span>
+            <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">Sosiale medier</span>
           </div>
         </div>
       </div>
@@ -703,38 +696,38 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
         <div class="relative">
-          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ następny krok</div>
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ neste steg</div>
           <h2 class="text-4xl md:text-5xl font-black tracking-tight">
-            Masz proces, który <span class="text-gradient">AI rozwiąże.</span><br>
-            My to udowodnimy.
+            Har du en prosess som <span class="text-gradient">KI kan løse.</span><br>
+            Vi beviser det.
           </h2>
           <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Bezpłatna 45-minutowa rozmowa. Słuchamy o Twojej firmie i pokazujemy,
-            gdzie AI ma sens. Wychodzisz z konkretnym pomysłem — nawet jeśli nie pracujemy razem.
+            Gratis 45-minutters samtale. Vi lytter til bedriften din og viser
+            hvor KI gir mening. Du går med en konkret idé — selv om vi ikke jobber sammen.
           </p>
 
           <form action="https://formsubmit.co/kontakt@cognify.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
-            <input type="hidden" name="_subject" value="Nowe zapytanie z cognify-demo">
-            <input type="hidden" name="_next" value="https://jachim00.github.io/cognify-demo/dziekujemy.html">
+            <input type="hidden" name="_subject" value="Ny henvendelse fra cognify-demo">
+            <input type="hidden" name="_next" value="https://jachim00.github.io/cognify-demo/no/thanks.html">
             <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Imię i nazwisko *</label>
-                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Jan Kowalski">
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Fullt navn *</label>
+                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Ola Nordmann">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
-                <input type="email" name="Email" required class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="jan@firma.pl">
+                <input type="email" name="Email" required class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="ola@bedrift.no">
               </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Firma</label>
-                <input type="text" name="Firma" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Twoja Firma sp. z o.o.">
+                <input type="text" name="Firma" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Bedriften din AS">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Telefon</label>
@@ -743,25 +736,25 @@
             </div>
 
             <div>
-              <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Co chciałbyś zautomatyzować? *</label>
-              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Opisz krótko proces, który zajmuje Twojemu zespołowi najwięcej czasu. Może to być obsługa klienta, raportowanie, analiza dokumentów, sprzedaż — cokolwiek przychodzi Ci na myśl. Konkrety są mile widziane, ale wystarczy kilka zdań."></textarea>
+              <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Hva ønsker du å automatisere? *</label>
+              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Beskriv kort prosessen som tar mest tid for teamet ditt. Det kan være kundeservice, rapportering, dokumentanalyse, salg — hva enn som faller deg inn. Detaljer er velkomne, men noen setninger holder."></textarea>
             </div>
 
             <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
               <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
               <span>
-                Wyrażam zgodę na przetwarzanie moich danych osobowych przez Cognify Sp. z o.o. w celu kontaktu w sprawie zapytania. Szczegóły w
-                <a href="polityka-prywatnosci.html" class="text-neon-cyan hover:underline">polityce prywatności</a>. *
+                Jeg samtykker til at Cognify Sp. z o.o. behandler personopplysningene mine for å besvare henvendelsen. Detaljer i
+                <a href="privacy.html" class="text-neon-cyan hover:underline">personvernerklæringen</a>. *
               </span>
             </label>
 
             <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
-              Umów bezpłatną rozmowę
+              Bestill en gratis samtale
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </button>
 
             <p class="text-xs text-slate-500 pt-2">
-              Wolisz email? Napisz bezpośrednio na
+              Foretrekker du e-post? Skriv direkte til
               <a href="mailto:kontakt@cognify.pl" class="text-neon-cyan hover:underline">kontakt@cognify.pl</a>.
             </p>
           </form>
@@ -769,15 +762,15 @@
           <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-500">
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Odpowiedź w 24h
+              Svar innen 24t
             </span>
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              NDA na życzenie
+              NDA på forespørsel
             </span>
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Polski i angielski
+              Polsk og engelsk
             </span>
           </div>
         </div>
@@ -810,17 +803,17 @@
             <span class="text-xl font-bold tracking-tight">Cognify</span>
           </div>
           <p class="mt-6 text-sm text-slate-400 max-w-md leading-relaxed">
-            Wdrażamy sztuczną inteligencję w polskich firmach. Automatyzujemy powtarzalną
-            pracę, obsługę klienta, analizę dokumentów. Od pomysłu po utrzymanie — jeden zespół.
+            Vi implementerer KI i europeiske bedrifter. Vi automatiserer repeterende
+            arbeid, kundeservice, dokumentanalyse. Fra idé til vedlikehold — ett team.
           </p>
         </div>
         <div>
-          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Co robimy</h4>
+          <h4 class="text-xs font-mono uppercase tracking-widest text-slate-500">Hva vi gjør</h4>
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
-            <li><a href="#rozwiazania" class="hover:text-white transition">Cztery obszary AI</a></li>
-            <li><a href="#stack" class="hover:text-white transition">Jakość</a></li>
-            <li><a href="#case" class="hover:text-white transition">Portfolio</a></li>
-            <li><a href="#jak-pracujemy" class="hover:text-white transition">Jak pracujemy</a></li>
+            <li><a href="#rozwiazania" class="hover:text-white transition">Fire KI-områder</a></li>
+            <li><a href="#stack" class="hover:text-white transition">Kvalitet</a></li>
+            <li><a href="#case" class="hover:text-white transition">Portefølje</a></li>
+            <li><a href="#jak-pracujemy" class="hover:text-white transition">Hvordan vi jobber</a></li>
           </ul>
         </div>
         <div>
@@ -828,8 +821,8 @@
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
             <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
             <li><a href="mailto:kontakt@cognify.pl" class="hover:text-white transition">kontakt@cognify.pl</a></li>
-            <li><a href="#" class="hover:text-white transition">Kariera</a></li>
-            <li><a href="#" class="hover:text-white transition">Blog</a></li>
+            <li><a href="#" class="hover:text-white transition">Karriere</a></li>
+            <li><a href="#" class="hover:text-white transition">Blogg</a></li>
           </ul>
         </div>
       </div>
@@ -841,10 +834,10 @@
           <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
         </div>
         <div class="md:text-right space-y-3">
-          <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
+          <div>© 2026 Cognify · Alle rettigheter forbeholdt</div>
           <div class="flex md:justify-end gap-6">
-            <a href="polityka-prywatnosci.html" class="hover:text-slate-300 transition">Polityka prywatności</a>
-            <a href="regulamin.html" class="hover:text-slate-300 transition">Regulamin</a>
+            <a href="privacy.html" class="hover:text-slate-300 transition">Personvern</a>
+            <a href="terms.html" class="hover:text-slate-300 transition">Vilkår</a>
           </div>
         </div>
       </div>
