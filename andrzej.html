@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrzej — operacyjny agent firmy · Cognify</title>
+  <meta name="description" content="Andrzej to system, który wykonuje setki zadań naraz — kategoryzację, raportowanie, obsługę klienta, analizę dokumentów. AI pracuje równolegle, Twój zespół widzi efekty na żywo.">
+  <meta property="og:title" content="Andrzej — operacyjny agent firmy">
+  <meta property="og:description" content="System, który robi setki zadań naraz. AI pracuje równolegle, wyniki widać na żywo, błędy obsługujemy automatycznie.">
+  <meta property="og:image" content="https://jachim00.github.io/cognify-demo/cognify-3.webp">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-12px)' },
+            },
+          },
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .blob { position: absolute; filter: blur(80px); opacity: .55; pointer-events: none; }
+    .blob-cyan    { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+    .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
+    .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+    .faq-item summary::after {
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+  </style>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>PL</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="en/andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="de/andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="fr/andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="no/andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="hu/andrzej.html" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Background -->
+  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="blob blob-cyan w-[800px] h-[800px] -top-60 -left-40 animate-mesh"></div>
+    <div class="blob blob-violet w-[700px] h-[700px] top-1/4 -right-40 animate-mesh" style="animation-delay:-6s"></div>
+    <div class="blob blob-fuchsia w-[600px] h-[600px] bottom-0 left-1/3 animate-mesh" style="animation-delay:-12s"></div>
+  </div>
+  <div aria-hidden="true" class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+      <a href="index.html#case" class="text-sm text-slate-300 hover:text-white transition">← Wróć do portfolio</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative z-10 pt-16 md:pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ portfolio · projekt 01</div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+            <span class="text-gradient">Andrzej</span><br>
+            <span class="text-slate-300 font-light text-4xl md:text-5xl">operacyjny agent Twojej firmy.</span>
+          </h1>
+          <p class="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed">
+            Andrzej to system, który wykonuje setki zadań naraz — w tle, w nocy, w weekendy.
+            Kategoryzuje dokumenty, odpowiada na zapytania, generuje raporty, analizuje dane.
+            Twój zespół widzi efekty na żywo, błędy obsługujemy automatycznie, każdą operację mamy zalogowaną.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="index.html#kontakt" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Umów rozmowę o Andrzeju
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#mozliwosci" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+              Zobacz możliwości
+            </a>
+          </div>
+        </div>
+
+        <div class="relative animate-float">
+          <div class="absolute -inset-8 bg-gradient-to-br from-neon-cyan/20 via-neon-violet/20 to-neon-fuchsia/20 rounded-3xl blur-3xl"></div>
+          <img src="cognify-3.webp" alt="Andrzej — wizualizacja systemu równoległej obróbki zadań" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="relative z-10 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">setki</div>
+          <div class="mt-2 text-sm text-slate-400">Zadań równolegle</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">24/7</div>
+          <div class="mt-2 text-sm text-slate-400">Dyżur bez przerw</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">100%</div>
+          <div class="mt-2 text-sm text-slate-400">Audit log dla compliance</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">~70%</div>
+          <div class="mt-2 text-sm text-slate-400">Niższe koszty operacyjne</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CZYM JEST -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ czym jest Andrzej</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+        Pracownik, który <span class="text-gradient">nie pyta o piątek po południu.</span>
+      </h2>
+      <div class="mt-8 space-y-5 text-lg text-slate-400 leading-relaxed">
+        <p>
+          Wyobraź sobie zespół juniorów, który ma kompetencje seniora i pracuje równocześnie w pięćdziesięciu
+          oknach przeglądarki. Bez przerw na kawę, bez chorobowego, bez „skończę to jutro". Tym właśnie jest Andrzej
+          — tyle że bez biurka, bez wynagrodzenia w PLN i bez polskich świąt.
+        </p>
+        <p>
+          Tam, gdzie człowiek przerabia jeden dokument na minutę, Andrzej przerabia pięćset. Wracasz w poniedziałek
+          do skrzynki — 200 nowych maili. Andrzej w nocy napisał 180 draftów odpowiedzi i postawił flagę przy 20,
+          które wymagają Twojej decyzji. Raport miesięczny, na który dotąd schodziły Ci dwa dni z życia? Czeka
+          o 6:00 pierwszego dnia miesiąca, w pliku PDF, z wnioskami.
+        </p>
+        <p>
+          To nie jest magia. Pod maską siedzi solidna inżynieria: <strong class="text-white">FastAPI, Celery,
+          Postgres, Redis</strong> spięte z modelami Claude 4.7 (i tańszymi, gdy wystarczą). Dla Ciebie wygląda
+          inaczej — panel w przeglądarce, na którym widzisz, ile zadań w kolejce, ile gotowych, ile czeka na
+          Twoje „ok" i co dokładnie wydarzyło się w nocy, gdy spałeś.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOŻLIWOŚCI -->
+  <section id="mozliwosci" class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ możliwości</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Co Andrzej <span class="text-gradient">naprawdę umie.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Funkcje, które wpływają na Twój P&amp;L. Nie buzzwords, tylko mierzalne efekty.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Inteligentna kolejka zadań</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Każde zadanie ma priorytet, deadline i wagę. Andrzej decyduje, co robić najpierw —
+            pilne i ważne idą do najmocniejszej AI, masowe do tańszej. Ty widzisz pełną kolejkę
+            w panelu i możesz ją przesterować jednym klikiem.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Równoległe wykonywanie</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Zamiast jeden po drugim — kilkadziesiąt naraz. Andrzej skaluje się dynamicznie w zależności
+            od wielkości kolejki. W godzinach szczytu odpala więcej workerów, w nocy redukuje.
+            Płacisz tylko za faktyczne zużycie.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Streaming wyników na żywo</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Nie musisz czekać do końca, żeby zobaczyć efekt. Andrzej pokazuje rezultat zaraz jak będzie gotowy —
+            w panelu, w Slacku, w e-mailu lub przez webhook do Twojego systemu. Decyzje podejmujesz
+            natychmiast, nie godzinę później.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Auto-retry przy błędach</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Internet padł? API dostawcy zwróciło 500? Andrzej sam ponowi próbę z rosnącym opóźnieniem
+            (1s → 2s → 4s → 8s). Jeśli po 5 próbach nadal błąd — eskalacja do człowieka z pełnym
+            kontekstem co się stało.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Pełen audit log</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Kto, co, kiedy, jakim modelem, ile kosztowało, jakim wynikiem. Każda operacja Andrzeja jest
+            zalogowana niezmiennie. Wymóg compliance dla RODO i AI Act — załatwiony. Audyt zewnętrzny?
+            Mamy logi z każdej minuty.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Webhooki i integracje</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Andrzej rozmawia z Twoim CRM-em, ERP-em, Slackiem, e-mailem, kalendarzem, Trello, Notion,
+            Google Sheets, Airtable. Co się wydarzyło — leci do Twojego systemu. Co Twój system zmieni —
+            Andrzej się dowie.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Kontrola kosztów</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Każdy task ma swój kosztowy ślad. Możesz ustawić budżet dzienny/miesięczny —
+            Andrzej się w nim mieści. Drogie modele tylko gdy potrzebne, tańsze gdy wystarczą.
+            Średnio 60–80% niższy rachunek niż "wszystko na Opusie".
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Human-in-the-loop</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Krytyczne decyzje (np. odpowiedź klientowi VIP, akceptacja faktury &gt; 10 000 zł)
+            zatrzymują się i czekają na zatwierdzenie. Twój zespół klika "ok" lub "popraw" —
+            Andrzej się uczy z każdej korekty.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO DZIAŁA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ jak to działa</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Od zadania <span class="text-gradient">do wykonania.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">Pięć kroków, które dzieją się pod maską przy każdym zadaniu.</p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-5 gap-6 relative">
+        <div class="hidden md:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-neon-cyan/0 via-neon-violet/50 to-neon-fuchsia/0"></div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Zadanie wpada</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Z panelu, e-maila, webhooka, API, kalendarza, Slacka. Andrzej przyjmuje z dowolnego źródła.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Klasyfikacja</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">AI decyduje: priorytet, model do użycia, koszt, deadline. Sortuje w kolejce.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Wykonanie</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Worker bierze zadanie, AI je przetwarza, status leci na żywo do panelu.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Weryfikacja</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Krytyczne — czeka na akceptację człowieka. Reszta — od razu dalej.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">05</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Dostawa</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Wynik trafia tam, gdzie ma — Twój system, e-mail, plik, integracja. Audit log gotowy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DLA KOGO -->
+  <section class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ dla kogo</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Andrzej pasuje do firm, które <span class="text-gradient">tonąc w powtarzalnych zadaniach.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-3">obsługa klienta</div>
+          <h3 class="text-2xl font-bold">Firmy z dużym ruchem zapytań</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            E-commerce, SaaS, kancelarie, biura księgowe — wszędzie tam, gdzie ludzie czytają i odpowiadają
+            na setki podobnych pytań dziennie. Andrzej odpowiada na proste, zatrzymuje trudne do człowieka.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-3">back-office</div>
+          <h3 class="text-2xl font-bold">Procesy analizy dokumentów</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Faktury, umowy, polisy, sprawozdania, raporty — kategoryzacja, ekstrakcja danych, walidacja
+            zgodności. Andrzej przerabia 1000 dokumentów w czasie, w którym człowiek przerobiłby 30.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-3">operacje</div>
+          <h3 class="text-2xl font-bold">Raporty i monitoring</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Codzienny raport sprzedaży, tygodniowy raport KPI, miesięczny przegląd — generowane same,
+            o stałej godzinie, w stałym formacie, z wnioskami. Wracasz rano do gotowego dokumentu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ konkretne scenariusze</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Trzy procesy, w których <span class="text-gradient">Andrzej od razu robi różnicę.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 space-y-6">
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">200 → 20</div>
+            <div class="text-sm font-mono text-slate-500">mail/dzień do człowieka</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Skrzynka obsługi klienta</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Każda nowa wiadomość trafia do Andrzeja. Klasyfikuje: pytanie o status zamówienia, reklamacja, faktura,
+              prośba o ofertę. Dla 80% pisze draft odpowiedzi z odniesieniem do bazy wiedzy firmy.
+              Twój zespół przegląda drafty i klika "wyślij". Dla 20% trudnych — eskalacja do człowieka z pełnym kontekstem.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">e-commerce</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">SaaS</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">kancelaria</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">8h → 5min</div>
+            <div class="text-sm font-mono text-slate-500">raport miesięczny</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Generowanie raportów dla zarządu</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Pierwszego dnia miesiąca o 6:00 Andrzej pobiera dane z CRM, sklepu, analityki i ERP-a.
+              Wylicza KPI, porównuje z poprzednim miesiącem, podsumowuje trendy, wykrywa anomalie.
+              Generuje PDF z grafami i tekstem. O 8:00 mail z gotowym raportem na biurku Dyrektora.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">controllingi</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">CFO</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">zarząd</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">1500/dzień</div>
+            <div class="text-sm font-mono text-slate-500">faktur skategoryzowanych</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Obróbka faktur i umów</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Andrzej czyta każdy PDF, który wpadnie do skrzynki księgowej. Wyciąga numer, datę, kwoty, kontrahenta,
+              przypisuje do projektu/kosztu, sprawdza zgodność z umową (np. czy stawka jest taka jak w kontrakcie).
+              Wkleja do systemu księgowego, oflagowuje rozbieżności. Człowiek tylko zatwierdza.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">biuro księgowe</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">controllingi</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">audyt</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4 text-center">/ częste pytania</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-center">
+        Co zwykle <span class="text-gradient">pyta klient.</span>
+      </h2>
+
+      <div class="mt-12 space-y-3">
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Czy Andrzej zastąpi mojego pracownika?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Nie, choć rozumiemy obawę. Andrzej bierze na siebie rutynę — kategoryzowanie, klasyfikowanie, draftowanie,
+            sortowanie. Twój człowiek zaczyna robić to, do czego naprawdę go zatrudniłeś: rozmawiać z trudnym klientem,
+            podejmować decyzje, których AI bać się nie powinno, projektować nowe procesy. W praktyce zespoły z Andrzejem
+            nie redukują etatów, tylko przestają zatrudniać kolejne, kiedy biznes rośnie. To różnica.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Co jeśli Andrzej się pomyli?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Każda krytyczna decyzja (faktura powyżej kwoty X, odpowiedź do klienta VIP, zatwierdzenie zwrotu)
+            zatrzymuje się i czeka na akceptację człowieka. Te masowe — np. klasyfikacja maila do kategorii „status
+            zamówienia" — Andrzej robi sam, ale zostawia ślad: „byłem 92% pewien, oto źródło". Jeśli się myli, klient
+            klika „popraw" i system uczy się z każdej korekty. Po dwóch miesiącach jego trafność rośnie z 85% do 96%.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Czy moje dane są bezpieczne?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Andrzej może działać on-prem (na Twoich serwerach), w Twojej chmurze albo hybrydowo. W każdej konfiguracji
+            dane nie wychodzą poza Twoją infrastrukturę. Komunikacja z modelami AI idzie przez prywatne endpointy
+            (Anthropic, Azure OpenAI, dedykowane lokalne LLM-y) bez logowania treści po stronie dostawcy. Pełen
+            audit log, zgodność z RODO i AI Act — w cenie wdrożenia.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Ile to kosztuje miesięcznie?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Wdrożenie to jednorazowy koszt projektu (zależny od skali). Utrzymanie miesięczne to dwie składowe:
+            koszt modeli AI (płacisz tyle, ile faktycznie używasz — średnio 800–4000 zł/mc dla średniej firmy)
+            plus opcjonalny retainer naszego zespołu (od ~3000 zł/mc za dostępność w 24h). Większość klientów
+            zwraca koszt wdrożenia w 3–6 miesiącach na samym czasie pracy zespołu.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Od czego zacząć?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Od jednego procesu. Tego, w którym Twój zespół traci najwięcej czasu i którego nikt nie lubi. Skrzynka
+            mailowa? Faktury? Kategoryzacja zgłoszeń? Wybierasz jeden, my budujemy Andrzeja pod ten konkret w 4 tygodnie,
+            sprawdzasz przez miesiąc czy robi to, co miał. Jeśli tak — rozszerzamy o kolejne procesy. Jeśli nie —
+            kończymy bez ciągnięcia długoterminowych zobowiązań.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ pod maską</div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+            Stack, który <span class="text-gradient">nie pęka pod obciążeniem.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            Andrzej to nie skrypt na coffee maku. To produkcyjny system, który skaluje się do tysięcy
+            równoczesnych zadań, ma SLA 99.9% i działa w środowiskach od start-upu po średnią firmę enterprise.
+          </p>
+
+          <ul class="mt-8 space-y-3 text-slate-300">
+            <li class="flex gap-3"><span class="text-neon-cyan mt-1">▸</span><span><strong class="text-white">Backend:</strong> FastAPI · Celery · Postgres · Redis · Docker</span></li>
+            <li class="flex gap-3"><span class="text-neon-violet mt-1">▸</span><span><strong class="text-white">AI:</strong> Claude Opus 4.7 (główne) · Haiku 4.5 (lekkie) · routing per task</span></li>
+            <li class="flex gap-3"><span class="text-neon-fuchsia mt-1">▸</span><span><strong class="text-white">UI:</strong> Next.js 15 · panel admina · dashboard live · API</span></li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-1">▸</span><span><strong class="text-white">Deploy:</strong> on-prem · AWS · GCP · Azure · hybrid</span></li>
+          </ul>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-neon-cyan/15 via-neon-violet/15 to-neon-fuchsia/15 rounded-3xl blur-2xl"></div>
+          <img src="cognify-4.webp" alt="Wizualizacja infrastruktury Andrzeja" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="relative rounded-3xl overflow-hidden glass p-10 md:p-16 text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ następny krok</div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight">
+            Pokaż nam swój proces.<br>
+            <span class="text-gradient">My zaproponujemy, gdzie Andrzej wejdzie.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400">
+            Bezpłatna 45-minutowa rozmowa. Konkretny pomysł na pierwszy proces do automatyzacji
+            — nawet jeśli nie zdecydujesz się na współpracę.
+          </p>
+          <div class="mt-10">
+            <a href="index.html#kontakt" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Umów rozmowę
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-4 text-sm text-slate-400 text-center">
+        <a href="taskpilot.html" class="glass rounded-2xl p-6 hover:border-neon-violet/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ projekt 02</div>
+          <div class="text-white font-semibold group-hover:text-neon-violet transition">TaskPilot →</div>
+          <div class="mt-1 text-xs">AI, który układa plany</div>
+        </a>
+        <a href="socialboost.html" class="glass rounded-2xl p-6 hover:border-neon-fuchsia/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ projekt 03</div>
+          <div class="text-white font-semibold group-hover:text-neon-fuchsia transition">SocialBoost →</div>
+          <div class="mt-1 text-xs">Automatyzacja social media</div>
+        </a>
+        <a href="index.html" class="glass rounded-2xl p-6 hover:border-neon-cyan/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ powrót</div>
+          <div class="text-white font-semibold group-hover:text-neon-cyan transition">Strona główna →</div>
+          <div class="mt-1 text-xs">Cztery obszary AI</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="polityka-prywatnosci.html" class="hover:text-slate-300 transition">Polityka prywatności</a>
+            <a href="regulamin.html" class="hover:text-slate-300 transition">Regulamin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
