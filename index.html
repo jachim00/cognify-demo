@@ -685,26 +685,69 @@
 
         <div class="relative">
           <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">/ następny krok</div>
-          <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">
             Masz proces, który <span class="text-gradient">AI rozwiąże.</span><br>
             My to udowodnimy.
           </h2>
-          <p class="mt-8 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Bezpłatna 45-minutowa rozmowa. Słuchamy o Twojej firmie i pokazujemy,
             gdzie AI ma sens. Wychodzisz z konkretnym pomysłem — nawet jeśli nie pracujemy razem.
           </p>
 
-          <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:kontakt@cognify.pl" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+          <form action="https://formsubmit.co/kontakt@cognify.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
+            <input type="hidden" name="_subject" value="Nowe zapytanie z cognify-demo">
+            <input type="hidden" name="_next" value="https://jachim00.github.io/cognify-demo/dziekujemy.html">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Imię i nazwisko *</label>
+                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Jan Kowalski">
+              </div>
+              <div>
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
+                <input type="email" name="Email" required class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="jan@firma.pl">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Firma</label>
+                <input type="text" name="Firma" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Twoja Firma sp. z o.o.">
+              </div>
+              <div>
+                <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Telefon</label>
+                <input type="tel" name="Telefon" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="+48 600 000 000">
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Co chciałbyś zautomatyzować? *</label>
+              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Opisz krótko proces, który zajmuje Twojemu zespołowi najwięcej czasu. Może to być obsługa klienta, raportowanie, analiza dokumentów, sprzedaż — cokolwiek przychodzi Ci na myśl. Konkrety są mile widziane, ale wystarczy kilka zdań."></textarea>
+            </div>
+
+            <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
+              <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
+              <span>
+                Wyrażam zgodę na przetwarzanie moich danych osobowych przez Cognify Sp. z o.o. w celu kontaktu w sprawie zapytania. Szczegóły w
+                <a href="polityka-prywatnosci.html" class="text-neon-cyan hover:underline">polityce prywatności</a>. *
+              </span>
+            </label>
+
+            <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
               Umów bezpłatną rozmowę
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#case" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
-              Zobacz portfolio
-            </a>
-          </div>
+            </button>
 
-          <div class="mt-10 flex items-center justify-center gap-6 text-xs font-mono text-slate-500">
+            <p class="text-xs text-slate-500 pt-2">
+              Wolisz email? Napisz bezpośrednio na
+              <a href="mailto:kontakt@cognify.pl" class="text-neon-cyan hover:underline">kontakt@cognify.pl</a>.
+            </p>
+          </form>
+
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-500">
             <span class="flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               Odpowiedź w 24h
@@ -781,9 +824,8 @@
         <div class="md:text-right space-y-3">
           <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
           <div class="flex md:justify-end gap-6">
-            <a href="#" class="hover:text-slate-300 transition">Polityka prywatności</a>
-            <a href="#" class="hover:text-slate-300 transition">Regulamin</a>
-            <a href="#" class="hover:text-slate-300 transition">Cookies</a>
+            <a href="polityka-prywatnosci.html" class="hover:text-slate-300 transition">Polityka prywatności</a>
+            <a href="regulamin.html" class="hover:text-slate-300 transition">Regulamin</a>
           </div>
         </div>
       </div>
