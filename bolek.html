@@ -78,6 +78,14 @@
       mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
       -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
     }
+    .faq-item summary::after {
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
   </style>
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased overflow-x-hidden">
@@ -202,25 +210,25 @@
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ czym jest Bolek</div>
       <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-        Cyfrowy pracownik, który <span class="text-gradient">nigdy nie odpoczywa.</span>
+        Pracownik, który <span class="text-gradient">nie pyta o piątek po południu.</span>
       </h2>
       <div class="mt-8 space-y-5 text-lg text-slate-400 leading-relaxed">
         <p>
-          Bolek to nie kolejny chatbot. To <strong class="text-white">zespół wirtualnych pracowników</strong>,
-          który działa w tle Twojej firmy. Dostaje kolejkę zadań, dzieli je na równolegle wykonywane wątki
-          i raportuje wyniki — wszystko w pełnej autonomii, ale pod stałym nadzorem zespołu.
+          Wyobraź sobie zespół juniorów, który ma kompetencje seniora i pracuje równocześnie w pięćdziesięciu
+          oknach przeglądarki. Bez przerw na kawę, bez chorobowego, bez „skończę to jutro". Tym właśnie jest Bolek
+          — tyle że bez biurka, bez wynagrodzenia w PLN i bez polskich świąt.
         </p>
         <p>
-          Tam, gdzie człowiek musi zająć się jednym dokumentem na minutę, Bolek przetwarza pięćset.
-          Tam, gdzie zespół wracał rano do 200 maili w skrzynce, Bolek nocą wypracował 180 draftów odpowiedzi
-          i oflagował 20, które wymagają decyzji człowieka. Tam, gdzie raport miesięczny zajmował dwa dni —
-          jest gotowy o szóstej rano pierwszego dnia miesiąca.
+          Tam, gdzie człowiek przerabia jeden dokument na minutę, Bolek przerabia pięćset. Wracasz w poniedziałek
+          do skrzynki — 200 nowych maili. Bolek w nocy napisał 180 draftów odpowiedzi i postawił flagę przy 20,
+          które wymagają Twojej decyzji. Raport miesięczny, na który dotąd schodziły Ci dwa dni z życia? Czeka
+          o 6:00 pierwszego dnia miesiąca, w pliku PDF, z wnioskami.
         </p>
         <p>
-          Pod maską to <strong class="text-white">FastAPI + Celery + Postgres + Redis</strong> spięte z modelami
-          Claude 4.7 (i innymi, w zależności od zadania). Dla Ciebie — to panel, w którym widzisz,
-          ile zadań w kolejce, ile gotowych, ile zatrzymanych do akceptacji i co Bolek zrobił dziś rano,
-          gdy spałeś.
+          To nie jest magia. Pod maską siedzi solidna inżynieria: <strong class="text-white">FastAPI, Celery,
+          Postgres, Redis</strong> spięte z modelami Claude 4.7 (i tańszymi, gdy wystarczą). Dla Ciebie wygląda
+          inaczej — panel w przeglądarce, na którym widzisz, ile zadań w kolejce, ile gotowych, ile czeka na
+          Twoje „ok" i co dokładnie wydarzyło się w nocy, gdy spałeś.
         </p>
       </div>
     </div>
@@ -500,6 +508,70 @@
             </div>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4 text-center">/ częste pytania</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-center">
+        Co zwykle <span class="text-gradient">pyta klient.</span>
+      </h2>
+
+      <div class="mt-12 space-y-3">
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Czy Bolek zastąpi mojego pracownika?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Nie, choć rozumiemy obawę. Bolek bierze na siebie rutynę — kategoryzowanie, klasyfikowanie, draftowanie,
+            sortowanie. Twój człowiek zaczyna robić to, do czego naprawdę go zatrudniłeś: rozmawiać z trudnym klientem,
+            podejmować decyzje, których AI bać się nie powinno, projektować nowe procesy. W praktyce zespoły z Bolkiem
+            nie redukują etatów, tylko przestają zatrudniać kolejne, kiedy biznes rośnie. To różnica.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Co jeśli Bolek się pomyli?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Każda krytyczna decyzja (faktura powyżej kwoty X, odpowiedź do klienta VIP, zatwierdzenie zwrotu)
+            zatrzymuje się i czeka na akceptację człowieka. Te masowe — np. klasyfikacja maila do kategorii „status
+            zamówienia" — Bolek robi sam, ale zostawia ślad: „byłem 92% pewien, oto źródło". Jeśli się myli, klient
+            klika „popraw" i system uczy się z każdej korekty. Po dwóch miesiącach jego trafność rośnie z 85% do 96%.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Czy moje dane są bezpieczne?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Bolek może działać on-prem (na Twoich serwerach), w Twojej chmurze albo hybrydowo. W każdej konfiguracji
+            dane nie wychodzą poza Twoją infrastrukturę. Komunikacja z modelami AI idzie przez prywatne endpointy
+            (Anthropic, Azure OpenAI, dedykowane lokalne LLM-y) bez logowania treści po stronie dostawcy. Pełen
+            audit log, zgodność z RODO i AI Act — w cenie wdrożenia.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Ile to kosztuje miesięcznie?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Wdrożenie to jednorazowy koszt projektu (zależny od skali). Utrzymanie miesięczne to dwie składowe:
+            koszt modeli AI (płacisz tyle, ile faktycznie używasz — średnio 800–4000 zł/mc dla średniej firmy)
+            plus opcjonalny retainer naszego zespołu (od ~3000 zł/mc za dostępność w 24h). Większość klientów
+            zwraca koszt wdrożenia w 3–6 miesiącach na samym czasie pracy zespołu.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Od czego zacząć?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Od jednego procesu. Tego, w którym Twój zespół traci najwięcej czasu i którego nikt nie lubi. Skrzynka
+            mailowa? Faktury? Kategoryzacja zgłoszeń? Wybierasz jeden, my budujemy Bolka pod ten konkret w 4 tygodnie,
+            sprawdzasz przez miesiąc czy robi to, co miał. Jeśli tak — rozszerzamy o kolejne procesy. Jeśli nie —
+            kończymy bez ciągnięcia długoterminowych zobowiązań.
+          </p>
+        </details>
 
       </div>
     </div>

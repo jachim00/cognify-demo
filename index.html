@@ -173,6 +173,16 @@
       50%      { opacity: 1; }
     }
     .dot { animation: dotPulse 2s ease-in-out infinite; }
+
+    /* FAQ */
+    .faq-item summary::after {
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
   </style>
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased noise overflow-x-hidden">
@@ -704,6 +714,89 @@
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section class="relative z-10 py-32 border-y border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4 text-center">/ częste pytania</div>
+      <h2 class="text-4xl md:text-6xl font-black tracking-tight text-center">
+        Co zwykle <span class="text-gradient">pyta klient.</span>
+      </h2>
+      <p class="mt-6 text-center text-lg text-slate-400">
+        Pytania, które słyszymy na pierwszej rozmowie u 9 z 10 klientów. Odpowiadamy raz, żeby nie blokować Ci czasu.
+      </p>
+
+      <div class="mt-12 space-y-3">
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Czy AI zastąpi moich pracowników?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Nie. Wiem, że pytanie jest stawiane szczerze i obawa jest zrozumiała. W praktyce zespoły, z którymi
+            wdrażamy AI, <strong class="text-white">nie redukują etatów</strong>. Przestają natomiast zatrudniać
+            kolejne osoby, kiedy biznes rośnie. Ten sam pięcioosobowy zespół obsługuje sześciokrotnie większy
+            ruch maili, dziesięciokrotnie więcej dokumentów, dwadzieścia razy więcej publikacji w mediach społecznościowych.
+            AI bierze rutynę, człowiek bierze decyzje i relacje — i nikt nie odchodzi z firmy.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Ile trwa wdrożenie i kiedy zobaczę efekty?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Pierwszy działający prototyp na Twoich danych — <strong class="text-white">4 tygodnie</strong>. Pełne
+            wdrożenie produkcyjne z integracjami, monitoringiem i przeszkoleniem zespołu — 8 do 12 tygodni,
+            zależnie od skali. Przez cały ten czas masz prototyp do testowania i podejmujesz decyzję
+            o rozszerzaniu zakresu na podstawie realnych wyników, nie obietnic. Po wdrożeniu zostajemy z Tobą
+            w okresie opieki: aktualizujemy modele, dostosowujemy do zmian w Twojej firmie, reagujemy na nowe scenariusze.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Ile to kosztuje?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Każdy projekt wyceniamy indywidualnie po pierwszej rozmowie — bez tego wszystkie liczby byłyby zmyślone.
+            Możemy jednak powiedzieć orientacyjnie, czego się spodziewać: prosty proces (np. kategoryzacja maili,
+            obsługa jednej skrzynki) — od kilkunastu tysięcy złotych za wdrożenie. Większy system z integracjami
+            i panelem — od kilkudziesięciu tysięcy. Utrzymanie miesięczne — kilkaset do kilku tysięcy zł zależnie
+            od ruchu. Typowo zwrot z inwestycji następuje w <strong class="text-white">3 do 6 miesięcy</strong>
+            na samym czasie pracy zespołu.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Czy moje dane wyjdą poza firmę?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Decyzja jest Twoja. Możemy postawić wszystko on-prem (na Twoich serwerach), w Twojej chmurze (AWS, GCP,
+            Azure) lub hybrydowo. Komunikacja z modelami AI idzie przez prywatne endpointy bez logowania treści
+            po stronie dostawcy — Anthropic, Azure OpenAI, dedykowane lokalne LLM-y. Pełen audit log każdej decyzji
+            AI, zgodność z RODO i AI Act, umowy o powierzeniu przetwarzania danych — w cenie wdrożenia. Dla
+            najwrażliwszych projektów konfigurujemy lokalne modele, które nigdy nie wychodzą poza Twoją sieć.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Co jeśli AI się pomyli?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Każda krytyczna decyzja — odpowiedź do klienta VIP, faktura powyżej ustalonej kwoty, akceptacja zwrotu —
+            zatrzymuje się i czeka na akceptację człowieka. Te masowe (klasyfikacja, draft, kategoryzacja) AI
+            robi sam, ale zostawia ślad: „jestem 92% pewien, oto źródło tej wiedzy". Człowiek klika „popraw"
+            jeśli trzeba, system uczy się z każdej korekty. Po dwóch miesiącach trafność rośnie z około 85%
+            do 96%, a krytyczne błędy są strukturalnie niemożliwe — bo każda taka decyzja przechodzi przez człowieka.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white text-lg list-none">Od czego zacząć?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Od jednego procesu. Tego, w którym Twój zespół traci najwięcej czasu i którego nikt nie lubi. Skrzynka
+            mailowa? Faktury? Raportowanie? Wybierasz jeden, budujemy pod ten konkret w 4 tygodnie, sprawdzasz
+            przez miesiąc czy faktycznie działa. Jeśli tak — rozszerzamy. Jeśli nie — kończymy bez ciągnięcia
+            długoterminowych zobowiązań. Sprawiedliwe ryzyko obie strony.
+          </p>
+        </details>
+
       </div>
     </div>
   </section>
