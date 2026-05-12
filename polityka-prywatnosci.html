@@ -8,7 +8,8 @@
   <meta name="robots" content="noindex, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -49,6 +50,72 @@
     .prose-cognify a:hover { text-decoration: underline; }
     .prose-cognify strong { color: #e2e8f0; font-weight: 600; }
   </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/polityka-prywatnosci">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/polityka-prywatnosci">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/privacy">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/privacy">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/privacy">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/privacy">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/privacy">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/privacy">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="nb_NO">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/polityka-prywatnosci">
+  <meta property="og:title" content="Polityka prywatności — Cognify">
+  <meta property="og:description" content="Polityka prywatności serwisu Cognify. Zasady przetwarzania danych osobowych zgodnie z RODO.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Polityka prywatności — Cognify">
+  <meta name="twitter:description" content="Polityka prywatności serwisu Cognify. Zasady przetwarzania danych osobowych zgodnie z RODO.">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="/cookies.js"></script>
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased">
 
@@ -224,6 +291,7 @@
           <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
           <div class="flex md:justify-end gap-6">
             <a href="polityka-prywatnosci.html" class="hover:text-slate-300 transition">Polityka prywatności</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Ustawienia cookies</a><!-- COGNIFY-COOKIES LINK END -->
             <a href="regulamin.html" class="hover:text-slate-300 transition">Regulamin</a>
           </div>
         </div>

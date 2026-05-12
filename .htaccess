@@ -1,0 +1,133 @@
+# Cognify.pl — Apache .htaccess
+# Wymaga: mod_rewrite, mod_headers, mod_deflate, mod_expires
+# Hosting: Apache shared (np. OVH). GitHub Pages tego NIE obsługuje.
+
+Options -MultiViews -Indexes +FollowSymLinks
+DirectoryIndex index.html
+RewriteEngine On
+RewriteBase /
+
+# =============================================================
+# 1) HTTPS — wymuś szyfrowanie (odkomentuj po wgraniu certyfikatu)
+# =============================================================
+# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP_HOST} !^localhost [NC]
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# =============================================================
+# 2) Kanoniczna domena (bez www) — odkomentuj jeśli używasz
+# =============================================================
+# RewriteCond %{HTTP_HOST} ^www\.cognify\.pl$ [NC]
+# RewriteRule ^(.*)$ https://cognify.pl/$1 [R=301,L]
+
+# =============================================================
+# 3) /folder/index.html  →  /folder/   (301)
+#    Działa dla root i /en/, /de/, /fr/, /no/, /hu/
+# =============================================================
+RewriteCond %{THE_REQUEST} \s/+(.*?)index\.html[\s?] [NC]
+RewriteRule ^(.*?)index\.html$ /%1 [R=301,L,NE]
+
+# =============================================================
+# 4) /foo.html  →  /foo   (301, zewnętrzny redirect dla SEO)
+# =============================================================
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^(.+?)\.html$ /$1 [R=301,L,NE]
+
+# =============================================================
+# 5) Pretty section URLs — uniwersalne slugi we wszystkich językach
+#    /solutions, /process, /stack, /case, /contact (index sections)
+#    /jobs, /internship (kariera sections)
+#    JS w stronie odczyta ?s=... i przewinie do odpowiedniego id.
+#
+# Stary PL slug → nowy uniwersalny (zachowuję 301 dla zgodności):
+#    /rozwiazania → /solutions
+#    /jak-pracujemy → /process
+#    /kontakt → /contact
+#    /oferty → /jobs
+#    /staz → /internship
+# =============================================================
+
+# 5a) Stare PL slugi → nowe (301)
+RewriteRule ^rozwiazania/?$ /solutions [R=301,L]
+RewriteRule ^jak-pracujemy/?$ /process [R=301,L]
+RewriteRule ^kontakt/?$ /contact [R=301,L]
+RewriteRule ^oferty/?$ /jobs [R=301,L]
+RewriteRule ^staz/?$ /internship [R=301,L]
+
+# 5b) Sekcje strony głównej — root (PL) + każdy język
+RewriteRule ^(solutions|process|stack|case|contact)/?$ /index.html?s=$1 [L,QSA]
+RewriteRule ^(en|de|fr|no|hu)/(solutions|process|stack|case|contact)/?$ /$1/index.html?s=$2 [L,QSA]
+
+# 5c) Sekcje kariery — root + każdy język
+RewriteRule ^(jobs|internship)/?$ /kariera.html?s=$1 [L,QSA]
+RewriteRule ^(en|de|fr|no|hu)/(jobs|internship)/?$ /$1/careers.html?s=$2 [L,QSA]
+
+# =============================================================
+# 6) Internal rewrite:  /foo  →  /foo.html  (jeśli plik istnieje)
+#    NIE rusza katalogów (/en/ zostaje /en/index.html przez DirectoryIndex)
+# =============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# =============================================================
+# 7) 404 — własna strona (opcjonalnie, jeśli stworzysz)
+# =============================================================
+# ErrorDocument 404 /404.html
+
+# =============================================================
+# 8) Cache — assety długie, HTML krótkie
+# =============================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                              "access plus 1 month"
+  ExpiresByType text/html                     "access plus 5 minutes"
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+</IfModule>
+
+# =============================================================
+# 9) Gzip/Brotli
+# =============================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+</IfModule>
+
+# =============================================================
+# 10) Security headers
+#
+# Po deployu sprawdź wynik na https://securityheaders.com — celuj w A/A+.
+# HSTS jest aktywne; jeśli przygotowujesz subdomeny bez HTTPS, najpierw
+# tymczasowo zakomentuj `includeSubDomains` (12 miesięcy max-age = trudno cofnąć).
+# =============================================================
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Content Security Policy — Tailwind CDN + Google Fonts + (zarezerwowane) GA4/GTM/Clarity
+  # Po wycofaniu Tailwind CDN (rekomendacja Important-1) usuń cdn.tailwindcss.com.
+  Header always set Content-Security-Policy "default-src 'self'; \
+script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; \
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+font-src 'self' https://fonts.gstatic.com; \
+img-src 'self' data: https:; \
+connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://region1.google-analytics.com; \
+frame-ancestors 'self'; \
+base-uri 'self'; \
+form-action 'self'"
+
+  # Cross-Origin policy (głównie cookies/postMessage hardening)
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-site"
+</IfModule>

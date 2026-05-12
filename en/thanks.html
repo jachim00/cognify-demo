@@ -8,7 +8,8 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -67,6 +68,72 @@
     .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
     .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
   </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/en/thanks">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/dziekujemy">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/thanks">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/thanks">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/thanks">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/thanks">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/thanks">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/thanks">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="nb_NO">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/en/thanks">
+  <meta property="og:title" content="Thank you — Cognify">
+  <meta property="og:description" content="Thank you for your message. We">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thank you — Cognify">
+  <meta name="twitter:description" content="Thank you for your message. We">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="/cookies.js"></script>
 </head>
 <body class="bg-ink-950 text-slate-100 antialiased min-h-screen flex flex-col">
 
@@ -142,7 +209,7 @@
 
       <p class="mt-12 text-sm text-slate-500">
         Meanwhile — you might be interested in our
-        <a href="index.html#case" class="text-neon-cyan hover:underline">project portfolio</a>.
+        <a href="/en/case" class="text-neon-cyan hover:underline">project portfolio</a>.
       </p>
 
     </div>
@@ -160,6 +227,7 @@
           <div>© 2026 Cognify · All rights reserved</div>
           <div class="flex md:justify-end gap-6">
             <a href="privacy.html" class="hover:text-slate-300 transition">Privacy policy</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Cookie settings</a><!-- COGNIFY-COOKIES LINK END -->
             <a href="terms.html" class="hover:text-slate-300 transition">Terms</a>
           </div>
         </div>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /*?preview=
+Disallow: /AUDYT_KAROL.*
+Disallow: /_apply_*.py
+
+Sitemap: https://cognify.pl/sitemap.xml

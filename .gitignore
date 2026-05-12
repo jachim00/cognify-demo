@@ -1,0 +1,23 @@
+# Audyt — wewnętrzna analiza strategiczna, nie publikujemy
+AUDYT_KAROL.md
+AUDYT_KAROL.json
+
+# Build/deploy artifacts (gdyby ktoś uruchomił _build_deploy.py)
+_deploy/
+*.zip
+_build_deploy.py
+
+# Python tooling cache
+__pycache__/
+*.pyc
+.venv/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
