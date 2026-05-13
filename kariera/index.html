@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kariera — dołącz do zespołu Cognify</title>
+  <meta name="description" content="Aktualne oferty pracy w Cognify: AI Developer, AI Solutions Engineer, AI Product Specialist. Plus staże i praktyki w obszarze sztucznej inteligencji.">
+  <meta property="og:title" content="Kariera w Cognify — buduj AI z nami">
+  <meta property="og:description" content="3 otwarte stanowiska + program stażowy. Wdrożenia AI dla polskich firm.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+          },
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .blob { position: absolute; filter: blur(80px); opacity: .55; pointer-events: none; }
+    .blob-cyan    { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+    .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
+    .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+    .job-card details summary { list-style: none; cursor: pointer; }
+    .job-card details summary::-webkit-details-marker { display: none; }
+    .job-card details[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform .25s ease; }
+  </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/kariera">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/kariera">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/careers">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/careers">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/careers">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/careers">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/careers">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/careers">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="nb_NO">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/kariera">
+  <meta property="og:title" content="Kariera — dołącz do zespołu Cognify">
+  <meta property="og:description" content="Aktualne oferty pracy w Cognify: AI Developer, AI Solutions Engineer, AI Product Specialist. Plus staże i praktyki w obszarze sztucznej inteligencji.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kariera — dołącz do zespołu Cognify">
+  <meta name="twitter:description" content="Aktualne oferty pracy w Cognify: AI Developer, AI Solutions Engineer, AI Product Specialist. Plus staże i praktyki w obszarze sztucznej inteligencji.">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="../cookies.js"></script>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>PL</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="./" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../en/careers/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="../de/careers/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../fr/careers/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="../no/careers/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../hu/careers/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Background -->
+  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="blob blob-cyan w-[800px] h-[800px] -top-60 -left-40 animate-mesh"></div>
+    <div class="blob blob-violet w-[700px] h-[700px] top-1/4 -right-40 animate-mesh" style="animation-delay:-6s"></div>
+    <div class="blob blob-fuchsia w-[600px] h-[600px] bottom-0 left-1/3 animate-mesh" style="animation-delay:-12s"></div>
+  </div>
+  <div aria-hidden="true" class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="../" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+      <a href="../" class="text-sm text-slate-300 hover:text-white transition">← Wróć do strony głównej</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative z-10 pt-16 md:pt-24 pb-12">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ kariera</div>
+      <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+        Kariera w Cognify — <span class="text-gradient">buduj AI z nami.</span>
+      </h1>
+      <p class="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
+        Rozwijamy systemy, które dziś pracują w nocy za polskie firmy — i jutro zaczną pracować
+        za firmy z całej Europy. Szukamy ludzi, którym praca z modelami języka, automatyzacją procesów
+        i realnym wdrożeniem produkcyjnym daje satysfakcję większą niż kolejny meeting o kolejnym slajdzie.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#jobs" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+          Zobacz otwarte oferty
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#internship" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+          Staż i praktyki
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DLACZEGO MY -->
+  <section class="relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ dlaczego u nas</div>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight">
+          Czego się <span class="text-gradient">tu spodziewać.</span>
+        </h2>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Realny produkt, realni klienci</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+            Nie robimy POC, które trafia do szuflady. Każdy projekt ląduje na produkcji u płacącego klienta.
+            Twoja praca jest mierzona efektem, nie liczbą zamkniętych ticketów.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Najnowszy stack</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+            Claude 4.7, GPT, Llama, FastAPI, Next.js 15, MCP, pgvector. Nie męczysz się z legacy
+            sprzed dekady, ale i nie ścigamy każdej mody — wybieramy to, co działa.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a9 9 0 0 1 9-9v9h9a9 9 0 1 1-18 0z"/><path d="M12 3a9 9 0 0 1 9 9h-9V3z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Mała firma, krótka droga</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+            Zespół do dwudziestu osób. Decyzje zapadają tego samego dnia, nie po trzech komitetach.
+            Twój pomysł na nowy projekt może wystartować w środę.
+          </p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Praca zdalna, własny rytm</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+            Mamy biuro w Warszawie, ale 80% pracy zdalna. Godziny elastyczne — interesuje nas
+            efekt, nie obecność. 4 weekendy w roku zespołowych warsztatów na żywo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTY -->
+  <section id="jobs" class="relative z-10 py-16 border-y border-white/5">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ otwarte oferty</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Trzy stanowiska, <span class="text-gradient">które obsadzamy teraz.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Każda oferta to praca na produkcyjnych systemach u realnych klientów. Bez sztucznych
+          zadań rekrutacyjnych — w trakcie rozmowy pokazujemy projekt, na którym będziesz pracować
+          w pierwszym tygodniu.
+        </p>
+      </div>
+
+      <div class="mt-12 space-y-4">
+
+        <!-- OFERTA 1 — AI Developer -->
+        <div class="job-card glass rounded-3xl p-6 md:p-8 hover:border-neon-cyan/40 transition">
+          <details>
+            <summary class="flex items-start gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center">
+                <svg class="w-6 h-6 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap gap-2 mb-2 text-xs font-mono">
+                  <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">dev AI</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">Warszawa / zdalnie</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">B2B / UoP</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">mid / senior</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">AI Developer / Inżynier ML</h3>
+                <p class="mt-2 text-slate-400">
+                  Pracuj nad rdzeniem naszych systemów — agentów, pipelines RAG, integracji z Claude przez MCP.
+                  Kod, który piszesz, trafia w tym samym tygodniu na produkcję u klienta.
+                </p>
+              </div>
+              <svg class="chevron w-6 h-6 text-slate-400 shrink-0 mt-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+
+            <div class="mt-8 pl-16 grid md:grid-cols-3 gap-8">
+              <div class="md:col-span-2 space-y-6">
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-cyan mb-3">Co będziesz robić</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Budował agentów AI w oparciu o Claude 4.7 i inne modele (orkiestracja zadań, tool use, function calling, MCP).</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Projektował pipeline'y retrieval (RAG): embedding, indeksacja, re-ranking, ewaluacja.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Pisał backend w FastAPI z testami, monitoringiem i obserwowalnością na produkcji.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Integrował z CRM-ami, ERP-ami, narzędziami klientów. Mailboxy, kalendarze, bazy danych.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Optymalizował koszty modeli — model routing per task, caching, batchowanie.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-violet mb-3">Czego oczekujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Min. 2 lata komercyjnego doświadczenia w Pythonie. Type hints, mypy, testy — standard.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Realne projekty z LLM-ami za sobą (nie kursy online). Wiesz, czym różni się temperature 0.2 od 0.8 i kiedy używać którego.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>FastAPI lub podobny framework asynchroniczny. Postgres. Redis. Docker.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Umiesz przeczytać dokumentację API, nawet jeśli jest niedokończona, i wpisać działającą integrację w jeden dzień.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Mówisz po polsku i angielsku — nasi klienci są polscy, dokumentacja jest angielska.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Mile widziane: doświadczenie z vector DB (pgvector, Qdrant), eval frameworks, observability (OTEL).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-fuchsia mb-3">Co oferujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Wynagrodzenie: 14&nbsp;000–22&nbsp;000 zł netto B2B (mid) / 22&nbsp;000–32&nbsp;000 zł netto B2B (senior). Możliwe UoP — wtedy odpowiednio mniej.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Praca zdalna, godziny elastyczne, 26 dni „urlopu" płatnego nawet przy B2B.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Budżet edukacyjny 4&nbsp;000 zł/rok (kursy, książki, konferencje, model credits).</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Wpływ na to, co robimy — bez korpoprocedur, bez 5 poziomów aprobaty.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="glass rounded-2xl p-5 sticky top-4">
+                  <div class="text-xs font-mono uppercase tracking-widest text-neon-cyan mb-3">Aplikuj</div>
+                  <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                    Wyślij CV i krótko o sobie. Bez listu motywacyjnego — link do projektu, którym się chwalisz, wystarczy.
+                  </p>
+                  <a href="mailto:kariera@cognify.pl?subject=Aplikacja%20-%20AI%20Developer" class="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl text-ink-950 text-sm">
+                    Aplikuj
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </a>
+                  <p class="mt-3 text-xs text-slate-500">Odpowiedź do 5 dni roboczych.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- OFERTA 2 — AI Solutions Engineer -->
+        <div class="job-card glass rounded-3xl p-6 md:p-8 hover:border-neon-violet/40 transition">
+          <details>
+            <summary class="flex items-start gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center">
+                <svg class="w-6 h-6 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap gap-2 mb-2 text-xs font-mono">
+                  <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">AI Solutions</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">Warszawa / zdalnie</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">B2B / UoP</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">mid</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">AI Solutions Engineer</h3>
+                <p class="mt-2 text-slate-400">
+                  Łącznik między klientem a zespołem developerskim. Rozmawiasz z klientem o jego procesie,
+                  projektujesz rozwiązanie, prowadzisz wdrożenie od zera do produkcji.
+                </p>
+              </div>
+              <svg class="chevron w-6 h-6 text-slate-400 shrink-0 mt-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+
+            <div class="mt-8 pl-16 grid md:grid-cols-3 gap-8">
+              <div class="md:col-span-2 space-y-6">
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-violet mb-3">Co będziesz robić</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Prowadził pierwsze rozmowy z klientami — rozumiesz problem biznesowy i potrafisz wycenić, gdzie AI ma sens, a gdzie nie.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Projektował architekturę rozwiązania: jakie modele, jakie integracje, jaki UX, jakie ryzyka.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Prowadził wdrożenie 4–8-tygodniowe: brief od klienta, dziennik decyzji, demo co tydzień, akceptacja przed produkcją.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Programował prototypy w Pythonie — szybkie POC-i, które potem developerzy „dopinają" do produkcji.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Pisał dokumentację dla klienta i dla zespołu. Krótko, konkretnie, po polsku.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-cyan mb-3">Czego oczekujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Min. 3 lata doświadczenia komercyjnego w technologii — może być w roli developera, konsultanta, product managera technicznego.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Umiesz w Python na poziomie sprawnym (skrypty, prototypy, integracje). Pełnoetatowe inżynierstwo nie jest wymagane.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Rozumiesz, jak działają modele językowe — co potrafią, czego nie potrafią, jak ich nie zepsuć.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Potrafisz prowadzić rozmowę z C-levelem i z deweloperem o tym samym problemie — w odpowiednim języku dla każdego.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Polski natywny, angielski biznesowy (rozmowy, oferty, dokumenty).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-fuchsia mb-3">Co oferujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Wynagrodzenie: 16&nbsp;000–24&nbsp;000 zł netto B2B + premia za każde wdrożenie zakończone akceptacją klienta (~5–8&nbsp;000 zł).</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Praca przy 4–6 projektach rocznie, z różnych branż — handlowych, prawniczych, marketingowych, produkcyjnych.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Zdalnie + 1–2 dni w tygodniu w warszawskim biurze (jeśli mieszkasz w mieście).</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Budżet konferencyjny + dostęp do wszystkich modeli AI bez limitów.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="glass rounded-2xl p-5 sticky top-4">
+                  <div class="text-xs font-mono uppercase tracking-widest text-neon-violet mb-3">Aplikuj</div>
+                  <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                    CV + krótki opis (3–5 zdań) projektu AI, który prowadziłeś od pomysłu do produkcji.
+                  </p>
+                  <a href="mailto:kariera@cognify.pl?subject=Aplikacja%20-%20AI%20Solutions%20Engineer" class="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl text-ink-950 text-sm">
+                    Aplikuj
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </a>
+                  <p class="mt-3 text-xs text-slate-500">Odpowiedź do 5 dni roboczych.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- OFERTA 3 — AI Product Specialist -->
+        <div class="job-card glass rounded-3xl p-6 md:p-8 hover:border-neon-fuchsia/40 transition">
+          <details>
+            <summary class="flex items-start gap-4">
+              <div class="w-12 h-12 shrink-0 rounded-xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center">
+                <svg class="w-6 h-6 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap gap-2 mb-2 text-xs font-mono">
+                  <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">AI Product</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">zdalnie</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">B2B / UoP</span>
+                  <span class="px-2 py-1 rounded bg-white/5 text-slate-400 border border-white/10">junior / mid</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">AI Product &amp; Customer Specialist</h3>
+                <p class="mt-2 text-slate-400">
+                  Twoja praca po wdrożeniu produktu u klienta — szkolenie zespołu, mierzenie efektów, dostrajanie
+                  systemu pod realną pracę. To, co odróżnia projekt który „działa" od projektu który „się przyjmuje".
+                </p>
+              </div>
+              <svg class="chevron w-6 h-6 text-slate-400 shrink-0 mt-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+
+            <div class="mt-8 pl-16 grid md:grid-cols-3 gap-8">
+              <div class="md:col-span-2 space-y-6">
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-fuchsia mb-3">Co będziesz robić</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Szkolił zespoły klientów z naszych narzędzi — webinary, dokumentacja, indywidualne sesje wprowadzające.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Mierzył wpływ wdrożenia: czas oszczędzony, zadania zautomatyzowane, koszty obniżone. Raportowanie do klientów raz w miesiącu.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Tuningował prompty i konfiguracje pod konkretnego klienta — w panelu administracyjnym, bez kodu.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Zbierał feedback od użytkowników końcowych i przekazywał deweloperom — co poprawić, co dodać, co usunąć.</li>
+                    <li class="flex gap-2"><span class="text-neon-fuchsia">▸</span>Pisał case studies — z prawdziwymi liczbami, dla naszej strony i materiałów sprzedażowych.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-violet mb-3">Czego oczekujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Min. 1 rok pracy z klientami biznesowymi w roli, gdzie odpowiadałeś za wynik (customer success, product specialist, account manager).</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Znasz narzędzia AI z praktyki — Claude, ChatGPT, copiloty — i potrafisz pokazać, co konkretnie zautomatyzowałeś w swojej dotychczasowej pracy.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Polski natywny, angielski na poziomie B2+. Pisanie jasno i prosto.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Excel/Sheets na poziomie zaawansowanym (pivoty, formuły) — wystarczy, nie potrzebujemy Pythona.</li>
+                    <li class="flex gap-2"><span class="text-neon-violet">▸</span>Mile widziane: doświadczenie z SaaS-em B2B, znajomość metryk produktu (NPS, retention, adoption).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-mono uppercase tracking-widest text-neon-cyan mb-3">Co oferujemy</h4>
+                  <ul class="space-y-2 text-slate-300">
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Wynagrodzenie: 9&nbsp;000–14&nbsp;000 zł netto B2B (junior) / 14&nbsp;000–19&nbsp;000 zł netto B2B (mid).</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Praca w 100% zdalna, swoboda planowania dnia.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Bardzo szybka ścieżka rozwoju — po roku możesz wejść w rolę Product Lead-a albo do zespołu Solutions Engineering.</li>
+                    <li class="flex gap-2"><span class="text-neon-cyan">▸</span>Bezpośredni kontakt z C-levelem klientów — uczysz się od ludzi prowadzących prawdziwe firmy.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="glass rounded-2xl p-5 sticky top-4">
+                  <div class="text-xs font-mono uppercase tracking-widest text-neon-fuchsia mb-3">Aplikuj</div>
+                  <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                    CV + jeden przykład: co konkretnie zautomatyzowałeś sobie albo zespołowi narzędziami AI.
+                  </p>
+                  <a href="mailto:kariera@cognify.pl?subject=Aplikacja%20-%20AI%20Product%20Specialist" class="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl text-ink-950 text-sm">
+                    Aplikuj
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </a>
+                  <p class="mt-3 text-xs text-slate-500">Odpowiedź do 5 dni roboczych.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STAŻ I PRAKTYKI -->
+  <section id="internship" class="relative z-10 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ staż i praktyki</div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+            Pierwsze zlecenie <span class="text-gradient">z prawdziwego życia.</span>
+          </h2>
+          <div class="mt-8 space-y-5 text-slate-400 leading-relaxed">
+            <p>
+              Studiujesz informatykę, kognitywistykę, matematykę albo właśnie skończyłeś bootcamp
+              i chcesz spróbować pracy z modelami języka? Mamy dla Ciebie miejsce — <strong class="text-white">
+              nie do parzenia kawy</strong>, tylko do realnej pracy nad produktami, które idą do klientów.
+            </p>
+            <p>
+              Programy stażowe i praktyki prowadzimy <strong class="text-white">trzy razy w roku</strong>:
+              luty–kwiecień, czerwiec–sierpień (preferowane przez studentów), październik–grudzień. Każdy
+              staż trwa 3 miesiące w wymiarze 20–30h tygodniowo (do dogadania pod plan zajęć).
+            </p>
+            <p>
+              Każdy stażysta dostaje <strong class="text-white">opiekuna</strong> (jednego z naszych
+              seniorów, do którego można zadzwonić w środku dnia), <strong class="text-white">konkretny
+              projekt</strong> (nie listę tasków typu „przepisz README") i <strong class="text-white">
+              cotygodniowe spotkanie 1:1</strong> z feedbackiem. Po 3 miesiącach najczęściej proponujemy
+              kontynuację — albo pełen etat, albo wsparcie w znalezieniu pracy gdzie indziej, jeśli
+              nie pasujemy do siebie.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="glass rounded-2xl p-6">
+            <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">staż płatny</div>
+            <div class="text-2xl font-bold">3 000 zł / mc netto</div>
+            <p class="mt-2 text-sm text-slate-400">
+              Standardowe wynagrodzenie stażysty (B2B lub UoZ). Przy pełnym etacie po stażu —
+              widełki juniorskie z oferty Product Specialist.
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <div class="text-xs font-mono uppercase tracking-widest text-neon-cyan mb-2">praktyki studenckie</div>
+            <div class="text-2xl font-bold">na podstawie umowy z uczelnią</div>
+            <p class="mt-2 text-sm text-slate-400">
+              Jeśli Twoja uczelnia wymaga praktyk obowiązkowych — przyjmujemy bezpłatne praktyki
+              w wymiarze 80–160 godzin. Wystawiamy zaświadczenie + opinię.
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <div class="text-xs font-mono uppercase tracking-widest text-neon-violet mb-2">co dokładnie robisz</div>
+            <ul class="mt-2 space-y-2 text-sm text-slate-300">
+              <li class="flex gap-2"><span class="text-neon-violet">▸</span>Mały moduł produkcyjnego systemu — np. nowa integracja, parser dokumentów, dashboard.</li>
+              <li class="flex gap-2"><span class="text-neon-violet">▸</span>Realne dane (zanonimizowane), realny review kodu, realny deploy na produkcję.</li>
+              <li class="flex gap-2"><span class="text-neon-violet">▸</span>Możesz wybrać kierunek: bardziej dev (Python, AI, backend) albo bardziej produktowo (UX, dane, klienci).</li>
+            </ul>
+          </div>
+
+          <a href="mailto:kariera@cognify.pl?subject=Sta%C5%BC%2Fpraktyki%20-%20zg%C5%82oszenie" class="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-4 font-semibold rounded-xl text-ink-950">
+            Zgłoś chęć stażu
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+
+          <p class="text-xs text-slate-500 text-center">
+            Zgłoszenia przyjmujemy zawsze — rekrutacja na kolejny okres zaczyna się 6 tygodni przed startem.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN APPLICATION -->
+  <section class="relative z-10 py-16 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ nie widzisz oferty dla siebie?</div>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight">
+        Napisz <span class="text-gradient">i tak.</span>
+      </h2>
+      <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+        Cognify rośnie — co kwartał otwieramy nowe role. Jeśli Twoje doświadczenie nie pasuje
+        dokładnie do żadnej z ofert powyżej, ale wierzysz, że wnosisz coś, czego nam brakuje —
+        wyślij nam wiadomość. Czytamy każde zgłoszenie.
+      </p>
+      <a href="mailto:kariera@cognify.pl?subject=Aplikacja%20otwarta" class="mt-8 glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+        Napisz do nas
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · Wszelkie prawa zastrzeżone</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="../polityka-prywatnosci/" class="hover:text-slate-300 transition">Polityka prywatności</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Ustawienia cookies</a><!-- COGNIFY-COOKIES LINK END -->
+            <a href="../regulamin/" class="hover:text-slate-300 transition">Regulamin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cognify: pretty-URL scroll handler (.htaccess przekazuje ?s=section) -->
+  <script>
+  (function () {
+    var SECTION_SLUGS = /^(solutions|process|stack|case|contact|jobs|internship)$/i;
+    var SECTION_PATH = /^\/(?:[a-z]{2}\/)?(solutions|process|stack|case|contact|jobs|internship)\/?$/i;
+
+    function scrollToId(id) {
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // 1) Pretty URL load (?s=stack lub #stack)
+    var q = new URLSearchParams(location.search);
+    var s = q.get('s');
+    var hash = location.hash.replace(/^#/, '');
+    var target = (s && SECTION_SLUGS.test(s)) ? s : (hash && SECTION_SLUGS.test(hash) ? hash : null);
+
+    if (s) {
+      q.delete('s');
+      var qs = q.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+    }
+
+    function init() { if (target) scrollToId(target); }
+    if (document.readyState === 'complete') init();
+    else window.addEventListener('load', function () { setTimeout(init, 30); });
+
+    // 2) Klik w /solutions itp. NA TEJ samej stronie: bez reloadu
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      if (a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var href = a.getAttribute('href');
+      if (!href) return;
+      var url;
+      try { url = new URL(href, location.href); } catch (err) { return; }
+      if (url.origin !== location.origin) return;
+      var m = url.pathname.match(SECTION_PATH);
+      if (!m) return;
+      var slug = m[1].toLowerCase();
+      if (!document.getElementById(slug)) return;  // sekcja nie istnieje tutaj → reload (zgodnie z htaccess)
+      e.preventDefault();
+      scrollToId(slug);
+      history.pushState(null, '', url.pathname + url.search);
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SocialBoost — social media automation · Cognify</title>
+  <meta name="description" content="SocialBoost is a browser extension that automates publishing, monitoring, and moderation across social media — from your browser, with no risk of losing your account.">
+  <meta property="og:title" content="SocialBoost — social media automation">
+  <meta property="og:description" content="Hundreds of posts without a moderator. The extension publishes, monitors, and collects data from 90+ groups at once.">
+  <meta property="og:image" content="https://cognify.pl/cognify-2.webp">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-12px)' },
+            },
+          },
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .blob { position: absolute; filter: blur(80px); opacity: .55; pointer-events: none; }
+    .blob-cyan    { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+    .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
+    .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+    .faq-item summary::after {
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+  </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/en/socialboost">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/socialboost">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/socialboost">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/socialboost">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/socialboost">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/socialboost">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/socialboost">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/socialboost">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="nb_NO">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/en/socialboost">
+  <meta property="og:title" content="SocialBoost — social media automation · Cognify">
+  <meta property="og:description" content="SocialBoost is a browser extension that automates publishing, monitoring, and moderation across social media — from your browser, with no risk of losing your account.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SocialBoost — social media automation · Cognify">
+  <meta name="twitter:description" content="SocialBoost is a browser extension that automates publishing, monitoring, and moderation across social media — from your browser, with no risk of losing your account.">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="../../cookies.js"></script>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>EN</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="../../socialboost/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="./" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">EN</span><span>English</span></a></li>
+        <li><a href="../../de/socialboost/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../../fr/socialboost/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="../../no/socialboost/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../../hu/socialboost/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+  <div aria-hidden="true" class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="../../" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+      <a href="../#case" class="text-sm text-slate-300 hover:text-white transition">← Back to portfolio</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative z-10 pt-16 md:pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ portfolio · project 03</div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+            <span class="text-gradient">SocialBoost</span><br>
+            <span class="text-slate-300 font-light text-4xl md:text-5xl">social media automation from your browser.</span>
+          </h1>
+          <p class="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed">
+            A browser extension that does in the background what your team used to do manually for hours: publishes, monitors reactions, moderates comments, collects data from ninety groups at once. No risk of being blocked — all from your logged-in browser, exactly as if a person were doing it.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="../#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Book a call o SocialBoost
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#mozliwosci" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+              See capabilities
+            </a>
+          </div>
+        </div>
+
+        <div class="relative animate-float">
+          <div class="absolute -inset-8 bg-gradient-to-br from-neon-fuchsia/20 via-neon-violet/20 to-neon-cyan/20 rounded-3xl blur-3xl"></div>
+          <img src="../../cognify-2.webp" alt="SocialBoost — social media distribution network visualization" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="relative z-10 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">91</div>
+          <div class="mt-2 text-sm text-slate-400">Groups handled at once</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">300+</div>
+          <div class="mt-2 text-sm text-slate-400">Production tests</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">0</div>
+          <div class="mt-2 text-sm text-slate-400">Account bans in 6 months</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">~20h</div>
+          <div class="mt-2 text-sm text-slate-400">Moderator time saved weekly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CZYM JEST -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ what SocialBoost is</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+        A quiet worker <span class="text-gradient">in your browser.</span>
+      </h2>
+      <div class="mt-8 space-y-5 text-lg text-slate-400 leading-relaxed">
+        <p>
+          Anyone who sells through social media knows the pain. There are 70 Facebook groups where your client spends their evenings. You know you should be there. But pasting a post manually 70 times is four hours a day — and half an hour later Facebook sometimes blocks your account for similar content across multiple groups. You hire a moderator. Three months later the moderator is burned out, and you still don't know which group actually sells and which is just shouting into the void.
+        </p>
+        <p>
+          <strong class="text-white">SocialBoost takes over that work.</strong> A browser extension you install once — and it works in the background of your logged-in session on Facebook, Instagram, LinkedIn, or X. Not through an API, not through a bot — from your own browser, as if you were clicking yourself. Platform algorithms see a regular user clicking at a regular pace. Your account stays safe.
+        </p>
+        <p>
+          Underneath: <strong class="text-white">a Chrome Extension on Manifest V3</strong>, wired to a private NestJS backend over WebSockets. The backend orchestrates the publication queue in <strong class="text-white">BullMQ</strong>, coordinates multiple logged-in sessions via Chrome DevTools Protocol, and monitors engagement signals in real time. For you — a browser panel showing how many posts went out yesterday, their reach, and which groups are starting to deliver the highest ROI.
+        </p>
+        <p>
+          A product that's been through <strong class="text-white">three iterations</strong>: v1 — proof of concept, v2 — sharing engine, v2.4 — composer with content planning. Over 300 end-to-end tests covering every meaningful path. Running in production with first clients for several months.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOŻLIWOŚCI -->
+  <section id="mozliwosci" class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ capabilities</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          What SocialBoost <span class="text-gradient">really does.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Each of these features is a concrete hour of moderator work you no longer need to pay for.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Publishing to 90+ groups at once</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            You create the post once. You pick the groups (checkbox the list). You click "publish on schedule". SocialBoost queues publications with natural 2–8 minute intervals between groups so platform algorithms don't see an unnatural pattern. Your account looks like an active user's, not a bot's.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Publication scheduling</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            You plan the whole week on Sunday evening. Pick day, hour, groups, content. SocialBoost publishes on time — without you, without an open browser, in the middle of the night if needed. You can plan a month ahead and edit scheduled posts up until publication.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Composer with suggestions</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            You type a post goal ("sell a cooking course in a mom's group", "build brand for a UX freelancer"). The composer proposes content — several variants, different lengths, different hooks. You pick, edit, add hashtags (also suggested), add a graphic from libraries (Unsplash, Freepik, or your own files) and publish. Five minutes instead of an hour.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Reaction monitoring</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            After publishing, SocialBoost periodically checks each post: reactions, comments, shares. Collects data into the panel — you see in one place which post is killing it and which is dying. After two months you know which groups have the highest organic reach and which are dead and waste your time.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Auto-replies to DMs</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            A client writes "how much does the course cost?" in DM. SocialBoost replies immediately (price + link to the page) and marks the message as "handled". The client asks something the bot doesn't know — routes to a human with the full conversation context. Your DM inbox stops being a bottleneck.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Group effectiveness map</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Weekly report: which groups gave you the highest reach per time invested, where engagement was best, where you're just spamming into the void. Suggestions: add 5 similar groups to those performing best; remove 8 groups where nobody has reacted in two months. Your group list gets cleaner each week.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Comment moderation</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Under every post, SocialBoost watches comments. Spam goes immediately. Questions get queued for replies (with a draft you click "accept"). Positive comments get liked. Negative ones get flagged as needing human attention. Every morning you get a summary: 12 replies sent, 3 negatives to review, 2 new interested people.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Multi-account</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Running an agency? Each client has their own account, groups, schedule, panel. Everything in one tool, but fully isolated. Logs and reports per client — easy to invoice for specific outcomes. Scales from solo operator to agency handling 50+ brands.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Account safety</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            The most important thing for anyone who's ever lost an account. SocialBoost works <em>in</em> your browser — from your IP, on your session, with your browser fingerprint. Platforms see what they normally see. Plus natural delays, daily limits, captcha handling. At client sites: zero blocked accounts in six months of operation.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO DZIAŁA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ how it works</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          From install to <span class="text-gradient">publication in 5 steps.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-5 gap-6 relative">
+        <div class="hidden md:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-neon-cyan/0 via-neon-violet/50 to-neon-fuchsia/0"></div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Installation</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Chrome extension, one click. Log in once, it works in the background after.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Group list</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Import the groups you belong to. SocialBoost recognizes them automatically.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
+          <h3 class="mt-6 text-lg font-bold text-center">You create a post</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">In the composer. Content, graphic, hashtags, target groups, time.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Publication</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">The extension publishes step by step. You see progress in the live panel.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">05</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Reports</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Every evening: reach, reactions, comments, recommendations for tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DLA KOGO -->
+  <section class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ who is it for</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          SocialBoost fits when <span class="text-gradient">social media is your sales channel.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-3">niche e-commerce</div>
+          <h3 class="text-2xl font-bold">Shops selling through groups</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            You sell handicrafts, online courses, products for moms, hunting gear, books — anything with interest groups on Facebook. You know your client is there. But manual publishing in 60 groups daily is impossible. SocialBoost does it for you.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-3">marketing agencies</div>
+          <h3 class="text-2xl font-bold">Social media agencies</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            You handle 15 clients. Each has their own account, groups, communication style. SocialBoost is one panel for your agency — with account isolation, per-client reports, easy onboarding for new clients. Fewer moderators, more brands.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-3">freelancers</div>
+          <h3 class="text-2xl font-bold">Solopreneurs and experts</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Trainer, coach, consultant, lawyer — you sell your knowledge. You know LinkedIn and Facebook generate leads, but daily writing and publishing is an hour a day you don't have. SocialBoost maintains your presence while you work with clients.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ real scenarios</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Three stories where <span class="text-gradient">SocialBoost pays for itself.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 space-y-6">
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">×8</div>
+            <div class="text-sm font-mono text-slate-500">reach increase</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Natural cosmetics shop</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              A small cosmetics brand selling through Instagram and Facebook groups for moms. The owner lost 2 hours daily publishing posts. We deploy SocialBoost: identify 45 relevant groups, build a library of 50 content templates, a monthly schedule. After 8 weeks: monthly reach grew from 12,000 to 96,000 people, sales by 67%, owner's social media time dropped from 60h to 6h monthly.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">e-commerce</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">cosmetics</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">d2c</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">15 → 35</div>
+            <div class="text-sm font-mono text-slate-500">agency clients</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Social media agency scales 2×</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              The agency had 4 moderators handling 15 clients. Each handled 3–4 brands, planned posts, monitored comments, reported to clients. SocialBoost replaced 80% of the routine work: queueing, monitoring, reports. The same 4 moderators now handle 35 clients — but at the strategy, creative, and relationship level. Project margin grew from 22% to 41%.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">agency</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">B2B</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">scaling</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">12 → 4</div>
+            <div class="text-sm font-mono text-slate-500">leads/day for a trainer</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Business trainer — leads on autopilot</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              A trainer runs his own online courses. For years he generated 3–5 leads daily by manually publishing on LinkedIn and in entrepreneur groups. We bring in SocialBoost: 14 LinkedIn groups, 8 Facebook ones, a schedule of 3 posts a day, composer with a library of 60 proven ideas, auto-replies to DM pricing questions. After 3 months: an average of 12 new leads daily, of which 4 convert to a sales call.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">solopreneur</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">education</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">lead gen</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ under the hood</div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+            Browser-only architecture. <span class="text-gradient">No account risk.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            Most social-media automation tools connect to platforms through official APIs. The problem is that Facebook groups have no official API for publishing. People use hidden endpoints, which platforms detect and ban. SocialBoost solves this differently: <strong class="text-white">it works in your browser</strong>, where you're logged in. From the platform's perspective it's indistinguishable from a normal user.
+          </p>
+
+          <ul class="mt-8 space-y-3 text-slate-300">
+            <li class="flex gap-3"><span class="text-neon-cyan mt-1">▸</span><span><strong class="text-white">Extension:</strong> Chrome Extension Manifest V3 · service workers · content scripts</span></li>
+            <li class="flex gap-3"><span class="text-neon-violet mt-1">▸</span><span><strong class="text-white">Backend:</strong> NestJS · BullMQ · Postgres · Supabase</span></li>
+            <li class="flex gap-3"><span class="text-neon-fuchsia mt-1">▸</span><span><strong class="text-white">Orchestration:</strong> Chrome DevTools Protocol · WebSocket gateway · 91-group auto-sync</span></li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-1">▸</span><span><strong class="text-white">Quality:</strong> 300+ E2E tests · CI/CD · production monitoring</span></li>
+          </ul>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-neon-fuchsia/15 via-neon-violet/15 to-neon-cyan/15 rounded-3xl blur-2xl"></div>
+          <img src="../../cognify-6.webp" alt="SocialBoost layered architecture visualization" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4 text-center">/ frequent questions</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-center">
+        What clients <span class="text-gradient">usually ask.</span>
+      </h2>
+
+      <div class="mt-12 space-y-3">
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Can I get banned for using SocialBoost?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Anything that automates platforms carries some risk — that's a fact. But SocialBoost is designed to minimize it: works from your browser (not external servers), on your logged-in session, with natural delays between actions, daily limits, proper captcha handling. With first clients: zero bans in 6 months. For comparison, classic API-based tools banned accounts on average every 3–4 weeks.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Do I need an open browser all the time?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            You can do it on your own computer (SocialBoost works when Chrome is open) or on a dedicated server with a headless browser (works 24/7, independent of your computer). Agencies usually pick the second — we give the client a pre-installed server accessed through a web panel. You log in once, then the work runs itself.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">What about my data privacy?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            SocialBoost doesn't know your Facebook password. The extension works <em>in</em> your logged-in session, like a bookmark manager extension. Publication data (content, schedules) is stored in your database — either locally or on your server. We don't send it to ourselves. Full GDPR compliance, full audit logs.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Which platforms does it work on?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Currently: Facebook (groups + pages + personal), Instagram, LinkedIn (personal + company), X (formerly Twitter). On the roadmap: TikTok, YouTube Community Tab, Pinterest. Each platform is a separate module — if you need support for a non-standard one (e.g., a specialist industry forum), we can add it as part of implementation.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">How much does implementation cost?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Depends on scale. For a freelancer/small business (one account, up to 30 groups) — starter package. For an agency (multi-account, 50+ clients) — enterprise version with dedicated support. We set the price individually after the first call. Standard ROI for clients: 4–8 weeks (moderator time saved + sales reach growth).
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="relative rounded-3xl overflow-hidden glass p-10 md:p-16 text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-fuchsia via-neon-violet to-neon-cyan rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ next step</div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight">
+            Show us how you handle social media today.<br>
+            <span class="text-gradient">We'll show where SocialBoost saves 20h a week.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400">
+            Free 45-minute call. A concrete idea for the first process to automate.
+          </p>
+          <div class="mt-10">
+            <a href="../#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Book a call
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-4 text-sm text-slate-400 text-center">
+        <a href="../andrew/" class="glass rounded-2xl p-6 hover:border-neon-cyan/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ project 01</div>
+          <div class="text-white font-semibold group-hover:text-neon-cyan transition">Andrew →</div>
+          <div class="mt-1 text-xs">Operational company agent</div>
+        </a>
+        <a href="../taskpilot/" class="glass rounded-2xl p-6 hover:border-neon-violet/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ project 02</div>
+          <div class="text-white font-semibold group-hover:text-neon-violet transition">TaskPilot →</div>
+          <div class="mt-1 text-xs">Project manager assistant</div>
+        </a>
+        <a href="../../" class="glass rounded-2xl p-6 hover:border-neon-fuchsia/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ back</div>
+          <div class="text-white font-semibold group-hover:text-neon-fuchsia transition">Homepage →</div>
+          <div class="mt-1 text-xs">Four technology areas</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · All rights reserved</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="../privacy/" class="hover:text-slate-300 transition">Privacy policy</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Cookie settings</a><!-- COGNIFY-COOKIES LINK END -->
+            <a href="../terms/" class="hover:text-slate-300 transition">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

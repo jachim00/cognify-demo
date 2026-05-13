@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Takk — Cognify</title>
+  <meta name="description" content="Takk for meldingen. Vi kommer tilbake til deg innen 24 timer.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+          },
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      opacity: .55;
+      pointer-events: none;
+    }
+    .blob-cyan    { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+    .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
+    .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
+  </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/no/thanks">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/dziekujemy">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/thanks">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/thanks">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/thanks">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/thanks">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/thanks">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/thanks">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/no/thanks">
+  <meta property="og:title" content="Takk — Cognify">
+  <meta property="og:description" content="Takk for meldingen. Vi kommer tilbake til deg innen 24 timer.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Takk — Cognify">
+  <meta name="twitter:description" content="Takk for meldingen. Vi kommer tilbake til deg innen 24 timer.">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="../../cookies.js"></script>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased min-h-screen flex flex-col">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>NO</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="../../dziekujemy/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../../en/thanks/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="../../de/thanks/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../../fr/thanks/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="./" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../../hu/thanks/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="../" class="flex items-center gap-3">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="relative z-10 flex-1 flex items-center justify-center py-20">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+
+      <div class="mx-auto w-20 h-20 rounded-3xl glass flex items-center justify-center mb-8">
+        <svg class="w-10 h-10 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ melding sendt</div>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight">
+        Takk for <span class="text-gradient">meldingen.</span>
+      </h1>
+
+      <p class="mt-8 text-lg text-slate-400 leading-relaxed">
+        Vi har mottatt forespørselen din og svarer innen <strong class="text-white">24 timer</strong>
+        (på virkedager). Hvis meldingen var hastesak, kan du også ringe eller skrive direkte til
+        <a href="mailto:kontakt@cognify.pl" class="text-neon-cyan hover:underline">kontakt@cognify.pl</a>.
+      </p>
+
+      <div class="mt-12">
+        <a href="../" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+          <svg class="w-5 h-5 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          Tilbake til forsiden
+        </a>
+      </div>
+
+      <p class="mt-12 text-sm text-slate-500">
+        I mellomtiden — kanskje du er interessert i vår
+        <a href="../#case" class="text-neon-cyan hover:underline">prosjektportefølje</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · Alle rettigheter forbeholdt</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="../privacy/" class="hover:text-slate-300 transition">Personvern</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Innstillinger for cookies</a><!-- COGNIFY-COOKIES LINK END -->
+            <a href="../terms/" class="hover:text-slate-300 transition">Vilkår</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

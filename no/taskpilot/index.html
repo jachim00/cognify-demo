@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskPilot — KI som planlegger for teamet ditt · Cognify</title>
+  <meta name="description" content="TaskPilot is an AI assistant that reads your work plan, understands task dependencies, and helps lay it out. Does in a second what takes a senior PM hours.">
+  <meta property="og:title" content="TaskPilot — AI that plans for you">
+  <meta property="og:description" content="AI assistant for project managers. Task hierarchy, dependencies, critical path, forecasts — all with native Claude integration via MCP.">
+  <meta property="og:image" content="https://cognify.pl/cognify-5.webp">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#030712', 900: '#0b0f1a', 800: '#111827' },
+            neon: { cyan: '#22d3ee', violet: '#a78bfa', fuchsia: '#e879f9' }
+          },
+          animation: {
+            'mesh': 'mesh 18s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            mesh: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '33%':     { transform: 'translate(-8%, 6%) scale(1.1)' },
+              '66%':     { transform: 'translate(6%, -8%) scale(0.95)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-12px)' },
+            },
+          },
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .text-gradient {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass {
+      background: linear-gradient(145deg, rgba(34, 211, 238, 0.06), rgba(167, 139, 250, 0.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      transition: all .3s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .blob { position: absolute; filter: blur(80px); opacity: .55; pointer-events: none; }
+    .blob-cyan    { background: radial-gradient(circle, #22d3ee, transparent 70%); }
+    .blob-violet  { background: radial-gradient(circle, #a78bfa, transparent 70%); }
+    .blob-fuchsia { background: radial-gradient(circle, #e879f9, transparent 70%); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+    .faq-item summary::after {
+      content: '+';
+      float: right;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+  </style>
+  <!-- COGNIFY-SEO START -->
+  <link rel="canonical" href="https://cognify.pl/no/taskpilot">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <link rel="alternate" hreflang="pl" href="https://cognify.pl/taskpilot">
+  <link rel="alternate" hreflang="en" href="https://cognify.pl/en/taskpilot">
+  <link rel="alternate" hreflang="de" href="https://cognify.pl/de/taskpilot">
+  <link rel="alternate" hreflang="fr" href="https://cognify.pl/fr/taskpilot">
+  <link rel="alternate" hreflang="no" href="https://cognify.pl/no/taskpilot">
+  <link rel="alternate" hreflang="hu" href="https://cognify.pl/hu/taskpilot">
+  <link rel="alternate" hreflang="x-default" href="https://cognify.pl/en/taskpilot">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cognify">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="hu_HU">
+  <meta property="og:url" content="https://cognify.pl/no/taskpilot">
+  <meta property="og:title" content="TaskPilot — KI som planlegger for teamet ditt · Cognify">
+  <meta property="og:description" content="TaskPilot is an AI assistant that reads your work plan, understands task dependencies, and helps lay it out. Does in a second what takes a senior PM hours.">
+  <meta property="og:image" content="https://cognify.pl/og-image.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cognify — wdrożenia AI dla biznesu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TaskPilot — KI som planlegger for teamet ditt · Cognify">
+  <meta name="twitter:description" content="TaskPilot is an AI assistant that reads your work plan, understands task dependencies, and helps lay it out. Does in a second what takes a senior PM hours.">
+  <meta name="twitter:image" content="https://cognify.pl/og-image.webp">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cognify.pl/#organization",
+  "name": "Cognify Sp. z o.o.",
+  "url": "https://cognify.pl/",
+  "logo": "https://cognify.pl/og-image.webp",
+  "image": "https://cognify.pl/og-image.webp",
+  "description": "Wdrożenia AI dla biznesu — automatyzacja procesów, agenci AI, integracje LLM.",
+  "foundingDate": "2023",
+  "identifier": "KRS:0001024267",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Chłodna 51",
+    "postalCode": "00-867",
+    "addressLocality": "Warszawa",
+    "addressCountry": "PL"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "kontakt@cognify.pl",
+    "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "fr",
+      "no",
+      "hu"
+    ]
+  }
+}
+  </script>
+  <!-- COGNIFY-SEO END -->
+  <!-- COGNIFY-COOKIES SCRIPT -->
+  <script defer src="../../cookies.js"></script>
+</head>
+<body class="bg-ink-950 text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- Language switcher -->
+  <div class="fixed top-3 right-3 z-50">
+    <details class="relative group">
+      <summary class="list-none cursor-pointer glass rounded-full px-3.5 py-2 text-xs font-mono flex items-center gap-2 hover:border-neon-cyan/40 transition">
+        <svg class="w-4 h-4 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>NO</span>
+        <svg class="w-3 h-3 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-44 glass rounded-xl overflow-hidden text-sm">
+        <li><a href="../../taskpilot/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">PL</span><span>Polski</span></a></li>
+        <li><a href="../../en/taskpilot/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">EN</span><span>English</span></a></li>
+        <li><a href="../../de/taskpilot/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">DE</span><span>Deutsch</span></a></li>
+        <li><a href="../../fr/taskpilot/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">FR</span><span>Français</span></a></li>
+        <li><a href="./" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-white"><span class="text-xs font-mono text-neon-cyan w-6">NO</span><span>Norsk</span></a></li>
+        <li><a href="../../hu/taskpilot/" class="px-4 py-2.5 hover:bg-white/5 transition flex items-center gap-3 text-slate-300"><span class="text-xs font-mono text-slate-500 w-6">HU</span><span>Magyar</span></a></li>
+      </ul>
+    </details>
+  </div>
+  <div aria-hidden="true" class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="relative z-20 border-b border-white/5 backdrop-blur-xl bg-ink-950/60">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="../../" class="flex items-center gap-3 group">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-fuchsia rounded-lg blur-sm opacity-70"></div>
+          <div class="relative w-9 h-9 bg-ink-900 rounded-lg flex items-center justify-center border border-white/10">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#e879f9"/>
+                </linearGradient>
+              </defs>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <span class="text-xl font-bold tracking-tight">Cognify</span>
+      </a>
+      <a href="../#case" class="text-sm text-slate-300 hover:text-white transition">← Tilbake til portefølje</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative z-10 pt-16 md:pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ portefølje · prosjekt 02</div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+            <span class="text-gradient">TaskPilot</span><br>
+            <span class="text-slate-300 font-light text-4xl md:text-5xl">KI som planlegger for teamet ditt.</span>
+          </h1>
+          <p class="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed">
+            Remember that senior PM who knew every dependency, never missed a date, and already on Wednesday knew the key thing wouldn't make Friday? TaskPilot works similarly — except for each of your twelve projects simultaneously, and never forgets the details.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="../#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Bestill samtale o TaskPilocie
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#mozliwosci" class="glass inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-white hover:text-neon-cyan transition">
+              Se funksjoner
+            </a>
+          </div>
+        </div>
+
+        <div class="relative animate-float">
+          <div class="absolute -inset-8 bg-gradient-to-br from-neon-violet/20 via-neon-cyan/20 to-neon-fuchsia/20 rounded-3xl blur-3xl"></div>
+          <img src="../../cognify-5.webp" alt="TaskPilot — planning structure visualization" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="relative z-10 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">~3h</div>
+          <div class="mt-2 text-sm text-slate-400">PM time saved daily</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">MCP</div>
+          <div class="mt-2 text-sm text-slate-400">Native Claude integration</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">89</div>
+          <div class="mt-2 text-sm text-slate-400">Tests covering logic</div>
+        </div>
+        <div class="glass rounded-2xl p-6 text-center">
+          <div class="text-3xl md:text-4xl font-black text-gradient">∞</div>
+          <div class="mt-2 text-sm text-slate-400">Task hierarchy depth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CZYM JEST -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ what TaskPilot is</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+        En annen hjerne <span class="text-gradient">for prosjektlederen din.</span>
+      </h2>
+      <div class="mt-8 space-y-5 text-lg text-slate-400 leading-relaxed">
+        <p>
+          Every bigger project has one moment when everything starts falling apart. Client changes scope on Tuesday, developer takes sick leave Wednesday, supplier writes Thursday that delivery will be a week late. The team ends the sprint Friday convinced they still have a week until deadline. The production director finds out Monday. <strong class="text-white">TaskPilot sees these problems Friday morning</strong> — because it doesn't look at one task, it looks at the whole dependency network and knows that a two-day delay on task A pushes the critical path by a week.
+        </p>
+        <p>
+          This isn't another Asana with a chatbot bolted on. TaskPilot has its own <strong class="text-white">memory of your project</strong>: who does what, how long similar tasks usually take, who handles which work best, what risks exploded last sprint. It plans, predicts, and warns based on that — and learns your team a bit more every day.
+        </p>
+        <p>
+          The strongest part: <strong class="text-white">TaskPilot talks to Claude natively</strong> through Model Context Protocol (MCP). You ask: "What's on the critical path today?", "Which projects are at risk this week?", "Plan my X launch in 8 weeks" — and get a real answer, based on your project's data. No copying, no exporting, no updates across three tools.
+        </p>
+        <p>
+          Underneath: <strong class="text-white">FastAPI, Postgres, pgvector, RQ, Next.js</strong>. 89 unit tests covering the trickiest planning logic. A dedicated MCP server for Claude Desktop and Claude Code integration. For you — a clean browser panel, mobile-friendly, with a conversational interface as an option.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOŻLIWOŚCI -->
+  <section id="mozliwosci" class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ funksjoner</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Features that <span class="text-gradient">truly free up your PM.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Each of these features is a concrete hour of senior PM work you no longer need to pay for.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Unlimited task hierarchy</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Project → Phase → Task → Subtask → Step. As many levels as you actually need. Each level has its own status, deadline, owner, and dependencies. You don't have to flatten everything into a list of 200 items just because the tool wants it that way. TaskPilot grows with the complexity of your projects.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Dependencies and critical path</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            You define: "task B can't start until A finishes". TaskPilot computes the critical path itself and shows it in color on the Gantt. When A slips — you immediately see which downstream tasks shift and by how much. No Excel, no manual math, no end-of-sprint surprises.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Smart estimates</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            AI learns from your project history. You type "prepare proposal for client" — TaskPilot suggests 4h because similar tasks have averaged 3.5–4.5h over the past months. The more projects flow through the system, the better the forecasts. After six months its estimates beat your best senior's.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Risk detection</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            AI scans your plan daily for red flags: tasks without owners, tasks with deadlines in 3 days and 0% progress, dependencies on people on vacation, work piling up on one developer next week. Each risk has rationale and a suggested action — just click "address".
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Native MCP — conversation with Claude</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            The most powerful feature. TaskPilot exposes its state to Claude through Model Context Protocol — you open Claude Desktop, ask "what's on my plate today", and get a real answer from your project. You ask "plan launch of product X in 8 weeks" — Claude builds a task structure that shows up in your panel moments later. No copy-paste, no export-import. Live.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-cyan/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Auto-rescheduling</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            Someone moved a critical task's deadline? TaskPilot computes which other tasks shift and shows a proposed new schedule. You click "approve" or modify. No more dragging bars across the Gantt for an hour.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-fuchsia/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-fuchsia/10 border border-neon-fuchsia/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Workload per person</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            At a glance you see who has too much work next week and who can take on more. TaskPilot warns of overload ("Anna has 52h scheduled the week of March 18 — that's 12h too many") and suggests who can absorb tasks.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-emerald-400/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Reporting: Gantt, burndown, velocity</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            All standard visualizations available in one click. Gantt with critical path for leadership, burndown for the scrum master, velocity per team for planning future sprints. Export to PDF, PNG, or share-link for external clients.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 group hover:border-neon-violet/30 transition">
+          <div class="w-14 h-14 rounded-2xl bg-neon-violet/10 border border-neon-violet/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-neon-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold">Integrations: calendar, Slack, GitHub</h3>
+          <p class="mt-3 text-slate-400 leading-relaxed">
+            A task with a deadline lands in your Google Calendar. Status change — Slack alert. Pull request merged — task auto-checked. TaskPilot plugs into what your team already uses; you don't need to abandon favorite tools.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK TO DZIAŁA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-4">/ hvordan det fungerer</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          From idea to plan — <span class="text-gradient">in five steps.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-5 gap-6 relative">
+        <div class="hidden md:block absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-neon-cyan/0 via-neon-violet/50 to-neon-fuchsia/0"></div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">01</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Goal</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">You type a goal: "Launch the new client panel by June 30". That's it — the rest happens on its own.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-violet">02</div>
+          <h3 class="mt-6 text-lg font-bold text-center">AI breaks it down</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">TaskPilot proposes a structure: 6 phases, 34 tasks, dependencies, estimates, critical path.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-fuchsia">03</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Editing</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">You approve, change, add. AI helps, but the final word is yours.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-emerald-400">04</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Execution</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Team works, marks statuses. TaskPilot reports progress and risks daily.</p>
+        </div>
+
+        <div class="relative">
+          <div class="relative mx-auto w-16 h-16 rounded-2xl glass flex items-center justify-center text-xl font-mono font-bold text-neon-cyan">05</div>
+          <h3 class="mt-6 text-lg font-bold text-center">Adaptation</h3>
+          <p class="mt-3 text-sm text-slate-400 text-center leading-relaxed">Things change? Auto-rescheduling. Risk rising? Escalation. Success — done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DLA KOGO -->
+  <section class="relative z-10 py-20 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ for hvem</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          TaskPilot fits companies where <span class="text-gradient">project management is the bottleneck.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-3">agencies</div>
+          <h3 class="text-2xl font-bold">Creative and marketing agencies</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            You run 15 projects for 8 clients, each with different deadlines and teams. You lose half a day per week on status updates across 3 tools. TaskPilot is one source of truth — and clients see their projects in a personalized view.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-3">software</div>
+          <h3 class="text-2xl font-bold">Development teams</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Sprint planning, daily standup, retro — and someone still doesn't know what to do because Jira shows a ticket without context. TaskPilot ties the task to the PR, the product doc, architecture decisions, and the full discussion history. The developer knows why they're doing what they're doing.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <div class="text-xs font-mono text-neon-fuchsia uppercase tracking-widest mb-3">leadership</div>
+          <h3 class="text-2xl font-bold">CEO/COO of mid-sized companies</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            You have 5 strategic initiatives in your head and can't recall which has an important decision waiting on your "yes". TaskPilot shows three things every morning: what's most urgent, where the risk is, what needs your decision. Without walking around asking people "where are we".
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">/ konkrete scenarier</div>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+          Three stories where <span class="text-gradient">TaskPilot saves the day.</span>
+        </h2>
+      </div>
+
+      <div class="mt-16 space-y-6">
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">8 wks</div>
+            <div class="text-sm font-mono text-slate-500">product launch from idea</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Launching a new product in 8 weeks</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              CEO announces on Monday: we want to ship a new product by end of quarter. Before TaskPilot the PM spent two days drafting a plan. Now — types the goal in the panel, AI proposes a structure (market research, design, development, testing, launch, follow-up), task distribution across 7 people, suggested deadlines. PM tweaks 20% and clicks "approve". Plan is ready by afternoon. Team starts the next morning.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">startup</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">SaaS</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">product</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">-40%</div>
+            <div class="text-sm font-mono text-slate-500">project delays</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Agency eliminates delays</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              A marketing agency runs an average of 12 campaigns per month for 9 clients. Before TaskPilot, every other project was 20–50% over its time budget — because nobody saw the copywriter overloaded in the third week, project A blocking resources for client C, a key creative pending approval from a client on vacation. TaskPilot reports these three things every morning and lets you act before they become problems. After three months delays dropped 40% and project margin rose 18%.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">agency</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">marketing</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">creative</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-start">
+          <div class="md:col-span-1">
+            <div class="text-5xl font-black text-gradient mb-2">CEO + Claude</div>
+            <div class="text-sm font-mono text-slate-500">daily 5-min briefing</div>
+          </div>
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold">Daily briefing via Claude</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              CEO starts every day opening Claude and asking: "What's most important today?". Through MCP integration, Claude sees the whole project portfolio in TaskPilot. Answers concretely: "Your team is waiting on a Q3 campaign budget decision — pending since yesterday. Project X is 2 days from deadline at 60% done — check if they need support. Andrew's contract ends June 1 with no replacement planned". Literally 30 seconds — and the CEO knows where to focus attention.
+            </p>
+            <div class="mt-4 flex gap-2 flex-wrap text-xs font-mono">
+              <span class="px-2 py-1 rounded bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20">CEO</span>
+              <span class="px-2 py-1 rounded bg-neon-violet/10 text-neon-violet border border-neon-violet/20">COO</span>
+              <span class="px-2 py-1 rounded bg-neon-fuchsia/10 text-neon-fuchsia border border-neon-fuchsia/20">strategy</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-neon-violet/15 via-neon-cyan/15 to-neon-fuchsia/15 rounded-3xl blur-2xl"></div>
+          <img src="../../cognify-7.webp" alt="TaskPilot structure visualization" class="relative rounded-3xl border border-white/10 w-full">
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4">/ under panseret</div>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">
+            A solid stack, <span class="text-gradient">open to evolution.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            TaskPilot isn't a monolith. It's a set of modules we combine to fit your needs. We can deploy an MVP in 4 weeks, then extend in further iterations.
+          </p>
+
+          <ul class="mt-8 space-y-3 text-slate-300">
+            <li class="flex gap-3"><span class="text-neon-cyan mt-1">▸</span><span><strong class="text-white">Backend:</strong> FastAPI · Postgres · pgvector · RQ (Redis Queue)</span></li>
+            <li class="flex gap-3"><span class="text-neon-violet mt-1">▸</span><span><strong class="text-white">MCP server:</strong> dedicated Model Context Protocol for Claude</span></li>
+            <li class="flex gap-3"><span class="text-neon-fuchsia mt-1">▸</span><span><strong class="text-white">Frontend:</strong> Next.js 15 · Tailwind · Drag & drop · live updates</span></li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-1">▸</span><span><strong class="text-white">Quality:</strong> 89 unit tests, CI/CD, end-to-end type safety</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative z-10 py-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-4 text-center">/ vanlige spørsmål</div>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight text-center">
+        Hva kundene <span class="text-gradient">vanligvis spør om.</span>
+      </h2>
+
+      <div class="mt-12 space-y-3">
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">How is TaskPilot different from Asana, Monday, ClickUp?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Standard PM tools (Asana, Monday, ClickUp) are great places to hold a list of tasks — but they don't think for you. TaskPilot adds an AI layer: breaks goals into tasks, predicts risks, suggests rescheduling, understands dependencies semantically. Plus — native Claude integration via MCP, which no other tool on the market has. Asana becomes a place to keep notes; TaskPilot is a place to <em>think about your project</em>.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">Can I migrate data from Jira/Asana?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Yes. We have importers for Jira, Asana, Monday, ClickUp, Notion, Trello, and CSV. Migrating one project usually takes 15–30 minutes. As part of the implementation, we import existing projects free of charge. You can also run the old tool in parallel during the transition — TaskPilot syncs bidirectionally with the most common systems.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">What about project data security?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            TaskPilot can run on-prem (on your servers), in your cloud (AWS/GCP/Azure), or hybrid. Project data never leaves your infrastructure. All AI queries are audited, and you can configure local models (e.g., for the most sensitive projects). The system is GDPR-compliant and AI-Act-ready — full audit log of every AI decision.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">How long does implementation take?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            MVP with basic functionality (tasks, hierarchy, teams, calendar) — 4 weeks. Full version with AI planning, MCP integration, and all reports — 8–12 weeks depending on scale. Throughout the period you have a prototype to test, you don't wait until the end. After deployment — a care period responding to changes in your business and updating AI models.
+          </p>
+        </details>
+
+        <details class="faq-item glass rounded-2xl p-6 cursor-pointer">
+          <summary class="font-semibold text-white list-none">What if my team doesn't want another tool?</summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Słuszne pytanie. TaskPilot można uruchomić w trybie „cichym" — wpięty w istniejące Slacka i kalendarz,
+            bez wymuszania, żeby zespół logował się do nowego panelu. AI obserwuje, analizuje, raportuje do PM-a
+            czy CEO. Dopiero gdy zespół zobaczy wartość (mniej spotkań, lepsze estymacje, brak niespodzianek),
+            zaczynamy stopniowo przenosić leadershipzanie zadaniami. Adopcja to proces — nie zmusza się ludzi
+            do narzędzi rewolucją, tylko ewolucją.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="relative rounded-3xl overflow-hidden glass p-10 md:p-16 text-center">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-violet via-neon-cyan to-neon-fuchsia rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="text-xs font-mono text-neon-violet uppercase tracking-widest mb-4">/ neste steg</div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight">
+            Show us how you plan today.<br>
+            <span class="text-gradient">We'll show where TaskPilot saves you 3h a day.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400">
+            Gratis 45-minutters samtale. En konkret idé om hvor KI passer inn i din prosjektledelse — selv om vi ikke samarbeider.
+          </p>
+          <div class="mt-10">
+            <a href="../#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold rounded-xl text-ink-950">
+              Bestill samtale
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-4 text-sm text-slate-400 text-center">
+        <a href="../anders/" class="glass rounded-2xl p-6 hover:border-neon-cyan/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ prosjekt 01</div>
+          <div class="text-white font-semibold group-hover:text-neon-cyan transition">Anders →</div>
+          <div class="mt-1 text-xs">Operasjonell bedriftsagent</div>
+        </a>
+        <a href="../socialboost/" class="glass rounded-2xl p-6 hover:border-neon-fuchsia/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ prosjekt 03</div>
+          <div class="text-white font-semibold group-hover:text-neon-fuchsia transition">SocialBoost →</div>
+          <div class="mt-1 text-xs">Sosiale medier-automatisering</div>
+        </a>
+        <a href="../../" class="glass rounded-2xl p-6 hover:border-neon-violet/40 transition group">
+          <div class="text-xs font-mono text-slate-500 mb-2">/ tilbake</div>
+          <div class="text-white font-semibold group-hover:text-neon-violet transition">Forside →</div>
+          <div class="mt-1 text-xs">Fire KI-områder</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 text-xs font-mono text-slate-500">
+        <div class="space-y-1.5">
+          <div class="text-slate-300 font-semibold tracking-wide">COGNIFY SPÓŁKA Z O.O.</div>
+          <div>ul. Chłodna 51, 00-867 Warszawa</div>
+          <div>KRS 0001024267 · NIP 7123451235 · REGON 524694592</div>
+        </div>
+        <div class="md:text-right space-y-3">
+          <div>© 2026 Cognify · Alle rettigheter forbeholdt</div>
+          <div class="flex md:justify-end gap-6">
+            <a href="../privacy/" class="hover:text-slate-300 transition">Personvern</a>
+            <!-- COGNIFY-COOKIES LINK START --><a href="#" onclick="event.preventDefault(); (window.cognifyOpenCookieSettings||function(){alert('Cookies skrypt jeszcze się ładuje…');})();" class="hover:text-slate-300 transition">Innstillinger for cookies</a><!-- COGNIFY-COOKIES LINK END -->
+            <a href="../terms/" class="hover:text-slate-300 transition">Vilkår</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
