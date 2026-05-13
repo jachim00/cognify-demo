@@ -21,3 +21,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Node / Tailwind build
+node_modules/
+package-lock.json
+
+# Playwright artifacts (local testing)
+.playwright-mcp/
+cognify-after-tailwind-cli.png

@@ -38,6 +38,33 @@
   // ──────────────────────────────────────────────────────────
   // i18n
   // ──────────────────────────────────────────────────────────
+  // Site root detection — działa na każdym hostingu (Apache, GH Pages /subpath/,
+  // Netlify, cognify.pl). Bierzemy URL skryptu cookies.js, obcinamy nazwę pliku
+  // i mamy bazę do której doklejamy ścieżki do polityki prywatności.
+  // ──────────────────────────────────────────────────────────
+  function getSiteRoot() {
+    const scripts = document.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+      const s = scripts[i];
+      if (s.src && /\/cookies\.js(\?|$)/.test(s.src)) {
+        return s.src.replace(/cookies\.js(\?.*)?$/, '');
+      }
+    }
+    return '/';
+  }
+  const SITE_ROOT = getSiteRoot();
+  const PRIVACY_SLUG = {
+    pl: 'polityka-prywatnosci/',
+    en: 'en/privacy/',
+    de: 'de/privacy/',
+    fr: 'fr/privacy/',
+    no: 'no/privacy/',
+    hu: 'hu/privacy/'
+  };
+  function getPrivacyHref(langCode) {
+    return SITE_ROOT + (PRIVACY_SLUG[langCode] || PRIVACY_SLUG.pl);
+  }
+
   const I18N = {
     pl: {
       title: 'Używamy plików cookies',
@@ -49,7 +76,6 @@
       close: 'Zamknij',
       settings: 'Ustawienia cookies',
       privacy: 'Polityka prywatności',
-      privacyHref: '/polityka-prywatnosci',
       modalTitle: 'Twoje preferencje cookies',
       modalDesc: 'Wybierz które kategorie cookies chcesz dopuścić. Twoja zgoda jest zapisywana lokalnie i ważna 12 miesięcy.',
       cats: {
@@ -69,7 +95,6 @@
       close: 'Close',
       settings: 'Cookie settings',
       privacy: 'Privacy policy',
-      privacyHref: '/en/privacy',
       modalTitle: 'Your cookie preferences',
       modalDesc: 'Choose which categories of cookies you accept. Your choice is stored locally for 12 months.',
       cats: {
@@ -89,7 +114,6 @@
       close: 'Schließen',
       settings: 'Cookie-Einstellungen',
       privacy: 'Datenschutzerklärung',
-      privacyHref: '/de/privacy',
       modalTitle: 'Ihre Cookie-Präferenzen',
       modalDesc: 'Wählen Sie, welche Cookie-Kategorien Sie akzeptieren. Ihre Wahl wird lokal für 12 Monate gespeichert.',
       cats: {
@@ -109,7 +133,6 @@
       close: 'Fermer',
       settings: 'Paramètres cookies',
       privacy: 'Politique de confidentialité',
-      privacyHref: '/fr/privacy',
       modalTitle: 'Vos préférences cookies',
       modalDesc: 'Choisissez les catégories de cookies que vous acceptez. Votre choix est conservé localement pendant 12 mois.',
       cats: {
@@ -129,7 +152,6 @@
       close: 'Lukk',
       settings: 'Innstillinger for cookies',
       privacy: 'Personvernerklæring',
-      privacyHref: '/no/privacy',
       modalTitle: 'Dine cookie-preferanser',
       modalDesc: 'Velg hvilke kategorier av informasjonskapsler du godtar. Valget lagres lokalt i 12 måneder.',
       cats: {
@@ -149,7 +171,6 @@
       close: 'Bezárás',
       settings: 'Süti beállítások',
       privacy: 'Adatvédelmi tájékoztató',
-      privacyHref: '/hu/privacy',
       modalTitle: 'Süti preferenciái',
       modalDesc: 'Válassza ki, mely süti-kategóriákat fogadja el. Választása helyileg 12 hónapig tárolódik.',
       cats: {
@@ -435,7 +456,7 @@
   // ──────────────────────────────────────────────────────────
   function init() {
     const lang = detectLang();
-    const t = I18N[lang];
+    const t = Object.assign({}, I18N[lang], { privacyHref: getPrivacyHref(lang) });
     injectStyle();
 
     let current = loadConsent();

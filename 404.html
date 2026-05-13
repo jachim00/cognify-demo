@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Strona nie znaleziona · Cognify</title>
+  <meta name="description" content="Strona, której szukasz, nie istnieje. Wróć na stronę główną Cognify.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap">
+  <style>
+    *,*::before,*::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #030712;
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+      padding: 2rem;
+    }
+    .blob {
+      position: absolute;
+      filter: blur(120px);
+      opacity: 0.55;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: drift 16s ease-in-out infinite;
+    }
+    .blob.cyan    { width: 600px; height: 600px; top: -10%; left: -10%; background: #22d3ee; }
+    .blob.violet  { width: 500px; height: 500px; bottom: -10%; right: -10%; background: #a78bfa; animation-delay: -6s; }
+    .blob.fuchsia { width: 400px; height: 400px; top: 40%; right: 30%; background: #e879f9; animation-delay: -12s; }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(-8%, 6%) scale(1.1); }
+      66%      { transform: translate(6%, -8%) scale(0.95); }
+    }
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(34,211,238,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      pointer-events: none;
+    }
+    .wrap {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 640px;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 0.75rem;
+      color: #22d3ee;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(4rem, 14vw, 8.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin: 0 0 1.5rem;
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      margin: 0 0 1rem;
+      color: #fff;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 2.5rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+      color: #030712;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(34,211,238,.5), 0 0 60px rgba(167,139,250,.3);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: linear-gradient(145deg, rgba(34,211,238,.06), rgba(167,139,250,.04));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #fff;
+    }
+    .btn-ghost:hover {
+      color: #22d3ee;
+      border-color: rgba(34,211,238,.4);
+    }
+    .langs {
+      margin-top: 3rem;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+    .langs a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color .2s;
+    }
+    .langs a:hover { color: #22d3ee; }
+  </style>
+</head>
+<body>
+  <div class="blob cyan"></div>
+  <div class="blob violet"></div>
+  <div class="blob fuchsia"></div>
+  <div class="grid-bg"></div>
+
+  <main class="wrap">
+    <div class="tag">/ error 404</div>
+    <h1>404</h1>
+    <h2>Strony nie ma w tym miejscu.</h2>
+    <p>
+      Adres, który wpisałeś, nie pasuje do żadnej z naszych stron. Może został zmieniony,
+      albo link, którym tu trafiłeś, jest niepoprawny. Wróć na stronę główną — pomożemy Ci znaleźć to, czego szukasz.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">
+        Wróć na stronę główną
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="mailto:kontakt@cognify.pl">
+        Napisz do nas
+      </a>
+    </div>
+    <div class="langs">
+      <a href="/" data-root="">PL</a>·
+      <a href="/en/" data-root="en/">EN</a>·
+      <a href="/de/" data-root="de/">DE</a>·
+      <a href="/fr/" data-root="fr/">FR</a>·
+      <a href="/no/" data-root="no/">NO</a>·
+      <a href="/hu/" data-root="hu/">HU</a>
+    </div>
+  </main>
+
+  <script>
+    // Site root detection — działa na cognify.pl (host root) i na GH Pages
+    // (user.github.io/repo-name/...). Naprawiamy linki "do strony głównej / języka"
+    // oraz favicony, które na subpath inaczej szukałyby się pod złym URL.
+    (function () {
+      function siteRoot() {
+        // Bezpośrednia wizyta pod /sciezka/404.html (np. testing) — utnij plik
+        if (/\/404\.html$/.test(location.pathname)) {
+          return location.pathname.replace(/404\.html$/, '');
+        }
+        // GH Pages user.github.io/repo/... — pierwszy segment to repo
+        if (/\.github\.io$/.test(location.host)) {
+          var m = location.pathname.match(/^\/[^\/]+\//);
+          return m ? m[0] : '/';
+        }
+        return '/';
+      }
+      var root = siteRoot();
+      // Linki językowe i przycisk powrotu
+      document.querySelectorAll('a[data-root]').forEach(function (a) {
+        a.href = root + a.getAttribute('data-root');
+      });
+      var home = document.querySelector('.btn-primary[href="/"]');
+      if (home) home.href = root;
+      // Favicony — podmiana root-absolute → siteRoot
+      ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'].forEach(function (f) {
+        var link = document.querySelector('link[href="/' + f + '"]');
+        if (link) link.href = root + f;
+      });
+    })();
+  </script>
+</body>
+</html>
