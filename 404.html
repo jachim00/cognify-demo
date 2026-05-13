@@ -3,6 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // Migration fallback — gdy ktoś trafi na stary URL z .html (cache przeglądarki,
+    // stare bookmarki, linki zewnętrzne), przekieruj na clean URL. Robimy to
+    // synchronicznie w <head> żeby nie zdążyło zarenderować się 404 PRZED redirectem.
+    (function () {
+      var p = location.pathname;
+      if (/\.html$/.test(p) && !/\/(404|index)\.html$/.test(p)) {
+        var clean = p.replace(/\.html$/, '/');
+        location.replace(clean + location.search + location.hash);
+      }
+    })();
+  </script>
   <title>404 — Strona nie znaleziona · Cognify</title>
   <meta name="description" content="Strona, której szukasz, nie istnieje. Wróć na stronę główną Cognify.">
   <meta name="robots" content="noindex,follow">
