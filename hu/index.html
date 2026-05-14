@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="hu">
 <head>
   <meta charset="utf-8">
@@ -729,17 +729,15 @@
             hol van értelme az AI-nak. Konkrét ötlettel távozik — még akkor is, ha nem dolgozunk együtt.
           </p>
 
-          <form action="https://formsubmit.co/kontakt@pflgroup.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
-            <input type="hidden" name="_subject" value="Új megkeresés a cognify-demo oldalról">
+          <form action="/contact-handler.php" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
+            <input type="hidden" name="_subject" value="Új megkeresés a cognify.pl oldalról">
             <input type="hidden" name="_next" value="https://cognify.pl/hu/thanks/">
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Teljes név *</label>
-                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Kovács János">
+                <input type="text" name="Name" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Kovács János">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
@@ -754,17 +752,17 @@
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Telefon</label>
-                <input type="tel" name="Telefon" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="+48 600 000 000">
+                <input type="tel" name="Phone" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="+48 600 000 000">
               </div>
             </div>
 
             <div>
               <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Mit szeretne automatizálni? *</label>
-              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Írja le röviden azt a folyamatot, amely a csapatának a legtöbb időt veszi el. Lehet ügyfélszolgálat, jelentéskészítés, dokumentumelemzés, értékesítés — bármi, ami eszébe jut. A konkrétumok üdvözöltek, de néhány mondat is elég."></textarea>
+              <textarea name="Message" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Írja le röviden azt a folyamatot, amely a csapatának a legtöbb időt veszi el. Lehet ügyfélszolgálat, jelentéskészítés, dokumentumelemzés, értékesítés — bármi, ami eszébe jut. A konkrétumok üdvözöltek, de néhány mondat is elég."></textarea>
             </div>
 
             <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
-              <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
+              <input type="checkbox" name="Consent" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
               <span>
                 Hozzájárulok, hogy a Cognify Sp. z o.o. a megkeresésem megválaszolása céljából kezelje személyes adataimat. Részletek az
                 <a href="privacy/" class="text-neon-cyan hover:underline">adatvédelmi tájékoztatóban</a>

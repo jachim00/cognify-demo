@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="no">
 <head>
   <meta charset="utf-8">
@@ -729,17 +729,15 @@
             hvor KI gir mening. Du går med en konkret idé — selv om vi ikke jobber sammen.
           </p>
 
-          <form action="https://formsubmit.co/kontakt@pflgroup.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
-            <input type="hidden" name="_subject" value="Ny henvendelse fra cognify-demo">
+          <form action="/contact-handler.php" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
+            <input type="hidden" name="_subject" value="Ny henvendelse fra cognify.pl">
             <input type="hidden" name="_next" value="https://cognify.pl/no/thanks/">
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Fullt navn *</label>
-                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Ola Nordmann">
+                <input type="text" name="Name" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Ola Nordmann">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
@@ -750,21 +748,21 @@
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Firma</label>
-                <input type="text" name="Firma" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Bedriften din AS">
+                <input type="text" name="Company" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="Bedriften din AS">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Telefon</label>
-                <input type="tel" name="Telefon" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="+48 600 000 000">
+                <input type="tel" name="Phone" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="+48 600 000 000">
               </div>
             </div>
 
             <div>
               <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Hva ønsker du å automatisere? *</label>
-              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Beskriv kort prosessen som tar mest tid for teamet ditt. Det kan være kundeservice, rapportering, dokumentanalyse, salg — hva enn som faller deg inn. Detaljer er velkomne, men noen setninger holder."></textarea>
+              <textarea name="Message" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Beskriv kort prosessen som tar mest tid for teamet ditt. Det kan være kundeservice, rapportering, dokumentanalyse, salg — hva enn som faller deg inn. Detaljer er velkomne, men noen setninger holder."></textarea>
             </div>
 
             <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
-              <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
+              <input type="checkbox" name="Consent" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
               <span>
                 Jeg samtykker til at Cognify Sp. z o.o. behandler personopplysningene mine for å besvare henvendelsen. Detaljer i
                 <a href="privacy/" class="text-neon-cyan hover:underline">personvernerklæringen</a>

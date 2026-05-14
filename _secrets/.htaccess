@@ -1,0 +1,12 @@
+# Blokada calego katalogu _secrets/ przez HTTP.
+# Pliki nadal czytelne przez PHP (require/include), ale niedostepne pod URL.
+
+Require all denied
+
+# Backward compat (Apache 2.2)
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>
+
+Options -Indexes

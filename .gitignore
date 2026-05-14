@@ -29,3 +29,11 @@ package-lock.json
 # Playwright artifacts (local testing)
 .playwright-mcp/
 cognify-after-tailwind-cli.png
+
+
+# Sekrety formularza kontaktowego (NIE commitowac haslo SMTP)
+_secrets/.env
+_secrets/*.env
+.env
+.env.*
+!.env.example

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -729,17 +729,15 @@
             where AI makes sense. You leave with a concrete idea — even if we don't work together.
           </p>
 
-          <form action="https://formsubmit.co/kontakt@pflgroup.pl" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
-            <input type="hidden" name="_subject" value="New inquiry from cognify-demo">
+          <form action="/contact-handler.php" method="POST" class="mt-10 text-left max-w-2xl mx-auto space-y-4">
+            <input type="hidden" name="_subject" value="New inquiry from cognify.pl">
             <input type="hidden" name="_next" value="https://cognify.pl/en/thanks/">
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Full name *</label>
-                <input type="text" name="Imię i nazwisko" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="John Smith">
+                <input type="text" name="Name" required minlength="2" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition" placeholder="John Smith">
               </div>
               <div>
                 <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email *</label>
@@ -760,11 +758,11 @@
 
             <div>
               <label class="text-xs font-mono text-slate-400 uppercase tracking-wider">What would you like to automate? *</label>
-              <textarea name="Wiadomość" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Describe briefly the process that takes your team the most time. It could be customer service, reporting, document analysis, sales — whatever comes to mind. Specifics are welcome, but a few sentences will do."></textarea>
+              <textarea name="Message" required minlength="20" rows="5" class="mt-2 w-full px-4 py-3 bg-ink-900/60 border border-white/10 rounded-xl text-white placeholder:text-slate-600 focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/30 transition resize-none" placeholder="Describe briefly the process that takes your team the most time. It could be customer service, reporting, document analysis, sales — whatever comes to mind. Specifics are welcome, but a few sentences will do."></textarea>
             </div>
 
             <label class="flex items-start gap-3 text-xs text-slate-400 cursor-pointer">
-              <input type="checkbox" name="Zgoda RODO" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
+              <input type="checkbox" name="Consent" required value="Tak" class="mt-1 w-4 h-4 rounded border-white/20 bg-ink-900 text-neon-cyan focus:ring-neon-cyan/30 focus:ring-2 cursor-pointer">
               <span>
                 I consent to processing of my personal data by Cognify Sp. z o.o. for the purpose of responding to my inquiry. Details in
                 <a href="privacy/" class="text-neon-cyan hover:underline">privacy policy</a>
